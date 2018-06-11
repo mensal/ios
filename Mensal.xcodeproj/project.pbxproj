@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		014307DC69168EA44F0FCA67 /* Pods_Mensal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BA46E1885F46DF90003EC6E /* Pods_Mensal.framework */; };
 		12ADCAB220CEE4AA0068824E /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12ADCAB120CEE4AA0068824E /* Database.swift */; };
+		12ADCAB420CEE7D10068824E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 12ADCAB320CEE7D10068824E /* InfoPlist.strings */; };
+		12ADCAB620CEE7FE0068824E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 12ADCAB520CEE7FE0068824E /* Localizable.strings */; };
 		12D5829720CED5B60003B317 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D5829620CED5B60003B317 /* AppDelegate.swift */; };
 		12D5829920CED5B60003B317 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D5829820CED5B60003B317 /* ViewController.swift */; };
 		12D5829C20CED5B60003B317 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12D5829A20CED5B60003B317 /* Main.storyboard */; };
@@ -21,6 +23,8 @@
 		12ADCAAF20CEDD300068824E /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.storyboard"; sourceTree = "<group>"; };
 		12ADCAB020CEDD340068824E /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "pt-BR"; path = "pt-BR.lproj/Main.storyboard"; sourceTree = "<group>"; };
 		12ADCAB120CEE4AA0068824E /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		12ADCAB320CEE7D10068824E /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		12ADCAB520CEE7FE0068824E /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		12D5829320CED5B60003B317 /* Mensal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mensal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12D5829620CED5B60003B317 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		12D5829820CED5B60003B317 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +63,8 @@
 			children = (
 				12D5829620CED5B60003B317 /* AppDelegate.swift */,
 				12D582A520CED5B80003B317 /* Info.plist */,
+				12ADCAB320CEE7D10068824E /* InfoPlist.strings */,
+				12ADCAB520CEE7FE0068824E /* Localizable.strings */,
 				12D582A020CED5B80003B317 /* Assets.xcassets */,
 			);
 			path = App;
@@ -159,8 +165,6 @@
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
-			knownRegions = (
-			);
 			mainGroup = 12D5828A20CED5B60003B317;
 			productRefGroup = 12D5829420CED5B60003B317 /* Products */;
 			projectDirPath = "";
@@ -176,7 +180,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12ADCAB620CEE7FE0068824E /* Localizable.strings in Resources */,
 				12D582A420CED5B80003B317 /* LaunchScreen.storyboard in Resources */,
+				12ADCAB420CEE7D10068824E /* InfoPlist.strings in Resources */,
 				12D582A120CED5B80003B317 /* Assets.xcassets in Resources */,
 				12D5829C20CED5B60003B317 /* Main.storyboard in Resources */,
 			);

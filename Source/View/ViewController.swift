@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  Mensal
-//
-//  Created by Cleverson Sacramento on 11/06/2018.
-//  Copyright © 2018 Cleverson Sacramento. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
@@ -19,5 +11,4 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 }
