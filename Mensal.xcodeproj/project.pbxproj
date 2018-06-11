@@ -42,10 +42,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		12ADCAAA20CEDC4D0068824E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				12D582A220CED5B80003B317 /* LaunchScreen.storyboard */,
+				12D5829A20CED5B60003B317 /* Main.storyboard */,
+				12D5829820CED5B60003B317 /* ViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		12ADCAAB20CEDC550068824E /* App */ = {
+			isa = PBXGroup;
+			children = (
+				12D5829620CED5B60003B317 /* AppDelegate.swift */,
+				12D582A520CED5B80003B317 /* Info.plist */,
+				12D582A020CED5B80003B317 /* Assets.xcassets */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		12ADCAAC20CEDC5E0068824E /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				12D5829D20CED5B60003B317 /* Mensal.xcdatamodeld */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		12D5828A20CED5B60003B317 = {
 			isa = PBXGroup;
 			children = (
-				12D5829520CED5B60003B317 /* Mensal */,
+				12D5829520CED5B60003B317 /* Source */,
 				12D5829420CED5B60003B317 /* Products */,
 				D7A7E82A2DD4CDB126690665 /* Pods */,
 				1FA92442DD266E4A72AC357B /* Frameworks */,
@@ -60,18 +88,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		12D5829520CED5B60003B317 /* Mensal */ = {
+		12D5829520CED5B60003B317 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				12D5829620CED5B60003B317 /* AppDelegate.swift */,
-				12D5829820CED5B60003B317 /* ViewController.swift */,
-				12D5829A20CED5B60003B317 /* Main.storyboard */,
-				12D582A020CED5B80003B317 /* Assets.xcassets */,
-				12D582A220CED5B80003B317 /* LaunchScreen.storyboard */,
-				12D582A520CED5B80003B317 /* Info.plist */,
-				12D5829D20CED5B60003B317 /* Mensal.xcdatamodeld */,
+				12ADCAAA20CEDC4D0068824E /* View */,
+				12ADCAAC20CEDC5E0068824E /* Manager */,
+				12ADCAAB20CEDC550068824E /* App */,
 			);
-			path = Mensal;
+			path = Source;
 			sourceTree = "<group>";
 		};
 		1FA92442DD266E4A72AC357B /* Frameworks */ = {
@@ -333,8 +357,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BZA995XLF9;
-				INFOPLIST_FILE = Mensal/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				INFOPLIST_FILE = "$(SRCROOT)/Source/App/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = teste.crud.ios.Mensal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -349,8 +376,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BZA995XLF9;
-				INFOPLIST_FILE = Mensal/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				INFOPLIST_FILE = "$(SRCROOT)/Source/App/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = teste.crud.ios.Mensal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
