@@ -17,13 +17,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		12ADCAAF20CEDD300068824E /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.storyboard"; sourceTree = "<group>"; };
+		12ADCAB020CEDD340068824E /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "pt-BR"; path = "pt-BR.lproj/Main.storyboard"; sourceTree = "<group>"; };
 		12D5829320CED5B60003B317 /* Mensal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mensal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12D5829620CED5B60003B317 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		12D5829820CED5B60003B317 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		12D5829B20CED5B60003B317 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		12D5829E20CED5B60003B317 /* Mensal.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Mensal.xcdatamodel; sourceTree = "<group>"; };
 		12D582A020CED5B80003B317 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		12D582A320CED5B80003B317 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		12D582A520CED5B80003B317 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BA46E1885F46DF90003EC6E /* Pods_Mensal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mensal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69B1CFC24FBA38A6147BC427 /* Pods-Mensal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mensal.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mensal/Pods-Mensal.release.xcconfig"; sourceTree = "<group>"; };
@@ -156,8 +156,6 @@
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
-				Base,
 			);
 			mainGroup = 12D5828A20CED5B60003B317;
 			productRefGroup = 12D5829420CED5B60003B317 /* Products */;
@@ -220,7 +218,7 @@
 		12D5829A20CED5B60003B317 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				12D5829B20CED5B60003B317 /* Base */,
+				12ADCAB020CEDD340068824E /* pt-BR */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -228,7 +226,7 @@
 		12D582A220CED5B80003B317 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				12D582A320CED5B80003B317 /* Base */,
+				12ADCAAF20CEDD300068824E /* pt-BR */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -240,6 +238,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -300,6 +299,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
