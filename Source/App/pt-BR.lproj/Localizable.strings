@@ -1,0 +1,7 @@
+
+// MARK: - Grupos de despesas
+
+"fixas"        = "Fixas";
+"diversas"     = "Diversas";
+"diaristas"    = "Diárias";
+"combustiveis" = "Combustível";

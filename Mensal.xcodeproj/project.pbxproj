@@ -8,11 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		014307DC69168EA44F0FCA67 /* Pods_Mensal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BA46E1885F46DF90003EC6E /* Pods_Mensal.framework */; };
+		126FF36420CEEF880019BB9F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 126FF36620CEEF880019BB9F /* InfoPlist.strings */; };
+		126FF36720CEEF8B0019BB9F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 126FF36920CEEF8B0019BB9F /* Localizable.strings */; };
+		126FF36B20CEF0220019BB9F /* MesesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FF36A20CEF0220019BB9F /* MesesVC.swift */; };
+		126FF36D20CEF68E0019BB9F /* MesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FF36C20CEF68E0019BB9F /* MesVC.swift */; };
+		126FF36F20CEF6A50019BB9F /* EdicaoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FF36E20CEF6A50019BB9F /* EdicaoVC.swift */; };
+		126FF37120CEF6AD0019BB9F /* DetalheVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FF37020CEF6AD0019BB9F /* DetalheVC.swift */; };
+		126FF37320CF01AD0019BB9F /* GrupoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FF37220CF01AD0019BB9F /* GrupoManager.swift */; };
+		126FF37620CF02400019BB9F /* Mes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FF37520CF02400019BB9F /* Mes.swift */; };
+		126FF37820CF0FD30019BB9F /* MesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FF37720CF0FD30019BB9F /* MesManager.swift */; };
+		126FF37D20CF168E0019BB9F /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FF37C20CF168E0019BB9F /* Date.swift */; };
 		12ADCAB220CEE4AA0068824E /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12ADCAB120CEE4AA0068824E /* Database.swift */; };
-		12ADCAB420CEE7D10068824E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 12ADCAB320CEE7D10068824E /* InfoPlist.strings */; };
-		12ADCAB620CEE7FE0068824E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 12ADCAB520CEE7FE0068824E /* Localizable.strings */; };
 		12D5829720CED5B60003B317 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D5829620CED5B60003B317 /* AppDelegate.swift */; };
-		12D5829920CED5B60003B317 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D5829820CED5B60003B317 /* ViewController.swift */; };
 		12D5829C20CED5B60003B317 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12D5829A20CED5B60003B317 /* Main.storyboard */; };
 		12D5829F20CED5B60003B317 /* Database.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 12D5829D20CED5B60003B317 /* Database.xcdatamodeld */; };
 		12D582A120CED5B80003B317 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12D582A020CED5B80003B317 /* Assets.xcassets */; };
@@ -20,14 +27,21 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		12ADCAAF20CEDD300068824E /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.storyboard"; sourceTree = "<group>"; };
-		12ADCAB020CEDD340068824E /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "pt-BR"; path = "pt-BR.lproj/Main.storyboard"; sourceTree = "<group>"; };
+		1222AC0020CEEB46002CC4AD /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.storyboard"; sourceTree = "<group>"; };
+		1222AC0120CEEB46002CC4AD /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "pt-BR"; path = "pt-BR.lproj/Main.storyboard"; sourceTree = "<group>"; };
+		126FF36520CEEF880019BB9F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		126FF36820CEEF8B0019BB9F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		126FF36A20CEF0220019BB9F /* MesesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MesesVC.swift; sourceTree = "<group>"; };
+		126FF36C20CEF68E0019BB9F /* MesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MesVC.swift; sourceTree = "<group>"; };
+		126FF36E20CEF6A50019BB9F /* EdicaoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdicaoVC.swift; sourceTree = "<group>"; };
+		126FF37020CEF6AD0019BB9F /* DetalheVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalheVC.swift; sourceTree = "<group>"; };
+		126FF37220CF01AD0019BB9F /* GrupoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrupoManager.swift; sourceTree = "<group>"; };
+		126FF37520CF02400019BB9F /* Mes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mes.swift; sourceTree = "<group>"; };
+		126FF37720CF0FD30019BB9F /* MesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MesManager.swift; sourceTree = "<group>"; };
+		126FF37C20CF168E0019BB9F /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		12ADCAB120CEE4AA0068824E /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
-		12ADCAB320CEE7D10068824E /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
-		12ADCAB520CEE7FE0068824E /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		12D5829320CED5B60003B317 /* Mensal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mensal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12D5829620CED5B60003B317 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		12D5829820CED5B60003B317 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		12D5829E20CED5B60003B317 /* Mensal.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Mensal.xcdatamodel; sourceTree = "<group>"; };
 		12D582A020CED5B80003B317 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		12D582A520CED5B80003B317 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -48,12 +62,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		126FF37420CF022F0019BB9F /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				126FF37520CF02400019BB9F /* Mes.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		126FF37B20CF16730019BB9F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				126FF37C20CF168E0019BB9F /* Date.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		12ADCAAA20CEDC4D0068824E /* View */ = {
 			isa = PBXGroup;
 			children = (
 				12D582A220CED5B80003B317 /* LaunchScreen.storyboard */,
 				12D5829A20CED5B60003B317 /* Main.storyboard */,
-				12D5829820CED5B60003B317 /* ViewController.swift */,
+				126FF36A20CEF0220019BB9F /* MesesVC.swift */,
+				126FF36C20CEF68E0019BB9F /* MesVC.swift */,
+				126FF37020CEF6AD0019BB9F /* DetalheVC.swift */,
+				126FF36E20CEF6A50019BB9F /* EdicaoVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -63,8 +96,8 @@
 			children = (
 				12D5829620CED5B60003B317 /* AppDelegate.swift */,
 				12D582A520CED5B80003B317 /* Info.plist */,
-				12ADCAB320CEE7D10068824E /* InfoPlist.strings */,
-				12ADCAB520CEE7FE0068824E /* Localizable.strings */,
+				126FF36620CEEF880019BB9F /* InfoPlist.strings */,
+				126FF36920CEEF8B0019BB9F /* Localizable.strings */,
 				12D582A020CED5B80003B317 /* Assets.xcassets */,
 			);
 			path = App;
@@ -73,8 +106,10 @@
 		12ADCAAC20CEDC5E0068824E /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				12D5829D20CED5B60003B317 /* Database.xcdatamodeld */,
+				126FF37220CF01AD0019BB9F /* GrupoManager.swift */,
+				126FF37720CF0FD30019BB9F /* MesManager.swift */,
 				12ADCAB120CEE4AA0068824E /* Database.swift */,
+				12D5829D20CED5B60003B317 /* Database.xcdatamodeld */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -101,7 +136,9 @@
 			isa = PBXGroup;
 			children = (
 				12ADCAAA20CEDC4D0068824E /* View */,
+				126FF37420CF022F0019BB9F /* Entity */,
 				12ADCAAC20CEDC5E0068824E /* Manager */,
+				126FF37B20CF16730019BB9F /* Extensions */,
 				12ADCAAB20CEDC550068824E /* App */,
 			);
 			path = Source;
@@ -163,8 +200,11 @@
 			};
 			buildConfigurationList = 12D5828E20CED5B60003B317 /* Build configuration list for PBXProject "Mensal" */;
 			compatibilityVersion = "Xcode 9.3";
-			developmentRegion = en;
+			developmentRegion = "pt-BR";
 			hasScannedForEncodings = 0;
+			knownRegions = (
+				"pt-BR",
+			);
 			mainGroup = 12D5828A20CED5B60003B317;
 			productRefGroup = 12D5829420CED5B60003B317 /* Products */;
 			projectDirPath = "";
@@ -180,9 +220,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12ADCAB620CEE7FE0068824E /* Localizable.strings in Resources */,
+				126FF36720CEEF8B0019BB9F /* Localizable.strings in Resources */,
 				12D582A420CED5B80003B317 /* LaunchScreen.storyboard in Resources */,
-				12ADCAB420CEE7D10068824E /* InfoPlist.strings in Resources */,
+				126FF36420CEEF880019BB9F /* InfoPlist.strings in Resources */,
 				12D582A120CED5B80003B317 /* Assets.xcassets in Resources */,
 				12D5829C20CED5B60003B317 /* Main.storyboard in Resources */,
 			);
@@ -250,20 +290,43 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12D5829920CED5B60003B317 /* ViewController.swift in Sources */,
+				126FF37620CF02400019BB9F /* Mes.swift in Sources */,
+				126FF37820CF0FD30019BB9F /* MesManager.swift in Sources */,
 				12D5829F20CED5B60003B317 /* Database.xcdatamodeld in Sources */,
+				126FF36F20CEF6A50019BB9F /* EdicaoVC.swift in Sources */,
+				126FF36D20CEF68E0019BB9F /* MesVC.swift in Sources */,
 				12ADCAB220CEE4AA0068824E /* Database.swift in Sources */,
+				126FF36B20CEF0220019BB9F /* MesesVC.swift in Sources */,
+				126FF37D20CF168E0019BB9F /* Date.swift in Sources */,
 				12D5829720CED5B60003B317 /* AppDelegate.swift in Sources */,
+				126FF37120CEF6AD0019BB9F /* DetalheVC.swift in Sources */,
+				126FF37320CF01AD0019BB9F /* GrupoManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		126FF36620CEEF880019BB9F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				126FF36520CEEF880019BB9F /* pt-BR */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		126FF36920CEEF8B0019BB9F /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				126FF36820CEEF8B0019BB9F /* pt-BR */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		12D5829A20CED5B60003B317 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				12ADCAB020CEDD340068824E /* pt-BR */,
+				1222AC0120CEEB46002CC4AD /* pt-BR */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -271,7 +334,7 @@
 		12D582A220CED5B80003B317 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				12ADCAAF20CEDD300068824E /* pt-BR */,
+				1222AC0020CEEB46002CC4AD /* pt-BR */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
