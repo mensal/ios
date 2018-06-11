@@ -1,5 +1,6 @@
 /**/xcuserdata/
 /**/.DS_Store
+/**/*.framework/
+*.xcworkspace
 
-Lince/*.framework/
 Pods/
