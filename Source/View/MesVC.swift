@@ -106,10 +106,10 @@ class MesVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: mesHeaderId) as! MesHeader
-        view.grupoLabel.text = grupos[section].nome?.uppercased()
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: mesHeaderId) as! MesHeader
+        header.grupo = grupos[section]
 
-        return view
+        return header
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

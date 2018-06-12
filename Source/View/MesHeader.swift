@@ -7,6 +7,21 @@ class MesHeader: UITableViewHeaderFooterView {
     @IBOutlet weak var grupoLabel: UILabel!
     
     @IBOutlet weak var atualizandoActivity: UIActivityIndicatorView!
+    
+    // MARK: - Propriedades
+    
+    private var _grupo: Grupo?
+    
+    var grupo: Grupo? {
+        get {
+            return _grupo
+        }
+        
+        set {
+            _grupo = newValue
+            grupoLabel.text = newValue?.nome?.uppercased()
+        }
+    }
 
     // MARK: - View
     
