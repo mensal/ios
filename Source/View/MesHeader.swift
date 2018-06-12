@@ -1,6 +1,6 @@
 import UIKit
 
-class MesHeader: UITableViewCell {
+class MesHeader: UITableViewHeaderFooterView {
 
     // MARK: - IBOutlets
 
@@ -12,5 +12,15 @@ class MesHeader: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+    
+    // MARK: - Públicos
+    
+    func iniciaAtividade() {
+        atualizandoActivity.startAnimating()
+    }
+    
+    func paraAtividade() {
+        atualizandoActivity.stopAnimating()
     }
 }

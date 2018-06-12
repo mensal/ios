@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="OTr-GF-QsV" customClass="MesHeader" customModule="Mensal" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="450" height="38"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GRUPO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IJB-pM-rmK" userLabel="Grupo">
+                    <rect key="frame" x="20" y="14" width="46" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="lVH-92-1yV" userLabel="Atualizando">
+                    <rect key="frame" x="72" y="12" width="20" height="20"/>
+                </activityIndicatorView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="IJB-pM-rmK" firstAttribute="leading" secondItem="jph-Z5-JA0" secondAttribute="leading" constant="20" id="Hv6-4B-nbS"/>
+                <constraint firstItem="lVH-92-1yV" firstAttribute="leading" secondItem="IJB-pM-rmK" secondAttribute="trailing" constant="6" id="Kjd-7J-V90"/>
+                <constraint firstItem="lVH-92-1yV" firstAttribute="centerY" secondItem="IJB-pM-rmK" secondAttribute="centerY" id="QZK-F8-YDI"/>
+                <constraint firstItem="jph-Z5-JA0" firstAttribute="bottom" secondItem="IJB-pM-rmK" secondAttribute="bottom" constant="8" id="sbb-1h-FgT"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="jph-Z5-JA0"/>
+            <connections>
+                <outlet property="atualizandoActivity" destination="lVH-92-1yV" id="bwG-Gw-8hS"/>
+                <outlet property="grupoLabel" destination="IJB-pM-rmK" id="h26-uD-ScZ"/>
+            </connections>
+            <point key="canvasLocation" x="-362" y="-495"/>
+        </view>
+    </objects>
+</document>

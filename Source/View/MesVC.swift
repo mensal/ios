@@ -36,6 +36,10 @@ class MesVC: UITableViewController {
         return resultado
     }
 
+    func headers() -> [MesHeader?] {
+        return (0..<tableView.numberOfSections).map { tableView.headerView(forSection: $0) as? MesHeader }
+    }
+    
     // MARK: - IBActions
     
     @IBAction func adicionar(_ sender: UIBarButtonItem) {
@@ -54,10 +58,17 @@ class MesVC: UITableViewController {
         present(alert, animated: true)
     }
     
+    @IBAction func atualizar(_ sender: UIRefreshControl) {
+        headers().forEach { $0?.iniciaAtividade() }
+        sender.endRefreshing()
+    }
+    
     // MARK: - View Controller
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.register(UINib.mesHeader, forHeaderFooterViewReuseIdentifier: mesHeaderId)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -95,7 +106,7 @@ class MesVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = tableView.dequeueReusableCell(withIdentifier: mesHeaderId) as! MesHeader
+        let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: mesHeaderId) as! MesHeader
         view.grupoLabel.text = grupos[section].nome?.uppercased()
 
         return view
