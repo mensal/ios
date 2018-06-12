@@ -7,9 +7,13 @@ private let mesesAntes = 1
 
 class MesManager {
     
+    // MARK: - Construtores
+
     private init() {
     }
     
+    // MARK: - Estáticos
+
     static func obterAnos() -> [Int] {
         return (anoInicial...Date.currentYear()).map { $0 }
     }

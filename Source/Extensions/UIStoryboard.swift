@@ -2,7 +2,11 @@ import UIKit
 
 extension UIStoryboard {
     
-    static func lancamentos() -> UIStoryboard {
-        return UIStoryboard(name: "Lancamentos", bundle: nil)
+    // MARK: - Conveniência
+
+    static var lancamento : UIStoryboard {
+        get {
+            return UIStoryboard(name: "Lancamentos", bundle: nil)
+        }
     }
 }

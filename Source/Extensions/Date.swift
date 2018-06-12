@@ -3,6 +3,8 @@ import SwiftDate
 
 extension Date {
 
+    // MARK: - Conveniência
+
     public static func currentYear() -> Int {
         return Date().year
     }

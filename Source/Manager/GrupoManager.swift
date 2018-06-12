@@ -2,15 +2,19 @@ import Foundation
 
 class GrupoManager {
     
+    // MARK: - Construtores
+
     private init() {
     }
-    
-    static func obterTodos() -> [String] {
+
+    // MARK: - Estáticos
+
+    static func obterTodos() -> [Grupo] {
         return [
-            "fixas",
-            "diversas",
-            "diaristas",
-            "combustiveis"
+            Grupo("fixas", false),
+            Grupo("diversas", true),
+            Grupo("diaristas", true),
+            Grupo("combustiveis", true)
         ]
     }
 }

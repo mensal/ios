@@ -1,24 +1,22 @@
 import UIKit
-import Localize_Swift
+
+fileprivate class GrupoAlertAction: UIAlertAction {
+    
+    var grupo: Grupo?
+}
+
+private let mostraEdicaoSegueId = "mostraEdicao"
+private let mesCellId           = "mesCell"
 
 class MesVC: UITableViewController {
-    
-    // MARK: - Conveniência
-    
-    static func corrente() -> MesVC {
-        let resultado = UIStoryboard.lancamentos().instantiateViewController(withIdentifier: "MesVC") as! MesVC
-        resultado.mes = Mes.corrente()
         
-        return resultado
-    }
-    
     // MARK: - Propriedades
     
     var mes: Mes!
     
-    private var _grupos: [String]?
+    private var _grupos: [Grupo]?
     
-    private var grupos: [String] {
+    private var grupos: [Grupo] {
         get {
             if _grupos == nil {
                 _grupos = GrupoManager.obterTodos()
@@ -26,6 +24,33 @@ class MesVC: UITableViewController {
             
             return _grupos!
         }
+    }
+    
+    // MARK: - Conveniência
+    
+    static func corrente() -> MesVC {
+        let resultado = UIStoryboard.lancamento.instantiateViewController(withIdentifier: "MesVC") as! MesVC
+        resultado.mes = Mes.corrente()
+        
+        return resultado
+    }
+
+    // MARK: - IBActions
+    
+    @IBAction func adicionar(_ sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel))
+        
+        GrupoManager.obterTodos().filter { $0.dinamico ?? false }.forEach { grupo in
+            let action = GrupoAlertAction(title: grupo.nome, style: .default) {
+                self.performSegue(withIdentifier: mostraEdicaoSegueId, sender: $0)
+            }
+            
+            action.grupo = grupo
+            alert.addAction(action)
+        }
+        
+        present(alert, animated: true)
     }
     
     // MARK: - View Controller
@@ -38,6 +63,18 @@ class MesVC: UITableViewController {
         super.viewWillAppear(animated)
         
         title = mes.nomeCompleto
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        if sender is GrupoAlertAction {
+            let action = sender as! GrupoAlertAction
+            print(action.grupo!.nome!)
+            
+        } else {
+            print("cell")
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -53,7 +90,7 @@ class MesVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return grupos[section].localized()
+        return grupos[section].nome
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -61,7 +98,7 @@ class MesVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "celula", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: mesCellId, for: indexPath) as! MesCell
         
 //        cell.textLabel?.text = "Nome da despesa"
         
