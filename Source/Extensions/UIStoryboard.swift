@@ -2,7 +2,7 @@ import UIKit
 
 extension UIStoryboard {
     
-    static func main() -> UIStoryboard {
-        return UIStoryboard(name: "Main", bundle: nil)
+    static func lancamentos() -> UIStoryboard {
+        return UIStoryboard(name: "Lancamentos", bundle: nil)
     }
 }

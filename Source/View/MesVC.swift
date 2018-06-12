@@ -6,7 +6,7 @@ class MesVC: UITableViewController {
     // MARK: - Conveniência
     
     static func corrente() -> MesVC {
-        let resultado = UIStoryboard.main().instantiateViewController(withIdentifier: "MesVC") as! MesVC
+        let resultado = UIStoryboard.lancamentos().instantiateViewController(withIdentifier: "MesVC") as! MesVC
         resultado.mes = Mes.corrente()
         
         return resultado
