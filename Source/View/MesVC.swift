@@ -6,6 +6,7 @@ fileprivate class GrupoAlertAction: UIAlertAction {
 }
 
 private let mostraEdicaoSegueId = "mostraEdicao"
+private let mesHeaderId         = "mesHeader"
 private let mesCellId           = "mesCell"
 
 class MesVC: UITableViewController {
@@ -89,12 +90,19 @@ class MesVC: UITableViewController {
         return grupos.count
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return grupos[section].nome
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 38 + (section == 0 ? 17.5 : 0)
+    }
+
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = tableView.dequeueReusableCell(withIdentifier: mesHeaderId) as! MesHeader
+        view.grupoLabel.text = grupos[section].nome?.uppercased()
+
+        return view
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

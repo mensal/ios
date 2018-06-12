@@ -10,6 +10,7 @@
 		014307DC69168EA44F0FCA67 /* Pods_Mensal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BA46E1885F46DF90003EC6E /* Pods_Mensal.framework */; };
 		120C3B0620D020630029C184 /* Grupo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120C3B0520D020630029C184 /* Grupo.swift */; };
 		120C3B0820D027C00029C184 /* MesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120C3B0720D027C00029C184 /* MesCell.swift */; };
+		120C3B0E20D03EFC0029C184 /* MesHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120C3B0D20D03EFC0029C184 /* MesHeader.swift */; };
 		126FF36420CEEF880019BB9F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 126FF36620CEEF880019BB9F /* InfoPlist.strings */; };
 		126FF36720CEEF8B0019BB9F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 126FF36920CEEF8B0019BB9F /* Localizable.strings */; };
 		126FF36B20CEF0220019BB9F /* MesesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FF36A20CEF0220019BB9F /* MesesVC.swift */; };
@@ -32,6 +33,7 @@
 /* Begin PBXFileReference section */
 		120C3B0520D020630029C184 /* Grupo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grupo.swift; sourceTree = "<group>"; };
 		120C3B0720D027C00029C184 /* MesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MesCell.swift; sourceTree = "<group>"; };
+		120C3B0D20D03EFC0029C184 /* MesHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MesHeader.swift; sourceTree = "<group>"; };
 		1222AC0020CEEB46002CC4AD /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.storyboard"; sourceTree = "<group>"; };
 		1222AC0120CEEB46002CC4AD /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "pt-BR"; path = "pt-BR.lproj/Lancamentos.storyboard"; sourceTree = "<group>"; };
 		126FF36520CEEF880019BB9F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				126FF37E20CF43060019BB9F /* PrincipalVC.swift */,
 				126FF36A20CEF0220019BB9F /* MesesVC.swift */,
 				126FF36C20CEF68E0019BB9F /* MesVC.swift */,
+				120C3B0D20D03EFC0029C184 /* MesHeader.swift */,
 				120C3B0720D027C00029C184 /* MesCell.swift */,
 				126FF36E20CEF6A50019BB9F /* EdicaoVC.swift */,
 			);
@@ -307,6 +310,7 @@
 				12ADCAB220CEE4AA0068824E /* Database.swift in Sources */,
 				126FF36B20CEF0220019BB9F /* MesesVC.swift in Sources */,
 				126FF37D20CF168E0019BB9F /* Date.swift in Sources */,
+				120C3B0E20D03EFC0029C184 /* MesHeader.swift in Sources */,
 				12D5829720CED5B60003B317 /* AppDelegate.swift in Sources */,
 				120C3B0820D027C00029C184 /* MesCell.swift in Sources */,
 				126FF37320CF01AD0019BB9F /* GrupoManager.swift in Sources */,
