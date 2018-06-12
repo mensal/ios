@@ -4,7 +4,7 @@ import CoreData
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    static var shared = UIApplication.shared.delegate as! AppDelegate
+    static let shared = UIApplication.shared.delegate as! AppDelegate
 
     var window: UIWindow?
 

@@ -3,7 +3,18 @@ import Localize_Swift
 
 class MesVC: UITableViewController {
     
+    // MARK: - Conveniência
+    
+    static func corrente() -> MesVC {
+        let resultado = UIStoryboard.main().instantiateViewController(withIdentifier: "MesVC") as! MesVC
+        resultado.mes = Mes.corrente()
+        
+        return resultado
+    }
+    
     // MARK: - Propriedades
+    
+    var mes: Mes!
     
     private var _grupos: [String]?
     
@@ -21,6 +32,10 @@ class MesVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        title = mes.nomeCompleto
     }
     
     override func didReceiveMemoryWarning() {

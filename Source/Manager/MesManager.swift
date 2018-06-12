@@ -1,8 +1,9 @@
 import Foundation
 import SwiftDate
 
-private let anoInicial = 2018
-private let mesInicial = 5
+private let anoInicial = 2017
+private let mesInicial = 11
+private let mesesAntes = 1
 
 class MesManager {
     
@@ -18,8 +19,9 @@ class MesManager {
         
         obterAnos().forEach { ano in
             let inicial = (ano == anoInicial ? mesInicial : 1)
+            let final   = (ano == Date.currentYear() ? Date.currentMonth() + mesesAntes : 12)
             
-            (inicial...12).forEach { mes in
+            (inicial...final).forEach { mes in
                 resultado.append(Mes(mes, ano: ano))
             }
         }
