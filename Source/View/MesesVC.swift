@@ -45,10 +45,6 @@ class MesesVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
@@ -59,6 +55,12 @@ class MesesVC: UITableViewController {
         default:
             break
         }
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        
+        _meses = nil
     }
 
     // MARK: - Table View Controller

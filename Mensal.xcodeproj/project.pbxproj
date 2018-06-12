@@ -13,7 +13,6 @@
 		126FF36B20CEF0220019BB9F /* MesesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FF36A20CEF0220019BB9F /* MesesVC.swift */; };
 		126FF36D20CEF68E0019BB9F /* MesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FF36C20CEF68E0019BB9F /* MesVC.swift */; };
 		126FF36F20CEF6A50019BB9F /* EdicaoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FF36E20CEF6A50019BB9F /* EdicaoVC.swift */; };
-		126FF37120CEF6AD0019BB9F /* DetalheVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FF37020CEF6AD0019BB9F /* DetalheVC.swift */; };
 		126FF37320CF01AD0019BB9F /* GrupoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FF37220CF01AD0019BB9F /* GrupoManager.swift */; };
 		126FF37620CF02400019BB9F /* Mes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FF37520CF02400019BB9F /* Mes.swift */; };
 		126FF37820CF0FD30019BB9F /* MesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FF37720CF0FD30019BB9F /* MesManager.swift */; };
@@ -36,7 +35,6 @@
 		126FF36A20CEF0220019BB9F /* MesesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MesesVC.swift; sourceTree = "<group>"; };
 		126FF36C20CEF68E0019BB9F /* MesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MesVC.swift; sourceTree = "<group>"; };
 		126FF36E20CEF6A50019BB9F /* EdicaoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdicaoVC.swift; sourceTree = "<group>"; };
-		126FF37020CEF6AD0019BB9F /* DetalheVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalheVC.swift; sourceTree = "<group>"; };
 		126FF37220CF01AD0019BB9F /* GrupoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrupoManager.swift; sourceTree = "<group>"; };
 		126FF37520CF02400019BB9F /* Mes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mes.swift; sourceTree = "<group>"; };
 		126FF37720CF0FD30019BB9F /* MesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MesManager.swift; sourceTree = "<group>"; };
@@ -91,7 +89,6 @@
 				126FF37E20CF43060019BB9F /* PrincipalVC.swift */,
 				126FF36A20CEF0220019BB9F /* MesesVC.swift */,
 				126FF36C20CEF68E0019BB9F /* MesVC.swift */,
-				126FF37020CEF6AD0019BB9F /* DetalheVC.swift */,
 				126FF36E20CEF6A50019BB9F /* EdicaoVC.swift */,
 			);
 			path = View;
@@ -305,7 +302,6 @@
 				126FF36B20CEF0220019BB9F /* MesesVC.swift in Sources */,
 				126FF37D20CF168E0019BB9F /* Date.swift in Sources */,
 				12D5829720CED5B60003B317 /* AppDelegate.swift in Sources */,
-				126FF37120CEF6AD0019BB9F /* DetalheVC.swift in Sources */,
 				126FF37320CF01AD0019BB9F /* GrupoManager.swift in Sources */,
 				126FF37F20CF43060019BB9F /* PrincipalVC.swift in Sources */,
 				126FF38120CF43DA0019BB9F /* UIStoryboard.swift in Sources */,

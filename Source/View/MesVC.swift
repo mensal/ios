@@ -35,11 +35,15 @@ class MesVC: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         title = mes.nomeCompleto
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        
+        _grupos = nil
     }
     
     // MARK: - Table View Controller
@@ -59,8 +63,12 @@ class MesVC: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "celula", for: indexPath)
         
-        cell.textLabel?.text = "1"
+//        cell.textLabel?.text = "Nome da despesa"
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 44
     }
 }
