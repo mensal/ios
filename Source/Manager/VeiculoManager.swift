@@ -16,8 +16,14 @@ class VeiculoManager {
     }
     
     static func obterOuNovo(_ id: UUID, _ context: NSManagedObjectContext) -> Veiculo {
-        let resultado = obter(id, context)
-        return resultado != nil ? resultado! : novo(context)
+        var resultado = obter(id, context)
+
+        if resultado == nil {
+            resultado = novo(context)
+            resultado!.id = id
+        }
+        
+        return resultado!
     }
     
     static func obter(_ id: UUID, _ context: NSManagedObjectContext) -> Veiculo? {
@@ -34,6 +40,8 @@ class VeiculoManager {
                 let persistido = obterOuNovo(VeiculoResponse.id ?? UUID(), context)
                 persistido.nome = VeiculoResponse.nome
             }
+            
+            try? context.save()
         }
     }
 }

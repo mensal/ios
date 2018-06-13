@@ -16,8 +16,14 @@ class DiversaManager {
     }
     
     static func obterOuNovo(_ id: UUID, _ context: NSManagedObjectContext) -> Diversa {
-        let resultado = obter(id, context)
-        return resultado != nil ? resultado! : novo(context)
+        var resultado = obter(id, context)
+
+        if resultado == nil {
+            resultado = novo(context)
+            resultado!.id = id
+        }
+        
+        return resultado!
     }
     
     static func obter(_ id: UUID, _ context: NSManagedObjectContext) -> Diversa? {
@@ -34,6 +40,8 @@ class DiversaManager {
                 let persistido = obterOuNovo(DiversaResponse.id ?? UUID(), context)
                 persistido.nome = DiversaResponse.nome
             }
+            
+            try? context.save()
         }
     }
 }

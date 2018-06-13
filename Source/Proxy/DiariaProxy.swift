@@ -24,23 +24,21 @@ class DiariaProxy {
     // MARK: - Estáticos
     
     static func obterTodos(_ callback: @escaping ([DiariaResponse]) -> ()) {
-        let headers: HTTPHeaders = [
-            "Authorization": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjZWE4ZGMxNC0zZmJmLTQyOGUtODgxMi05NjY5NGEwMzFkZjMiLCJuYW1lIjoiQ2xldmVyc29uIiwiaXNzIjoiaHR0cDovL3Rlc3RlIiwiZXhwIjoxNTI5MzI0NTYzLCJpYXQiOjE1Mjg4OTI1NjN9.Bxp0US3oymocVf310y71rqpWjO8CoOiTUSs190cQOZRvUeTLyFjQHzd1xuiaeWf0SvTleijmKIfvDoTaoAKHXg"
-        ]
+        let headers = AppConfig.shared.authHeader
         
         Alamofire.request(
-            "https://despesas-despesas.a3c1.starter-us-west-1.openshiftapps.com/api/tipo/diaristas?ano=0&mes=0",
+            AppConfig.shared.apiBaseUrl + "/tipo/diaristas?ano=0&mes=0",
             method: .get,
             headers: headers).responseSwiftyJSON{ response in
                 var resultado = [DiariaResponse]()
                 
                 response.result.value?.forEach { _, json in
-                    var Diaria = DiariaResponse()
+                    var res = DiariaResponse()
                     
-                    Diaria.id = UUID(uuidString: json["id"].string!)
-                    Diaria.valor = json["valor"].double
+                    res.id = UUID(uuidString: json["id"].string!)
+                    res.valor = json["valor"].double
                     
-                    resultado.append(Diaria)
+                    resultado.append(res)
                 }
                 
                 callback(resultado)

@@ -15,12 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let context = persistentContainer.viewContext
         
         UsuarioManager.sincronizar(context)
-        FixaManager.sincronizar(context)
+        FixaManager   .sincronizar(context)
         DiversaManager.sincronizar(context)
-        DiariaManager.sincronizar(context)
+        DiariaManager .sincronizar(context)
         VeiculoManager.sincronizar(context)
-        
-        try? context.save()
         
         // Override point for customization after application launch.
         return true
