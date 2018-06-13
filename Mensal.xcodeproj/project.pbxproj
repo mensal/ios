@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		014307DC69168EA44F0FCA67 /* Pods_Mensal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BA46E1885F46DF90003EC6E /* Pods_Mensal.framework */; };
+		120BB60220D12F8900892E07 /* ManagedObjectContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120BB60120D12F8900892E07 /* ManagedObjectContext.swift */; };
 		120C3B0620D020630029C184 /* Grupo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120C3B0520D020630029C184 /* Grupo.swift */; };
 		120C3B0820D027C00029C184 /* MesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120C3B0720D027C00029C184 /* MesCell.swift */; };
 		120C3B0E20D03EFC0029C184 /* MesHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120C3B0D20D03EFC0029C184 /* MesHeader.swift */; };
@@ -27,12 +28,13 @@
 		12ADCAB220CEE4AA0068824E /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12ADCAB120CEE4AA0068824E /* Database.swift */; };
 		12D5829720CED5B60003B317 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D5829620CED5B60003B317 /* AppDelegate.swift */; };
 		12D5829C20CED5B60003B317 /* Lancamentos.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12D5829A20CED5B60003B317 /* Lancamentos.storyboard */; };
-		12D5829F20CED5B60003B317 /* Database.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 12D5829D20CED5B60003B317 /* Database.xcdatamodeld */; };
+		12D5829F20CED5B60003B317 /* Mensal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 12D5829D20CED5B60003B317 /* Mensal.xcdatamodeld */; };
 		12D582A120CED5B80003B317 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12D582A020CED5B80003B317 /* Assets.xcassets */; };
 		12D582A420CED5B80003B317 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12D582A220CED5B80003B317 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		120BB60120D12F8900892E07 /* ManagedObjectContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedObjectContext.swift; sourceTree = "<group>"; };
 		120C3B0520D020630029C184 /* Grupo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grupo.swift; sourceTree = "<group>"; };
 		120C3B0720D027C00029C184 /* MesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MesCell.swift; sourceTree = "<group>"; };
 		120C3B0D20D03EFC0029C184 /* MesHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MesHeader.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				126FF37C20CF168E0019BB9F /* Date.swift */,
 				126FF38020CF43DA0019BB9F /* UIStoryboard.swift */,
 				120C3B1120D05CAE0029C184 /* UINib.swift */,
+				120BB60120D12F8900892E07 /* ManagedObjectContext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -127,7 +130,7 @@
 				126FF37220CF01AD0019BB9F /* GrupoManager.swift */,
 				126FF37720CF0FD30019BB9F /* MesManager.swift */,
 				12ADCAB120CEE4AA0068824E /* Database.swift */,
-				12D5829D20CED5B60003B317 /* Database.xcdatamodeld */,
+				12D5829D20CED5B60003B317 /* Mensal.xcdatamodeld */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -311,7 +314,7 @@
 			files = (
 				126FF37620CF02400019BB9F /* Mes.swift in Sources */,
 				126FF37820CF0FD30019BB9F /* MesManager.swift in Sources */,
-				12D5829F20CED5B60003B317 /* Database.xcdatamodeld in Sources */,
+				12D5829F20CED5B60003B317 /* Mensal.xcdatamodeld in Sources */,
 				126FF36F20CEF6A50019BB9F /* EdicaoVC.swift in Sources */,
 				126FF36D20CEF68E0019BB9F /* MesVC.swift in Sources */,
 				12ADCAB220CEE4AA0068824E /* Database.swift in Sources */,
@@ -323,6 +326,7 @@
 				126FF37320CF01AD0019BB9F /* GrupoManager.swift in Sources */,
 				126FF37F20CF43060019BB9F /* PrincipalVC.swift in Sources */,
 				120C3B1220D05CAE0029C184 /* UINib.swift in Sources */,
+				120BB60220D12F8900892E07 /* ManagedObjectContext.swift in Sources */,
 				126FF38120CF43DA0019BB9F /* UIStoryboard.swift in Sources */,
 				120C3B0620D020630029C184 /* Grupo.swift in Sources */,
 			);
@@ -544,13 +548,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		12D5829D20CED5B60003B317 /* Database.xcdatamodeld */ = {
+		12D5829D20CED5B60003B317 /* Mensal.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				12D5829E20CED5B60003B317 /* Mensal.xcdatamodel */,
 			);
 			currentVersion = 12D5829E20CED5B60003B317 /* Mensal.xcdatamodel */;
-			path = Database.xcdatamodeld;
+			path = Mensal.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

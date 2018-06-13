@@ -9,6 +9,7 @@ target 'Mensal' do
     pod 'SwiftyBeaver', '~> 1.6'
     pod 'Localize-Swift', '~> 2.0'
     pod 'AlecrimCoreData', '~> 5.2'
+#    pod 'AlecrimCoreData', '~> 6.0'
     pod 'Alamofire', '~> 4.7'
     pod 'AlamofireNetworkActivityIndicator', '~> 2.2'
     pod 'AlamofireSwiftyJSON', '~> 1.0'
