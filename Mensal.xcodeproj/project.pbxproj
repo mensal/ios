@@ -8,7 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		014307DC69168EA44F0FCA67 /* Pods_Mensal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BA46E1885F46DF90003EC6E /* Pods_Mensal.framework */; };
-		120BB60220D12F8900892E07 /* ManagedObjectContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120BB60120D12F8900892E07 /* ManagedObjectContext.swift */; };
+		120BB60420D1354200892E07 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120BB60320D1354200892E07 /* Cache.swift */; };
+		120BB60720D140E600892E07 /* UsuarioProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120BB60620D140E600892E07 /* UsuarioProxy.swift */; };
+		120BB60B20D1694A00892E07 /* UsuarioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120BB60A20D1694A00892E07 /* UsuarioManager.swift */; };
+		120BB60F20D1809800892E07 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120BB60E20D1809800892E07 /* AppConfig.swift */; };
+		120BB61120D181BD00892E07 /* DiariaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120BB61020D181BD00892E07 /* DiariaManager.swift */; };
+		120BB61320D181CC00892E07 /* DiversaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120BB61220D181CC00892E07 /* DiversaManager.swift */; };
+		120BB61520D181D300892E07 /* FixaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120BB61420D181D300892E07 /* FixaManager.swift */; };
+		120BB61720D181DA00892E07 /* VeiculoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120BB61620D181DA00892E07 /* VeiculoManager.swift */; };
+		120BB61920D1828000892E07 /* DiariaProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120BB61820D1828000892E07 /* DiariaProxy.swift */; };
+		120BB61B20D1828B00892E07 /* DiversaProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120BB61A20D1828B00892E07 /* DiversaProxy.swift */; };
+		120BB61D20D1829300892E07 /* FixaProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120BB61C20D1829300892E07 /* FixaProxy.swift */; };
+		120BB61F20D1829B00892E07 /* VeiculoProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120BB61E20D1829B00892E07 /* VeiculoProxy.swift */; };
 		120C3B0620D020630029C184 /* Grupo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120C3B0520D020630029C184 /* Grupo.swift */; };
 		120C3B0820D027C00029C184 /* MesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120C3B0720D027C00029C184 /* MesCell.swift */; };
 		120C3B0E20D03EFC0029C184 /* MesHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120C3B0D20D03EFC0029C184 /* MesHeader.swift */; };
@@ -34,7 +45,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		120BB60120D12F8900892E07 /* ManagedObjectContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedObjectContext.swift; sourceTree = "<group>"; };
+		120BB60320D1354200892E07 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
+		120BB60620D140E600892E07 /* UsuarioProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuarioProxy.swift; sourceTree = "<group>"; };
+		120BB60A20D1694A00892E07 /* UsuarioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuarioManager.swift; sourceTree = "<group>"; };
+		120BB60E20D1809800892E07 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		120BB61020D181BD00892E07 /* DiariaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiariaManager.swift; sourceTree = "<group>"; };
+		120BB61220D181CC00892E07 /* DiversaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiversaManager.swift; sourceTree = "<group>"; };
+		120BB61420D181D300892E07 /* FixaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixaManager.swift; sourceTree = "<group>"; };
+		120BB61620D181DA00892E07 /* VeiculoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeiculoManager.swift; sourceTree = "<group>"; };
+		120BB61820D1828000892E07 /* DiariaProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiariaProxy.swift; sourceTree = "<group>"; };
+		120BB61A20D1828B00892E07 /* DiversaProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiversaProxy.swift; sourceTree = "<group>"; };
+		120BB61C20D1829300892E07 /* FixaProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixaProxy.swift; sourceTree = "<group>"; };
+		120BB61E20D1829B00892E07 /* VeiculoProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeiculoProxy.swift; sourceTree = "<group>"; };
 		120C3B0520D020630029C184 /* Grupo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grupo.swift; sourceTree = "<group>"; };
 		120C3B0720D027C00029C184 /* MesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MesCell.swift; sourceTree = "<group>"; };
 		120C3B0D20D03EFC0029C184 /* MesHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MesHeader.swift; sourceTree = "<group>"; };
@@ -76,6 +98,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		120BB60520D140C800892E07 /* Proxy */ = {
+			isa = PBXGroup;
+			children = (
+				120BB60620D140E600892E07 /* UsuarioProxy.swift */,
+				120BB61820D1828000892E07 /* DiariaProxy.swift */,
+				120BB61A20D1828B00892E07 /* DiversaProxy.swift */,
+				120BB61C20D1829300892E07 /* FixaProxy.swift */,
+				120BB61E20D1829B00892E07 /* VeiculoProxy.swift */,
+			);
+			path = Proxy;
+			sourceTree = "<group>";
+		};
 		126FF37420CF022F0019BB9F /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -91,7 +125,6 @@
 				126FF37C20CF168E0019BB9F /* Date.swift */,
 				126FF38020CF43DA0019BB9F /* UIStoryboard.swift */,
 				120C3B1120D05CAE0029C184 /* UINib.swift */,
-				120BB60120D12F8900892E07 /* ManagedObjectContext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -116,10 +149,12 @@
 			isa = PBXGroup;
 			children = (
 				12D5829620CED5B60003B317 /* AppDelegate.swift */,
+				120BB60E20D1809800892E07 /* AppConfig.swift */,
 				12D582A520CED5B80003B317 /* Info.plist */,
 				126FF36620CEEF880019BB9F /* InfoPlist.strings */,
 				126FF36920CEEF8B0019BB9F /* Localizable.strings */,
 				12D582A020CED5B80003B317 /* Assets.xcassets */,
+				120BB60320D1354200892E07 /* Cache.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -127,8 +162,13 @@
 		12ADCAAC20CEDC5E0068824E /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				126FF37220CF01AD0019BB9F /* GrupoManager.swift */,
 				126FF37720CF0FD30019BB9F /* MesManager.swift */,
+				126FF37220CF01AD0019BB9F /* GrupoManager.swift */,
+				120BB60A20D1694A00892E07 /* UsuarioManager.swift */,
+				120BB61020D181BD00892E07 /* DiariaManager.swift */,
+				120BB61220D181CC00892E07 /* DiversaManager.swift */,
+				120BB61420D181D300892E07 /* FixaManager.swift */,
+				120BB61620D181DA00892E07 /* VeiculoManager.swift */,
 				12ADCAB120CEE4AA0068824E /* Database.swift */,
 				12D5829D20CED5B60003B317 /* Mensal.xcdatamodeld */,
 			);
@@ -159,6 +199,7 @@
 				12ADCAAA20CEDC4D0068824E /* View */,
 				126FF37420CF022F0019BB9F /* Entity */,
 				12ADCAAC20CEDC5E0068824E /* Manager */,
+				120BB60520D140C800892E07 /* Proxy */,
 				126FF37B20CF16730019BB9F /* Extensions */,
 				12ADCAAB20CEDC550068824E /* App */,
 			);
@@ -314,21 +355,32 @@
 			files = (
 				126FF37620CF02400019BB9F /* Mes.swift in Sources */,
 				126FF37820CF0FD30019BB9F /* MesManager.swift in Sources */,
+				120BB60B20D1694A00892E07 /* UsuarioManager.swift in Sources */,
+				120BB60F20D1809800892E07 /* AppConfig.swift in Sources */,
 				12D5829F20CED5B60003B317 /* Mensal.xcdatamodeld in Sources */,
+				120BB61320D181CC00892E07 /* DiversaManager.swift in Sources */,
+				120BB60720D140E600892E07 /* UsuarioProxy.swift in Sources */,
 				126FF36F20CEF6A50019BB9F /* EdicaoVC.swift in Sources */,
+				120BB61720D181DA00892E07 /* VeiculoManager.swift in Sources */,
 				126FF36D20CEF68E0019BB9F /* MesVC.swift in Sources */,
+				120BB61D20D1829300892E07 /* FixaProxy.swift in Sources */,
 				12ADCAB220CEE4AA0068824E /* Database.swift in Sources */,
 				126FF36B20CEF0220019BB9F /* MesesVC.swift in Sources */,
 				126FF37D20CF168E0019BB9F /* Date.swift in Sources */,
 				120C3B0E20D03EFC0029C184 /* MesHeader.swift in Sources */,
 				12D5829720CED5B60003B317 /* AppDelegate.swift in Sources */,
+				120BB60420D1354200892E07 /* Cache.swift in Sources */,
 				120C3B0820D027C00029C184 /* MesCell.swift in Sources */,
 				126FF37320CF01AD0019BB9F /* GrupoManager.swift in Sources */,
 				126FF37F20CF43060019BB9F /* PrincipalVC.swift in Sources */,
+				120BB61B20D1828B00892E07 /* DiversaProxy.swift in Sources */,
 				120C3B1220D05CAE0029C184 /* UINib.swift in Sources */,
-				120BB60220D12F8900892E07 /* ManagedObjectContext.swift in Sources */,
+				120BB61F20D1829B00892E07 /* VeiculoProxy.swift in Sources */,
+				120BB61120D181BD00892E07 /* DiariaManager.swift in Sources */,
 				126FF38120CF43DA0019BB9F /* UIStoryboard.swift in Sources */,
+				120BB61920D1828000892E07 /* DiariaProxy.swift in Sources */,
 				120C3B0620D020630029C184 /* Grupo.swift in Sources */,
+				120BB61520D181D300892E07 /* FixaManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

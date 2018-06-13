@@ -6,18 +6,8 @@ class MesesVC: UITableViewController {
     
     // MARK: - Propriedades
     
-    private var _meses: [Mes]?
+    private var meses = Cache<Mes> { MesManager.obterTodos().reversed() }
     
-    private var meses: [Mes] {
-        get {
-            if _meses == nil {
-                _meses = MesManager.obterTodos().reversed()
-            }
-            
-            return _meses!
-        }
-    }
-
     // MARK: - Declarados
     
     private func converterAno(_ section: Int) -> Int {
@@ -25,7 +15,7 @@ class MesesVC: UITableViewController {
     }
     
     private func obterMeses(_ section: Int) -> [Mes] {
-        return MesManager.extrairMeses(meses, ano: converterAno(section))
+        return MesManager.extrairMeses(meses.values, ano: converterAno(section))
     }
     
     private func obterMes(_ indexPath: IndexPath?) -> Mes? {
@@ -60,7 +50,7 @@ class MesesVC: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
-        _meses = nil
+        meses.clear()
     }
 
     // MARK: - Table View Controller

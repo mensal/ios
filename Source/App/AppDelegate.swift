@@ -1,5 +1,6 @@
 import UIKit
 import CoreData
+import AlamofireNetworkActivityIndicator
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -9,6 +10,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        NetworkActivityIndicatorManager.shared.isEnabled = true
+        
+        let context = persistentContainer.viewContext
+        
+        UsuarioManager.sincronizar(context)
+        FixaManager.sincronizar(context)
+        DiversaManager.sincronizar(context)
+        DiariaManager.sincronizar(context)
+        VeiculoManager.sincronizar(context)
+        
+        try? context.save()
+        
         // Override point for customization after application launch.
         return true
     }

@@ -15,17 +15,7 @@ class MesVC: UITableViewController {
     
     var mes: Mes!
     
-    private var _grupos: [Grupo]?
-    
-    private var grupos: [Grupo] {
-        get {
-            if _grupos == nil {
-                _grupos = GrupoManager.obterTodos()
-            }
-            
-            return _grupos!
-        }
-    }
+    private var grupos = Cache<Grupo> { GrupoManager.obterTodos() }
     
     // MARK: - Conveniência
     
@@ -92,13 +82,13 @@ class MesVC: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
-        _grupos = nil
+        grupos.clear()
     }
     
     // MARK: - Table View Controller
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return grupos.count
+        return grupos.values.count
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -107,7 +97,7 @@ class MesVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: mesHeaderId) as! MesHeader
-        header.grupo = grupos[section]
+        header.grupo = grupos.values[section]
 
         return header
     }
