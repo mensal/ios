@@ -11,6 +11,8 @@ struct FixaResponse {
     
     var id: UUID!
     
+    var vencimento: Int!
+    
     var nome: String!
 }
 
@@ -35,8 +37,9 @@ class FixaProxy {
                 response.result.value?.forEach { _, json in
                     var res = FixaResponse()
                     
-                    res.id = UUID(uuidString: json["id"].string!)
-                    res.nome = json["nome"].string!
+                    res.id         = UUID(uuidString: json["id"].string!)
+                    res.nome       = json["nome"].string!
+                    res.vencimento = json["vencimento"].int!
                     
                     resultado.append(res)
                 }

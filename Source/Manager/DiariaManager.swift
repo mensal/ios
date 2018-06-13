@@ -36,9 +36,9 @@ class DiariaManager {
     
     static func sincronizar(_ context: NSManagedObjectContext) {
         DiariaProxy.obterTodos { response in
-            response.forEach { DiariaResponse in
-                let persistido = obterOuNovo(DiariaResponse.id ?? UUID(), context)
-                persistido.valor = DiariaResponse.valor!
+            response.forEach { res in
+                let persistido = obterOuNovo(res.id ?? UUID(), context)
+                persistido.valor = res.valor!
             }
             
             try? context.save()

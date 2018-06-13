@@ -36,9 +36,9 @@ class VeiculoManager {
     
     static func sincronizar(_ context: NSManagedObjectContext) {
         VeiculoProxy.obterTodos { response in
-            response.forEach { VeiculoResponse in
-                let persistido = obterOuNovo(VeiculoResponse.id ?? UUID(), context)
-                persistido.nome = VeiculoResponse.nome
+            response.forEach { res in
+                let persistido = obterOuNovo(res.id ?? UUID(), context)
+                persistido.nome = res.nome
             }
             
             try? context.save()

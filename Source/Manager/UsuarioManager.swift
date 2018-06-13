@@ -36,9 +36,9 @@ class UsuarioManager {
     
     static func sincronizar(_ context: NSManagedObjectContext) {
         UsuarioProxy.obterTodos { response in
-            response.forEach { usuarioResponse in
-                let persistido = obterOuNovo(usuarioResponse.id ?? UUID(), context)
-                persistido.nome = usuarioResponse.nome
+            response.forEach { res in
+                let persistido = obterOuNovo(res.id ?? UUID(), context)
+                persistido.nome = res.nome
             }
             
             try? context.save()

@@ -36,9 +36,9 @@ class DiversaManager {
     
     static func sincronizar(_ context: NSManagedObjectContext) {
         DiversaProxy.obterTodos { response in
-            response.forEach { DiversaResponse in
-                let persistido = obterOuNovo(DiversaResponse.id ?? UUID(), context)
-                persistido.nome = DiversaResponse.nome
+            response.forEach { res in
+                let persistido = obterOuNovo(res.id ?? UUID(), context)
+                persistido.nome = res.nome
             }
             
             try? context.save()

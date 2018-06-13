@@ -101,9 +101,9 @@
                                     <constraint firstItem="85M-bs-D93" firstAttribute="leading" secondItem="Omx-Zc-o9z" secondAttribute="leading" constant="20" id="8fX-3y-v3T"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="descricao" destination="hKf-fP-ISG" id="aBX-lM-4hS"/>
-                                    <outlet property="dia" destination="85M-bs-D93" id="sYT-7f-uWD"/>
-                                    <outlet property="valor" destination="5W5-eD-DXk" id="5iS-AR-NSY"/>
+                                    <outlet property="descricaoLabel" destination="hKf-fP-ISG" id="Nlt-Kr-JCW"/>
+                                    <outlet property="diaLabel" destination="85M-bs-D93" id="Yx9-Zv-0Xq"/>
+                                    <outlet property="valorLabel" destination="5W5-eD-DXk" id="wt8-Hw-yoU"/>
                                     <segue destination="jPl-PQ-ioh" kind="presentation" identifier="mostraEdicao" id="jgr-sq-pDo"/>
                                 </connections>
                             </tableViewCell>

@@ -4,11 +4,11 @@ class MesCell: UITableViewCell {
     
     // MARK: - IBOutlets
 
-    @IBOutlet weak var dia: UILabel!
+    @IBOutlet weak var diaLabel: UILabel!
     
-    @IBOutlet weak var descricao: UILabel!
+    @IBOutlet weak var descricaoLabel: UILabel!
     
-    @IBOutlet weak var valor: UILabel!
+    @IBOutlet weak var valorLabel: UILabel!
     
     // MARK: - View
     

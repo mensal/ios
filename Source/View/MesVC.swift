@@ -17,6 +17,8 @@ class MesVC: UITableViewController {
     
     private var grupos = Cache<Grupo> { GrupoManager.obterTodos() }
     
+    private var fixas = Cache<Fixa> { FixaManager.obterTodos(persistentContainer.viewContext) }
+    
     // MARK: - Conveniência
     
     static func corrente() -> MesVC {
@@ -103,13 +105,30 @@ class MesVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        switch section {
+        case 0:
+            return fixas.values.count
+            
+        default:
+            return 0
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: mesCellId, for: indexPath) as! MesCell
         
-//        cell.textLabel?.text = "Nome da despesa"
+        switch indexPath.section {
+        case 0:
+            let fixa = fixas.values[indexPath.row]
+            
+            cell.diaLabel.text = String(fixa.vencimento)
+            cell.descricaoLabel.text = fixa.nome
+            cell.valorLabel.text = ""
+            
+        default:
+            break
+        }
+//        cell.d
         
         return cell
     }
