@@ -34,11 +34,13 @@ class DiariaManager {
         return tabela(context).create()
     }
     
-    static func sincronizar(_ context: NSManagedObjectContext) {
+    static func sincronizar() {
         DiariaProxy.obterTodos { response in
-            response.forEach { res in
-                let persistido = obterOuNovo(res.id ?? UUID(), context)
-                persistido.valor = res.valor!
+            let context = persistentContainer.viewContext
+            
+            response.forEach {
+                let persistido = obterOuNovo($0.id ?? UUID(), context)
+                persistido.valor = $0.valor!
             }
             
             try? context.save()

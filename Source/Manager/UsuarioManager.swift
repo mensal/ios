@@ -34,11 +34,13 @@ class UsuarioManager {
         return tabela(context).create()
     }
     
-    static func sincronizar(_ context: NSManagedObjectContext) {
+    static func sincronizar() {
         UsuarioProxy.obterTodos { response in
-            response.forEach { res in
-                let persistido = obterOuNovo(res.id ?? UUID(), context)
-                persistido.nome = res.nome
+            let context = persistentContainer.viewContext
+            
+            response.forEach {
+                let persistido = obterOuNovo($0.id ?? UUID(), context)
+                persistido.nome = $0.nome
             }
             
             try? context.save()

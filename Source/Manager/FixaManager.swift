@@ -38,12 +38,14 @@ class FixaManager {
         return tabela(context).sort(using: NSSortDescriptor.init(key: "vencimento", ascending: true)).execute()
     }
     
-    static func sincronizar(_ context: NSManagedObjectContext) {
+    static func sincronizar() {
         FixaProxy.obterTodos { response in
-            response.forEach { res in
-                let persistido = obterOuNovo(res.id ?? UUID(), context)
-                persistido.nome = res.nome
-                persistido.vencimento = Int16(res.vencimento)
+            let context = persistentContainer.viewContext
+            
+            response.forEach {
+                let persistido = obterOuNovo($0.id ?? UUID(), context)
+                persistido.nome = $0.nome
+                persistido.vencimento = Int16($0.vencimento)
             }
             
             try? context.save()

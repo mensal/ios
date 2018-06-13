@@ -20,6 +20,7 @@
 		120BB61B20D1828B00892E07 /* DiversaProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120BB61A20D1828B00892E07 /* DiversaProxy.swift */; };
 		120BB61D20D1829300892E07 /* FixaProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120BB61C20D1829300892E07 /* FixaProxy.swift */; };
 		120BB61F20D1829B00892E07 /* VeiculoProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120BB61E20D1829B00892E07 /* VeiculoProxy.swift */; };
+		120BB62120D1A7B900892E07 /* PagamentoProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120BB62020D1A7B900892E07 /* PagamentoProxy.swift */; };
 		120C3B0620D020630029C184 /* Grupo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120C3B0520D020630029C184 /* Grupo.swift */; };
 		120C3B0820D027C00029C184 /* MesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120C3B0720D027C00029C184 /* MesCell.swift */; };
 		120C3B0E20D03EFC0029C184 /* MesHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120C3B0D20D03EFC0029C184 /* MesHeader.swift */; };
@@ -57,6 +58,7 @@
 		120BB61A20D1828B00892E07 /* DiversaProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiversaProxy.swift; sourceTree = "<group>"; };
 		120BB61C20D1829300892E07 /* FixaProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixaProxy.swift; sourceTree = "<group>"; };
 		120BB61E20D1829B00892E07 /* VeiculoProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeiculoProxy.swift; sourceTree = "<group>"; };
+		120BB62020D1A7B900892E07 /* PagamentoProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagamentoProxy.swift; sourceTree = "<group>"; };
 		120C3B0520D020630029C184 /* Grupo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grupo.swift; sourceTree = "<group>"; };
 		120C3B0720D027C00029C184 /* MesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MesCell.swift; sourceTree = "<group>"; };
 		120C3B0D20D03EFC0029C184 /* MesHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MesHeader.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				120BB61A20D1828B00892E07 /* DiversaProxy.swift */,
 				120BB61C20D1829300892E07 /* FixaProxy.swift */,
 				120BB61E20D1829B00892E07 /* VeiculoProxy.swift */,
+				120BB62020D1A7B900892E07 /* PagamentoProxy.swift */,
 			);
 			path = Proxy;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				12D5829720CED5B60003B317 /* AppDelegate.swift in Sources */,
 				120BB60420D1354200892E07 /* Cache.swift in Sources */,
 				120C3B0820D027C00029C184 /* MesCell.swift in Sources */,
+				120BB62120D1A7B900892E07 /* PagamentoProxy.swift in Sources */,
 				126FF37320CF01AD0019BB9F /* GrupoManager.swift in Sources */,
 				126FF37F20CF43060019BB9F /* PrincipalVC.swift in Sources */,
 				120BB61B20D1828B00892E07 /* DiversaProxy.swift in Sources */,

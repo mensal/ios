@@ -2,7 +2,6 @@ import Foundation
 import Alamofire
 import AlamofireSwiftyJSON
 import SwiftyJSON
-import CoreData
 
 struct DiariaResponse {
     
