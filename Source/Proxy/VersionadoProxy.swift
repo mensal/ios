@@ -14,10 +14,10 @@ protocol VersionadoResponse {
 
 class VersionadoProxy<S: VersionadoResponse> {
     
-    private let endpoint: String
+    private let endpoint: String!
     
     required init() {
-        self.endpoint = ""
+        self.endpoint = nil
     }
     
     init(_ endpoint: String) {
@@ -26,10 +26,14 @@ class VersionadoProxy<S: VersionadoResponse> {
 
     func obterTodos(_ callback: @escaping ([S]) -> ()) {
         let headers = AppConfig.shared.authHeader
+//        let parameters = [
+//            "apos" : Date()
+//        ]
         
         Alamofire.request(
             AppConfig.shared.apiBaseUrl + endpoint,
             method: .get,
+//            parameters: parameters,
             headers: headers).responseSwiftyJSON{ response in
                 let resultado = response.result.value?.map { S($1) }
                 callback(resultado ?? [S]())

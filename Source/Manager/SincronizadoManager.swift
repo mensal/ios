@@ -2,8 +2,10 @@ import Foundation
 import CoreData
 import AlecrimCoreData
 
-class VersionadoSincronizadoManager<S: VersionadoResponse, P: VersionadoProxy<S>>: VersionadoManager<S.E> {
+class SincronizadoManager<S: VersionadoResponse, P: VersionadoProxy<S>>: VersionadoManager<S.E> {
     
+    // MARK: - Públicos
+
     func sincronizar() {
         P().obterTodos { resultado in
             let context = persistentContainer.viewContext

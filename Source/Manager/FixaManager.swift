@@ -1,7 +1,7 @@
 import Foundation
 import CoreData
 
-class FixaManager: VersionadoSincronizadoManager<FixaResponse, FixaProxy> {
+class FixaManager: SincronizadoManager<FixaResponse, FixaProxy> {
     
     // MARK: - Construtores
     
@@ -14,18 +14,4 @@ class FixaManager: VersionadoSincronizadoManager<FixaResponse, FixaProxy> {
     func obterPagamentos(_ mes: Mes, _ context: NSManagedObjectContext) -> [Pagamento] {
         return [Pagamento]()
     }
-
-//    func sincronizar() {
-//        FixaProxy().obterTodos { response in
-//            let context = persistentContainer.viewContext
-//            
-//            response.forEach {
-//                let persistido = self.obterOuNovo($0.id, context)
-//                persistido.nome = $0.nome
-//                persistido.vencimento = Int16($0.vencimento)
-//            }
-//            
-//            try? context.save()
-//        }
-//    }
 }
