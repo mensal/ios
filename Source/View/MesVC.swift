@@ -1,11 +1,32 @@
 import UIKit
 
 fileprivate class GrupoAlertAction: UIAlertAction {
-    
     var grupo: Grupo?
 }
 
+fileprivate class Pagamentos {
+    
+    private let mes: Mes
+    
+    init(_ mes: Mes) {
+        self.mes = mes
+    }
+    
+//    lazy var fixas        = { Cache<[Pagamento]> { PagamentoManager.obter(.fixas,        self.mes, persistentContainer.viewContext) }}()
+//    lazy var diversas     = { Cache<[Pagamento]> { PagamentoManager.obter(.diversas,     self.mes, persistentContainer.viewContext) }}()
+//    lazy var diaristas    = { Cache<[Pagamento]> { PagamentoManager.obter(.diaristas,    self.mes, persistentContainer.viewContext) }}()
+//    lazy var combustiveis = { Cache<[Pagamento]> { PagamentoManager.obter(.combustiveis, self.mes, persistentContainer.viewContext) }}()
+    
+    func clear() {
+//        fixas.clear()
+//        diversas.clear()
+//        diaristas.clear()
+//        combustiveis.clear()
+    }
+}
+
 private let mostraEdicaoSegueId = "mostraEdicao"
+private let mostraNovoSegueId   = "mostraNovo"
 private let mesHeaderId         = "mesHeader"
 private let mesCellId           = "mesCell"
 
@@ -15,9 +36,11 @@ class MesVC: UITableViewController {
     
     var mes: Mes!
     
-    private var grupos = Cache<Grupo> { GrupoManager.obterTodos() }
+    private let grupos = Cache<[Grupo]> { GrupoManager.obterTodos() }
     
-    private var fixas = Cache<Fixa> { FixaManager.obterTodos(persistentContainer.viewContext) }
+    private let fixas = Cache<[Fixa]> { FixaManager.obterTodos(persistentContainer.viewContext) }
+    
+    private lazy var pagamentos = { Pagamentos(self.mes) }()
     
     // MARK: - Conveniência
     
@@ -40,7 +63,7 @@ class MesVC: UITableViewController {
         
         GrupoManager.obterTodos().filter { $0.dinamico ?? false }.forEach { grupo in
             let action = GrupoAlertAction(title: grupo.nomePlural, style: .default) {
-                self.performSegue(withIdentifier: mostraEdicaoSegueId, sender: $0)
+                self.performSegue(withIdentifier: mostraNovoSegueId, sender: $0)
             }
             
             action.grupo = grupo
@@ -67,6 +90,8 @@ class MesVC: UITableViewController {
         super.viewWillAppear(animated)
         
         title = mes.nomeCompleto
+        
+//        PagamentoManager.sincronizar(.diversas, mes)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -83,8 +108,9 @@ class MesVC: UITableViewController {
         }
         
         if segue.identifier == mostraEdicaoSegueId {
-            let nc = segue.destination as! UINavigationController
-            let vc = nc.topViewController as! EdicaoVC
+//            let nc = segue.destination as! UINavigationController
+//            let vc = nc.topViewController as! EdicaoVC
+            let vc = segue.destination as! EdicaoVC
             vc.grupo = grupo
         }
     }
@@ -132,6 +158,8 @@ class MesVC: UITableViewController {
             cell.diaLabel.text = ("0" + String(fixa.vencimento)).suffix(2).description
             cell.descricaoLabel.text = fixa.nome
             cell.valorLabel.text = ""
+            
+//            print(pagamentos.fixas.values.first(where: { $0.fixa?.nome == fixa.nome })?.id)
             
         default:
             break

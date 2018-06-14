@@ -3,8 +3,7 @@ import Alamofire
 import AlamofireSwiftyJSON
 import SwiftyJSON
 
-struct DiversaResponse {
-    init() { }
+class DiversaResponse {
     var id: UUID!
     var nome: String!
 }

@@ -3,11 +3,10 @@ import Alamofire
 import AlamofireSwiftyJSON
 import SwiftyJSON
 
-struct FixaResponse {
-    init() { }
+class FixaResponse {
     var id: UUID!
-    var vencimento: Int!
     var nome: String!
+    var vencimento: Int!
 }
 
 class FixaProxy {
@@ -29,7 +28,7 @@ class FixaProxy {
                 var resultado = [FixaResponse]()
                 
                 response.result.value?.forEach { _, json in
-                    var res = FixaResponse()
+                    let res = FixaResponse()
                     
                     res.id         = UUID(uuidString: json["id"].string!)
                     res.nome       = json["nome"].string!

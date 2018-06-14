@@ -2,13 +2,13 @@ import Foundation
 
 class Cache<T: Any> {
     
-    typealias CacheLoader = () -> [T]
+    typealias CacheLoader = () -> T
     
     private let loader: CacheLoader
     
-    private var _values: [T]?
+    private var _values: T?
     
-    var values: [T] {
+    var values: T {
         get {
             if _values == nil {
                 _values = loader()

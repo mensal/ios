@@ -12,6 +12,7 @@ class EdicaoVC: UITableViewController {
     
     @IBAction func cancelar(_ sender: UIBarButtonItem) {
         dismiss(animated: true)
+        navigationController?.popViewController(animated: true)
     }
     
     // MARK: - View Controller

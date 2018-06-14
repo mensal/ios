@@ -4,8 +4,7 @@ import AlamofireSwiftyJSON
 import SwiftyJSON
 import CoreData
 
-struct UsuarioResponse {
-    init() { }
+class UsuarioResponse {
     var id: UUID!
     var nome: String!
 }
@@ -29,7 +28,7 @@ class UsuarioProxy {
                 var resultado = [UsuarioResponse]()
                 
                 response.result.value?.forEach { _, json in
-                    var usuario = UsuarioResponse()
+                    let usuario = UsuarioResponse()
 
                     usuario.id = UUID(uuidString: json["id"].string!)
                     usuario.nome = json["nome"].string!

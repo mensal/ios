@@ -26,6 +26,8 @@
 		120C3B0E20D03EFC0029C184 /* MesHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120C3B0D20D03EFC0029C184 /* MesHeader.swift */; };
 		120C3B1020D05B810029C184 /* MesHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 120C3B0F20D05B810029C184 /* MesHeader.xib */; };
 		120C3B1220D05CAE0029C184 /* UINib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120C3B1120D05CAE0029C184 /* UINib.swift */; };
+		124630CF20D279B700917C6A /* PagamentoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124630CE20D279B700917C6A /* PagamentoManager.swift */; };
+		124630D120D2889500917C6A /* VersionadoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124630D020D2889500917C6A /* VersionadoManager.swift */; };
 		126FF36420CEEF880019BB9F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 126FF36620CEEF880019BB9F /* InfoPlist.strings */; };
 		126FF36720CEEF8B0019BB9F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 126FF36920CEEF8B0019BB9F /* Localizable.strings */; };
 		126FF36B20CEF0220019BB9F /* MesesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FF36A20CEF0220019BB9F /* MesesVC.swift */; };
@@ -66,6 +68,8 @@
 		120C3B1120D05CAE0029C184 /* UINib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINib.swift; sourceTree = "<group>"; };
 		1222AC0020CEEB46002CC4AD /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.storyboard"; sourceTree = "<group>"; };
 		1222AC0120CEEB46002CC4AD /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "pt-BR"; path = "pt-BR.lproj/Lancamentos.storyboard"; sourceTree = "<group>"; };
+		124630CE20D279B700917C6A /* PagamentoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagamentoManager.swift; sourceTree = "<group>"; };
+		124630D020D2889500917C6A /* VersionadoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionadoManager.swift; sourceTree = "<group>"; };
 		126FF36520CEEF880019BB9F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		126FF36820CEEF8B0019BB9F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		126FF36A20CEF0220019BB9F /* MesesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MesesVC.swift; sourceTree = "<group>"; };
@@ -168,10 +172,12 @@
 				126FF37720CF0FD30019BB9F /* MesManager.swift */,
 				126FF37220CF01AD0019BB9F /* GrupoManager.swift */,
 				120BB60A20D1694A00892E07 /* UsuarioManager.swift */,
+				124630D020D2889500917C6A /* VersionadoManager.swift */,
 				120BB61020D181BD00892E07 /* DiariaManager.swift */,
 				120BB61220D181CC00892E07 /* DiversaManager.swift */,
 				120BB61420D181D300892E07 /* FixaManager.swift */,
 				120BB61620D181DA00892E07 /* VeiculoManager.swift */,
+				124630CE20D279B700917C6A /* PagamentoManager.swift */,
 				12ADCAB120CEE4AA0068824E /* Database.swift */,
 				12D5829D20CED5B60003B317 /* Mensal.xcdatamodeld */,
 			);
@@ -362,6 +368,7 @@
 				120BB60F20D1809800892E07 /* AppConfig.swift in Sources */,
 				12D5829F20CED5B60003B317 /* Mensal.xcdatamodeld in Sources */,
 				120BB61320D181CC00892E07 /* DiversaManager.swift in Sources */,
+				124630CF20D279B700917C6A /* PagamentoManager.swift in Sources */,
 				120BB60720D140E600892E07 /* UsuarioProxy.swift in Sources */,
 				126FF36F20CEF6A50019BB9F /* EdicaoVC.swift in Sources */,
 				120BB61720D181DA00892E07 /* VeiculoManager.swift in Sources */,
@@ -373,6 +380,7 @@
 				120C3B0E20D03EFC0029C184 /* MesHeader.swift in Sources */,
 				12D5829720CED5B60003B317 /* AppDelegate.swift in Sources */,
 				120BB60420D1354200892E07 /* Cache.swift in Sources */,
+				124630D120D2889500917C6A /* VersionadoManager.swift in Sources */,
 				120C3B0820D027C00029C184 /* MesCell.swift in Sources */,
 				120BB62120D1A7B900892E07 /* PagamentoProxy.swift in Sources */,
 				126FF37320CF01AD0019BB9F /* GrupoManager.swift in Sources */,

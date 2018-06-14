@@ -3,8 +3,7 @@ import Alamofire
 import AlamofireSwiftyJSON
 import SwiftyJSON
 
-struct VeiculoResponse {
-    init() { }
+class VeiculoResponse {
     var id: UUID!
     var nome: String!
 }
@@ -28,7 +27,7 @@ class VeiculoProxy {
                 var resultado = [VeiculoResponse]()
                 
                 response.result.value?.forEach { _, json in
-                    var res = VeiculoResponse()
+                    let res = VeiculoResponse()
                     
                     res.id = UUID(uuidString: json["id"].string!)
                     res.nome = json["veiculo"].string!

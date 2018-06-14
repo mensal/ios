@@ -113,7 +113,7 @@
                                     <outlet property="descricaoLabel" destination="hKf-fP-ISG" id="Nlt-Kr-JCW"/>
                                     <outlet property="diaLabel" destination="85M-bs-D93" id="Yx9-Zv-0Xq"/>
                                     <outlet property="valorLabel" destination="5W5-eD-DXk" id="wt8-Hw-yoU"/>
-                                    <segue destination="jPl-PQ-ioh" kind="presentation" identifier="mostraEdicao" id="p2o-Ob-0dq"/>
+                                    <segue destination="6jA-d3-68b" kind="show" identifier="mostraEdicao" id="IZb-vn-tnE"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -136,6 +136,9 @@
                             <action selector="atualizar:" destination="mLn-JM-9Mx" eventType="valueChanged" id="i5x-kF-jy4"/>
                         </connections>
                     </refreshControl>
+                    <connections>
+                        <segue destination="jPl-PQ-ioh" kind="presentation" identifier="mostraNovo" id="ssi-aJ-10S"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1hs-Wf-KJZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -165,7 +168,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="GEk-WE-zgq">
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="GEk-WE-zgq">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="l36-ML-bqW">
                             <connections>
                                 <action selector="cancelar:" destination="6jA-d3-68b" id="NJS-iO-8nr"/>
@@ -214,4 +217,7 @@
             <point key="canvasLocation" x="1910" y="-334"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="fxW-Es-Gcn"/>
+    </inferredMetricsTieBreakers>
 </document>

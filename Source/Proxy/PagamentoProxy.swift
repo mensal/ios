@@ -3,10 +3,20 @@ import Alamofire
 import AlamofireSwiftyJSON
 import SwiftyJSON
 
-struct PagamentoResponse {
-    init() { }
+class PagamentoResponse {
     var id: UUID!
     var nome: String!
+    var tipo: IdResponse!
+    var valores: [RateioResponse]!
+}
+
+class IdResponse {
+    var id: UUID!
+}
+
+class RateioResponse {
+    var valor: Double!
+    var usuario: IdResponse!
 }
 
 class PagamentoProxy {
@@ -18,25 +28,27 @@ class PagamentoProxy {
     
     // MARK: - Estáticos
 
-    static func obter(_ grupo: Grupo, _ mes: Mes, _ callback: @escaping ([PagamentoResponse]) -> ()) {
-        let headers = AppConfig.shared.authHeader
-//
-        Alamofire.request(
-            AppConfig.shared.apiBaseUrl + "/pagamento/\(grupo.id!)?ano=\(mes.ano!)&mes=\(mes.ordinal!)",
-            method: .get,
-            headers: headers).responseSwiftyJSON{ response in
-                var resultado = [PagamentoResponse]()
-//
-//                response.result.value?.forEach { _, json in
-//                    var res = VeiculoResponse()
-//
-//                    res.id = UUID(uuidString: json["id"].string!)
-//                    res.nome = json["veiculo"].string!
-//
-//                    resultado.append(res)
-//                }
-//
-                callback(resultado)
-        }
-    }
+//    static func obter(_ grupoId: GrupoId, _ mes: Mes, _ callback: @escaping ([PagamentoResponse]) -> ()) {
+//        let headers = AppConfig.shared.authHeader
+////
+//        Alamofire.request(
+//            AppConfig.shared.apiBaseUrl + "/pagamento/\(grupoId.rawValue)?ano=\(mes.ano!)&mes=\(mes.ordinal!)",
+//            method: .get,
+//            headers: headers).responseSwiftyJSON{ response in
+//                let resultado = [PagamentoResponse]()
+//                
+//                print(response)
+////
+////                response.result.value?.forEach { _, json in
+////                    var res = VeiculoResponse()
+////
+////                    res.id = UUID(uuidString: json["id"].string!)
+////                    res.nome = json["veiculo"].string!
+////
+////                    resultado.append(res)
+////                }
+////
+//                callback(resultado)
+//        }
+//    }
 }

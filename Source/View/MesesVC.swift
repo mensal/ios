@@ -6,7 +6,7 @@ class MesesVC: UITableViewController {
     
     // MARK: - Propriedades
     
-    private var meses = Cache<Mes> { MesManager.obterTodos().reversed() }
+    private let meses = Cache<[Mes]> { MesManager.obterTodos().reversed() }
     
     // MARK: - Declarados
     
