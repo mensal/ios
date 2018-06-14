@@ -14,14 +14,14 @@ fileprivate class Pagamentos {
     
     lazy var fixas = { Cache<[PagamentoFixa]> { PagamentoFixaManager().obterTodos(persistentContainer.viewContext) }}()
     lazy var diversas = { Cache<[PagamentoDiversa]> { PagamentoDiversaManager().obterTodos(persistentContainer.viewContext) }}()
-//    lazy var diaristas    = { Cache<[Pagamento]> { PagamentoManager.obter(.diaristas,    self.mes, persistentContainer.viewContext) }}()
-//    lazy var combustiveis = { Cache<[Pagamento]> { PagamentoManager.obter(.combustiveis, self.mes, persistentContainer.viewContext) }}()
+    lazy var diaristas    = { Cache<[PagamentoDiarista]> { PagamentoDiaristaManager().obterTodos(persistentContainer.viewContext) }}()
+    lazy var combustiveis = { Cache<[PagamentoCombustivel]> { PagamentoCombustivelManager().obterTodos(persistentContainer.viewContext) }}()
     
     func clear() {
         fixas.clear()
         diversas.clear()
-//        diaristas.clear()
-//        combustiveis.clear()
+        diaristas.clear()
+        combustiveis.clear()
     }
 }
 
@@ -96,11 +96,13 @@ class MesVC: UITableViewController {
         ////////////////////////////////////////////////////////////////////////////////////////
         
         PagamentoFixaManager().sincronizar() {
-            self.tableView.reloadData()
-        }
-        
-        PagamentoDiversaManager().sincronizar() {
-            self.tableView.reloadData()
+            PagamentoDiversaManager().sincronizar() {
+                PagamentoDiaristaManager().sincronizar() {
+                    PagamentoCombustivelManager().sincronizar() {
+                        self.tableView.reloadData()
+                    }
+                }
+            }
         }
     }
     
@@ -154,6 +156,10 @@ class MesVC: UITableViewController {
             return fixas.values.count
         case 1:
             return pagamentos.diversas.values.count
+        case 2:
+            return pagamentos.diaristas.values.count
+        case 3:
+            return pagamentos.combustiveis.values.count
 
         default:
             return 0
@@ -177,6 +183,20 @@ class MesVC: UITableViewController {
             
             cell.diaLabel.text = ("0" + String(pagamento.data?.day ?? 0)).suffix(2).description
             cell.descricaoLabel.text = pagamento.diversa?.nome
+            cell.valorLabel.text = pagamento.total.description
+
+        case 2:
+            let pagamento = pagamentos.diaristas.values[indexPath.row]
+            
+            cell.diaLabel.text = ("0" + String(pagamento.data?.day ?? 0)).suffix(2).description
+            cell.descricaoLabel.text = ""
+            cell.valorLabel.text = pagamento.total.description
+
+        case 3:
+            let pagamento = pagamentos.combustiveis.values[indexPath.row]
+            
+            cell.diaLabel.text = ("0" + String(pagamento.data?.day ?? 0)).suffix(2).description
+            cell.descricaoLabel.text = pagamento.veiculo?.nome
             cell.valorLabel.text = pagamento.total.description
 
         default:

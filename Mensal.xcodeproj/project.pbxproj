@@ -37,6 +37,10 @@
 		124630E320D31AAD00917C6A /* Pagamento.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124630E220D31AAD00917C6A /* Pagamento.swift */; };
 		124630E520D322B100917C6A /* PagamentoDiversaProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124630E420D322B100917C6A /* PagamentoDiversaProxy.swift */; };
 		124630E720D3232A00917C6A /* PagamentoDiversaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124630E620D3232A00917C6A /* PagamentoDiversaManager.swift */; };
+		124630E920D328F900917C6A /* PagamentoDiaristaProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124630E820D328F900917C6A /* PagamentoDiaristaProxy.swift */; };
+		124630EB20D3290900917C6A /* PagamentoCombustivelProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124630EA20D3290900917C6A /* PagamentoCombustivelProxy.swift */; };
+		124630ED20D3291E00917C6A /* PagamentoDiaristaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124630EC20D3291E00917C6A /* PagamentoDiaristaManager.swift */; };
+		124630EF20D3292A00917C6A /* PagamentoCombustivelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124630EE20D3292A00917C6A /* PagamentoCombustivelManager.swift */; };
 		126FF36420CEEF880019BB9F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 126FF36620CEEF880019BB9F /* InfoPlist.strings */; };
 		126FF36720CEEF8B0019BB9F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 126FF36920CEEF8B0019BB9F /* Localizable.strings */; };
 		126FF36B20CEF0220019BB9F /* MesesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FF36A20CEF0220019BB9F /* MesesVC.swift */; };
@@ -88,6 +92,10 @@
 		124630E220D31AAD00917C6A /* Pagamento.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagamento.swift; sourceTree = "<group>"; };
 		124630E420D322B100917C6A /* PagamentoDiversaProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagamentoDiversaProxy.swift; sourceTree = "<group>"; };
 		124630E620D3232A00917C6A /* PagamentoDiversaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagamentoDiversaManager.swift; sourceTree = "<group>"; };
+		124630E820D328F900917C6A /* PagamentoDiaristaProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagamentoDiaristaProxy.swift; sourceTree = "<group>"; };
+		124630EA20D3290900917C6A /* PagamentoCombustivelProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagamentoCombustivelProxy.swift; sourceTree = "<group>"; };
+		124630EC20D3291E00917C6A /* PagamentoDiaristaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagamentoDiaristaManager.swift; sourceTree = "<group>"; };
+		124630EE20D3292A00917C6A /* PagamentoCombustivelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagamentoCombustivelManager.swift; sourceTree = "<group>"; };
 		126FF36520CEEF880019BB9F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		126FF36820CEEF8B0019BB9F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		126FF36A20CEF0220019BB9F /* MesesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MesesVC.swift; sourceTree = "<group>"; };
@@ -134,6 +142,8 @@
 				120BB62020D1A7B900892E07 /* PagamentoProxy.swift */,
 				124630D820D2E50B00917C6A /* PagamentoFixaProxy.swift */,
 				124630E420D322B100917C6A /* PagamentoDiversaProxy.swift */,
+				124630E820D328F900917C6A /* PagamentoDiaristaProxy.swift */,
+				124630EA20D3290900917C6A /* PagamentoCombustivelProxy.swift */,
 			);
 			path = Proxy;
 			sourceTree = "<group>";
@@ -204,6 +214,8 @@
 				120BB61620D181DA00892E07 /* VeiculoManager.swift */,
 				124630CE20D279B700917C6A /* PagamentoFixaManager.swift */,
 				124630E620D3232A00917C6A /* PagamentoDiversaManager.swift */,
+				124630EC20D3291E00917C6A /* PagamentoDiaristaManager.swift */,
+				124630EE20D3292A00917C6A /* PagamentoCombustivelManager.swift */,
 				124630DE20D30AEB00917C6A /* RateioManager.swift */,
 				12ADCAB120CEE4AA0068824E /* Database.swift */,
 				12D5829D20CED5B60003B317 /* Mensal.xcdatamodeld */,
@@ -390,6 +402,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				126FF37620CF02400019BB9F /* Mes.swift in Sources */,
+				124630EB20D3290900917C6A /* PagamentoCombustivelProxy.swift in Sources */,
 				124630DF20D30AEB00917C6A /* RateioManager.swift in Sources */,
 				124630DD20D2F3C400917C6A /* JSON.swift in Sources */,
 				126FF37820CF0FD30019BB9F /* MesManager.swift in Sources */,
@@ -399,6 +412,7 @@
 				12D5829F20CED5B60003B317 /* Mensal.xcdatamodeld in Sources */,
 				120BB61320D181CC00892E07 /* DiversaManager.swift in Sources */,
 				124630CF20D279B700917C6A /* PagamentoFixaManager.swift in Sources */,
+				124630ED20D3291E00917C6A /* PagamentoDiaristaManager.swift in Sources */,
 				120BB60720D140E600892E07 /* UsuarioProxy.swift in Sources */,
 				126FF36F20CEF6A50019BB9F /* EdicaoVC.swift in Sources */,
 				120BB61720D181DA00892E07 /* VeiculoManager.swift in Sources */,
@@ -415,6 +429,7 @@
 				120BB60420D1354200892E07 /* Cache.swift in Sources */,
 				124630D120D2889500917C6A /* VersionadoManager.swift in Sources */,
 				124630E520D322B100917C6A /* PagamentoDiversaProxy.swift in Sources */,
+				124630EF20D3292A00917C6A /* PagamentoCombustivelManager.swift in Sources */,
 				120C3B0820D027C00029C184 /* MesCell.swift in Sources */,
 				120BB62120D1A7B900892E07 /* PagamentoProxy.swift in Sources */,
 				126FF37320CF01AD0019BB9F /* GrupoManager.swift in Sources */,
@@ -422,6 +437,7 @@
 				120BB61B20D1828B00892E07 /* DiversaProxy.swift in Sources */,
 				120C3B1220D05CAE0029C184 /* UINib.swift in Sources */,
 				120BB61F20D1829B00892E07 /* VeiculoProxy.swift in Sources */,
+				124630E920D328F900917C6A /* PagamentoDiaristaProxy.swift in Sources */,
 				120BB61120D181BD00892E07 /* DiariaManager.swift in Sources */,
 				124630D920D2E50B00917C6A /* PagamentoFixaProxy.swift in Sources */,
 				126FF38120CF43DA0019BB9F /* UIStoryboard.swift in Sources */,
