@@ -1,6 +1,4 @@
 import Foundation
-import Alamofire
-import AlamofireSwiftyJSON
 import SwiftyJSON
 
 class PagamentoResponse {
@@ -23,8 +21,8 @@ class PagamentoProxy {
     
     // MARK: - Construtores
     
-    private init() {
-    }
+//    private init() {
+//    }
     
     // MARK: - Estáticos
 
@@ -36,7 +34,7 @@ class PagamentoProxy {
 //            method: .get,
 //            headers: headers).responseSwiftyJSON{ response in
 //                let resultado = [PagamentoResponse]()
-//                
+//
 //                print(response)
 ////
 ////                response.result.value?.forEach { _, json in

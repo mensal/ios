@@ -1,41 +1,21 @@
 import Foundation
-import Alamofire
-import AlamofireSwiftyJSON
 import SwiftyJSON
 
-class VeiculoResponse {
-    var id: UUID!
-    var nome: String!
+class VeiculoResponse: VersionadoResponse {
+    var id: UUID
+    var nome: String
+    
+    required init(_ json: JSON) {
+        self.id         = UUID(uuidString: json["id"].string!)!
+        self.nome       = json["veiculo"].string!
+    }
 }
 
-class VeiculoProxy {
+class VeiculoProxy: VersionadoProxy<VeiculoResponse> {
     
     // MARK: - Construtores
-    
-    private init() {
-    }
-    
-    // MARK: - Estáticos
-    
-    static func obterTodos(_ callback: @escaping ([VeiculoResponse]) -> ()) {
-        let headers = AppConfig.shared.authHeader
-        
-        Alamofire.request(
-            AppConfig.shared.apiBaseUrl + "/tipo/combustiveis?ano=0&mes=0",
-            method: .get,
-            headers: headers).responseSwiftyJSON{ response in
-                var resultado = [VeiculoResponse]()
-                
-                response.result.value?.forEach { _, json in
-                    let res = VeiculoResponse()
-                    
-                    res.id = UUID(uuidString: json["id"].string!)
-                    res.nome = json["veiculo"].string!
-                    
-                    resultado.append(res)
-                }
-                
-                callback(resultado)
-        }
+
+    init() {
+        super.init("/tipo/combustiveis?ano=0&mes=0")
     }
 }

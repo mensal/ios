@@ -38,7 +38,7 @@ class MesVC: UITableViewController {
     
     private let grupos = Cache<[Grupo]> { GrupoManager.obterTodos() }
     
-    private let fixas = Cache<[Fixa]> { FixaManager.obterTodos(persistentContainer.viewContext) }
+    private let fixas = Cache<[Fixa]> { FixaManager().obterTodos(persistentContainer.viewContext) }
     
     private lazy var pagamentos = { Pagamentos(self.mes) }()
     
@@ -84,6 +84,9 @@ class MesVC: UITableViewController {
         super.viewDidLoad()
         
         tableView.register(UINib.mesHeader, forHeaderFooterViewReuseIdentifier: mesHeaderId)
+        
+        
+        FixaProxy().obterTodos { $0.forEach { print($0.nome) } }
     }
     
     override func viewWillAppear(_ animated: Bool) {

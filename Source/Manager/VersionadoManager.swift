@@ -3,15 +3,30 @@ import CoreData
 import AlecrimCoreData
 
 class VersionadoManager<E: Versionado> {
- 
-    private init() {
-    }
     
-    static func tabela(_ context: NSManagedObjectContext) -> Table<E> {
+    // MARK: - Propriedades
+    
+    private let sortDescriptors: [NSSortDescriptor]
+
+    // MARK: - Construtores
+    
+    init(_ sortDescriptors: [NSSortDescriptor]) {
+        self.sortDescriptors = sortDescriptors
+    }
+
+    // MARK: - Privados
+    
+    private func tabela(_ context: NSManagedObjectContext) -> Table<E> {
         return Table<E>(context: context)
     }
     
-    static func obterOuNovo(_ id: UUID, _ context: NSManagedObjectContext) -> E {
+    private func novo(_ context: NSManagedObjectContext) -> E {
+        return tabela(context).create()
+    }
+    
+    // MARK: - Públicos
+    
+    func obterOuNovo(_ id: UUID, _ context: NSManagedObjectContext) -> E {
         var resultado = obter(id, context)
         
         if resultado == nil {
@@ -22,11 +37,11 @@ class VersionadoManager<E: Versionado> {
         return resultado!
     }
     
-    static func obter(_ id: UUID, _ context: NSManagedObjectContext) -> E? {
+    func obter(_ id: UUID, _ context: NSManagedObjectContext) -> E? {
         return tabela(context).first { _ in NSPredicate(format: "id = %@", id as CVarArg) }
     }
     
-    private static func novo(_ context: NSManagedObjectContext) -> E {
-        return tabela(context).create()
+    func obterTodos(_ context: NSManagedObjectContext) -> [E] {
+        return tabela(context).sort(using: sortDescriptors).execute()
     }
 }
