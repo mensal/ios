@@ -19,7 +19,7 @@ class MesHeader: UITableViewHeaderFooterView {
         
         set {
             _grupo = newValue
-            grupoLabel.text = newValue?.nome?.uppercased()
+            grupoLabel.text = newValue?.nomePlural?.uppercased()
         }
     }
 

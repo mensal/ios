@@ -17,20 +17,20 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GRUPO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IJB-pM-rmK" userLabel="Grupo">
-                    <rect key="frame" x="20" y="14" width="46" height="16"/>
+                    <rect key="frame" x="16" y="16" width="46" height="16"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="lVH-92-1yV" userLabel="Atualizando">
-                    <rect key="frame" x="72" y="12" width="20" height="20"/>
+                    <rect key="frame" x="68" y="14" width="20" height="20"/>
                 </activityIndicatorView>
             </subviews>
             <constraints>
-                <constraint firstItem="IJB-pM-rmK" firstAttribute="leading" secondItem="jph-Z5-JA0" secondAttribute="leading" constant="20" id="Hv6-4B-nbS"/>
+                <constraint firstItem="IJB-pM-rmK" firstAttribute="leading" secondItem="jph-Z5-JA0" secondAttribute="leading" constant="16" id="Hv6-4B-nbS"/>
                 <constraint firstItem="lVH-92-1yV" firstAttribute="leading" secondItem="IJB-pM-rmK" secondAttribute="trailing" constant="6" id="Kjd-7J-V90"/>
                 <constraint firstItem="lVH-92-1yV" firstAttribute="centerY" secondItem="IJB-pM-rmK" secondAttribute="centerY" id="QZK-F8-YDI"/>
-                <constraint firstItem="jph-Z5-JA0" firstAttribute="bottom" secondItem="IJB-pM-rmK" secondAttribute="bottom" constant="8" id="sbb-1h-FgT"/>
+                <constraint firstItem="jph-Z5-JA0" firstAttribute="bottom" secondItem="IJB-pM-rmK" secondAttribute="bottom" constant="6" id="sbb-1h-FgT"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>

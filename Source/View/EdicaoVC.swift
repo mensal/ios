@@ -2,6 +2,12 @@ import UIKit
 
 class EdicaoVC: UITableViewController {
     
+    // MARK: - Propriedades
+    
+    var mes: Mes?
+    
+    var grupo: Grupo?
+
     // MARK: - IBAction
     
     @IBAction func cancelar(_ sender: UIBarButtonItem) {
@@ -12,6 +18,12 @@ class EdicaoVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        title = grupo?.nomeSingular
     }
     
     override func didReceiveMemoryWarning() {

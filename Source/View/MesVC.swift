@@ -39,7 +39,7 @@ class MesVC: UITableViewController {
         alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel))
         
         GrupoManager.obterTodos().filter { $0.dinamico ?? false }.forEach { grupo in
-            let action = GrupoAlertAction(title: grupo.nome, style: .default) {
+            let action = GrupoAlertAction(title: grupo.nomePlural, style: .default) {
                 self.performSegue(withIdentifier: mostraEdicaoSegueId, sender: $0)
             }
             
@@ -72,12 +72,20 @@ class MesVC: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
+        let grupo: Grupo
+        
         if sender is GrupoAlertAction {
             let action = sender as! GrupoAlertAction
-            print(action.grupo!.nome!)
-            
+            grupo = action.grupo!
         } else {
-            print("cell")
+            let sender = sender as! MesCell
+            grupo = sender.grupo!
+        }
+        
+        if segue.identifier == mostraEdicaoSegueId {
+            let nc = segue.destination as! UINavigationController
+            let vc = nc.topViewController as! EdicaoVC
+            vc.grupo = grupo
         }
     }
     
@@ -121,14 +129,15 @@ class MesVC: UITableViewController {
         case 0:
             let fixa = fixas.values[indexPath.row]
             
-            cell.diaLabel.text = String(fixa.vencimento)
+            cell.diaLabel.text = ("0" + String(fixa.vencimento)).suffix(2).description
             cell.descricaoLabel.text = fixa.nome
             cell.valorLabel.text = ""
             
         default:
             break
         }
-//        cell.d
+        
+        cell.grupo = grupos.values[indexPath.section]
         
         return cell
     }

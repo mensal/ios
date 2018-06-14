@@ -4,3 +4,8 @@
 "diversas"     = "Diversas";
 "diaristas"    = "Diárias";
 "combustiveis" = "Combustível";
+
+"fixasSingular"        = "Fixa";
+"diversasSingular"     = "Diversa";
+"diaristasSingular"    = "Diária";
+"combustiveisSingular" = "Combustível";

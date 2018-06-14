@@ -1,7 +1,11 @@
 import UIKit
 
 class MesCell: UITableViewCell {
+
+    // MARK: - Propriedades
     
+    var grupo: Grupo?
+
     // MARK: - IBOutlets
 
     @IBOutlet weak var diaLabel: UILabel!

@@ -8,8 +8,14 @@ class Grupo {
     var id: String?
     
     var dinamico: Bool?
-    
-    var nome: String? {
+
+    var nomeSingular: String? {
+        get {
+            return id == nil ? nil : (id! + "Singular").localized()
+        }
+    }
+
+    var nomePlural: String? {
         get {
             return id == nil ? nil : id!.localized()
         }
