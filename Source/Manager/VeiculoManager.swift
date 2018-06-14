@@ -1,7 +1,7 @@
 import Foundation
 import CoreData
 
-class VeiculoManager: VersionadoManager<Veiculo> {
+class VeiculoManager: VersionadoSincronizadoManager<VeiculoResponse, VeiculoProxy> {
     
     // MARK: - Construtores
     
@@ -11,16 +11,16 @@ class VeiculoManager: VersionadoManager<Veiculo> {
     
     // MARK: - Declarados
     
-    func sincronizar() {
-        VeiculoProxy().obterTodos { response in
-            let context = persistentContainer.viewContext
-            
-            response.forEach {
-                let persistido = self.obterOuNovo($0.id, context)
-                persistido.nome = $0.nome
-            }
-            
-            try? context.save()
-        }
-    }
+//    func sincronizar() {
+//        VeiculoProxy().obterTodos { response in
+//            let context = persistentContainer.viewContext
+//            
+//            response.forEach {
+//                let persistido = self.obterOuNovo($0.id, context)
+//                persistido.nome = $0.nome
+//            }
+//            
+//            try? context.save()
+//        }
+//    }
 }

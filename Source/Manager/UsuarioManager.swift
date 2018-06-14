@@ -2,7 +2,7 @@ import Foundation
 import CoreData
 import AlecrimCoreData
 
-class UsuarioManager: VersionadoManager<Usuario> {
+class UsuarioManager: VersionadoSincronizadoManager<UsuarioResponse, UsuarioProxy> {
 
     // MARK: - Construtores
     
@@ -12,16 +12,16 @@ class UsuarioManager: VersionadoManager<Usuario> {
 
     // MARK: - Declarados
     
-    func sincronizar() {
-        UsuarioProxy().obterTodos { response in
-            let context = persistentContainer.viewContext
-            
-            response.forEach {
-                let persistido = self.obterOuNovo($0.id, context)
-                persistido.nome = $0.nome
-            }
-            
-            try? context.save()
-        }
-    }
+//    func sincronizar() {
+//        UsuarioProxy().obterTodos { response in
+//            let context = persistentContainer.viewContext
+//            
+//            response.forEach {
+//                let persistido = self.obterOuNovo($0.id, context)
+//                persistido.nome = $0.nome
+//            }
+//            
+//            try? context.save()
+//        }
+//    }
 }

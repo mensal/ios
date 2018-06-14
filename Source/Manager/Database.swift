@@ -6,9 +6,9 @@ let persistentContainer = Database.shared.persistentContainer
 
 class Database {
 
-    static var shared = Database()
-
     lazy var persistentContainer = Database.loadPersistentContainer()
+    
+    static var shared = Database()
 
     private init() {
     }
@@ -36,9 +36,7 @@ class Database {
     }
 
     private static func destroyPersistentStore(_ container: PersistentContainer, _ description: PersistentStoreDescription) {
-//        if var url = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask).last {
         if let url = description.url {
-//            url = url.appendingPathComponent("Application Support/\(container.name).sqlite")
 
             try? container.persistentStoreCoordinator.destroyPersistentStore(at: url, ofType: NSSQLiteStoreType, options: nil)
             loadPersistentStores(container, false)

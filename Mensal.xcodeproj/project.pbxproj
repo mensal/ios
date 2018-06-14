@@ -29,6 +29,7 @@
 		124630CF20D279B700917C6A /* PagamentoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124630CE20D279B700917C6A /* PagamentoManager.swift */; };
 		124630D120D2889500917C6A /* VersionadoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124630D020D2889500917C6A /* VersionadoManager.swift */; };
 		124630D520D29C5B00917C6A /* VersionadoProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124630D420D29C5B00917C6A /* VersionadoProxy.swift */; };
+		124630D720D2AE9E00917C6A /* VersionadoSincronizadoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124630D620D2AE9E00917C6A /* VersionadoSincronizadoManager.swift */; };
 		126FF36420CEEF880019BB9F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 126FF36620CEEF880019BB9F /* InfoPlist.strings */; };
 		126FF36720CEEF8B0019BB9F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 126FF36920CEEF8B0019BB9F /* Localizable.strings */; };
 		126FF36B20CEF0220019BB9F /* MesesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FF36A20CEF0220019BB9F /* MesesVC.swift */; };
@@ -72,6 +73,7 @@
 		124630CE20D279B700917C6A /* PagamentoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagamentoManager.swift; sourceTree = "<group>"; };
 		124630D020D2889500917C6A /* VersionadoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionadoManager.swift; sourceTree = "<group>"; };
 		124630D420D29C5B00917C6A /* VersionadoProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionadoProxy.swift; sourceTree = "<group>"; };
+		124630D620D2AE9E00917C6A /* VersionadoSincronizadoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionadoSincronizadoManager.swift; sourceTree = "<group>"; };
 		126FF36520CEEF880019BB9F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		126FF36820CEEF8B0019BB9F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		126FF36A20CEF0220019BB9F /* MesesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MesesVC.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				126FF37720CF0FD30019BB9F /* MesManager.swift */,
 				126FF37220CF01AD0019BB9F /* GrupoManager.swift */,
 				124630D020D2889500917C6A /* VersionadoManager.swift */,
+				124630D620D2AE9E00917C6A /* VersionadoSincronizadoManager.swift */,
 				120BB60A20D1694A00892E07 /* UsuarioManager.swift */,
 				120BB61020D181BD00892E07 /* DiariaManager.swift */,
 				120BB61220D181CC00892E07 /* DiversaManager.swift */,
@@ -379,6 +382,7 @@
 				120BB61D20D1829300892E07 /* FixaProxy.swift in Sources */,
 				124630D520D29C5B00917C6A /* VersionadoProxy.swift in Sources */,
 				12ADCAB220CEE4AA0068824E /* Database.swift in Sources */,
+				124630D720D2AE9E00917C6A /* VersionadoSincronizadoManager.swift in Sources */,
 				126FF36B20CEF0220019BB9F /* MesesVC.swift in Sources */,
 				126FF37D20CF168E0019BB9F /* Date.swift in Sources */,
 				120C3B0E20D03EFC0029C184 /* MesHeader.swift in Sources */,

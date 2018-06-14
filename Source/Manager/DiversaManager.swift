@@ -1,7 +1,7 @@
 import Foundation
 import CoreData
 
-class DiversaManager: VersionadoManager<Diversa> {
+class DiversaManager: VersionadoSincronizadoManager<DiversaResponse, DiversaProxy> {
 
     // MARK: - Construtores
     
@@ -11,16 +11,16 @@ class DiversaManager: VersionadoManager<Diversa> {
 
     // MARK: - Declarados
     
-    func sincronizar() {
-        DiversaProxy().obterTodos { response in
-            let context = persistentContainer.viewContext
-            
-            response.forEach {
-                let persistido = self.obterOuNovo($0.id, context)
-                persistido.nome = $0.nome
-            }
-            
-            try? context.save()
-        }
-    }
+//    func sincronizar() {
+//        DiversaProxy().obterTodos { response in
+//            let context = persistentContainer.viewContext
+//            
+//            response.forEach {
+//                let persistido = self.obterOuNovo($0.id, context)
+//                persistido.nome = $0.nome
+//            }
+//            
+//            try? context.save()
+//        }
+//    }
 }

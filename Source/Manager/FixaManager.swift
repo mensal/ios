@@ -1,7 +1,7 @@
 import Foundation
 import CoreData
 
-class FixaManager: VersionadoManager<Fixa> {
+class FixaManager: VersionadoSincronizadoManager<FixaResponse, FixaProxy> {
     
     // MARK: - Construtores
     
@@ -15,17 +15,17 @@ class FixaManager: VersionadoManager<Fixa> {
         return [Pagamento]()
     }
 
-    func sincronizar() {
-        FixaProxy().obterTodos { response in
-            let context = persistentContainer.viewContext
-            
-            response.forEach {
-                let persistido = self.obterOuNovo($0.id, context)
-                persistido.nome = $0.nome
-                persistido.vencimento = Int16($0.vencimento)
-            }
-            
-            try? context.save()
-        }
-    }
+//    func sincronizar() {
+//        FixaProxy().obterTodos { response in
+//            let context = persistentContainer.viewContext
+//            
+//            response.forEach {
+//                let persistido = self.obterOuNovo($0.id, context)
+//                persistido.nome = $0.nome
+//                persistido.vencimento = Int16($0.vencimento)
+//            }
+//            
+//            try? context.save()
+//        }
+//    }
 }
