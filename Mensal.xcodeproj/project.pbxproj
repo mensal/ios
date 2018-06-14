@@ -31,6 +31,12 @@
 		124630D520D29C5B00917C6A /* VersionadoProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124630D420D29C5B00917C6A /* VersionadoProxy.swift */; };
 		124630D720D2AE9E00917C6A /* SincronizadoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124630D620D2AE9E00917C6A /* SincronizadoManager.swift */; };
 		124630D920D2E50B00917C6A /* PagamentoFixaProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124630D820D2E50B00917C6A /* PagamentoFixaProxy.swift */; };
+		124630DD20D2F3C400917C6A /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124630DC20D2F3C400917C6A /* JSON.swift */; };
+		124630DF20D30AEB00917C6A /* RateioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124630DE20D30AEB00917C6A /* RateioManager.swift */; };
+		124630E120D3110300917C6A /* PersistidoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124630E020D3110300917C6A /* PersistidoManager.swift */; };
+		124630E320D31AAD00917C6A /* Pagamento.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124630E220D31AAD00917C6A /* Pagamento.swift */; };
+		124630E520D322B100917C6A /* PagamentoDiversaProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124630E420D322B100917C6A /* PagamentoDiversaProxy.swift */; };
+		124630E720D3232A00917C6A /* PagamentoDiversaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124630E620D3232A00917C6A /* PagamentoDiversaManager.swift */; };
 		126FF36420CEEF880019BB9F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 126FF36620CEEF880019BB9F /* InfoPlist.strings */; };
 		126FF36720CEEF8B0019BB9F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 126FF36920CEEF8B0019BB9F /* Localizable.strings */; };
 		126FF36B20CEF0220019BB9F /* MesesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FF36A20CEF0220019BB9F /* MesesVC.swift */; };
@@ -76,6 +82,12 @@
 		124630D420D29C5B00917C6A /* VersionadoProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionadoProxy.swift; sourceTree = "<group>"; };
 		124630D620D2AE9E00917C6A /* SincronizadoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SincronizadoManager.swift; sourceTree = "<group>"; };
 		124630D820D2E50B00917C6A /* PagamentoFixaProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagamentoFixaProxy.swift; sourceTree = "<group>"; };
+		124630DC20D2F3C400917C6A /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
+		124630DE20D30AEB00917C6A /* RateioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateioManager.swift; sourceTree = "<group>"; };
+		124630E020D3110300917C6A /* PersistidoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistidoManager.swift; sourceTree = "<group>"; };
+		124630E220D31AAD00917C6A /* Pagamento.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagamento.swift; sourceTree = "<group>"; };
+		124630E420D322B100917C6A /* PagamentoDiversaProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagamentoDiversaProxy.swift; sourceTree = "<group>"; };
+		124630E620D3232A00917C6A /* PagamentoDiversaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagamentoDiversaManager.swift; sourceTree = "<group>"; };
 		126FF36520CEEF880019BB9F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		126FF36820CEEF8B0019BB9F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		126FF36A20CEF0220019BB9F /* MesesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MesesVC.swift; sourceTree = "<group>"; };
@@ -121,6 +133,7 @@
 				120BB61E20D1829B00892E07 /* VeiculoProxy.swift */,
 				120BB62020D1A7B900892E07 /* PagamentoProxy.swift */,
 				124630D820D2E50B00917C6A /* PagamentoFixaProxy.swift */,
+				124630E420D322B100917C6A /* PagamentoDiversaProxy.swift */,
 			);
 			path = Proxy;
 			sourceTree = "<group>";
@@ -130,6 +143,7 @@
 			children = (
 				126FF37520CF02400019BB9F /* Mes.swift */,
 				120C3B0520D020630029C184 /* Grupo.swift */,
+				124630E220D31AAD00917C6A /* Pagamento.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -140,6 +154,7 @@
 				126FF37C20CF168E0019BB9F /* Date.swift */,
 				126FF38020CF43DA0019BB9F /* UIStoryboard.swift */,
 				120C3B1120D05CAE0029C184 /* UINib.swift */,
+				124630DC20D2F3C400917C6A /* JSON.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -179,6 +194,7 @@
 			children = (
 				126FF37720CF0FD30019BB9F /* MesManager.swift */,
 				126FF37220CF01AD0019BB9F /* GrupoManager.swift */,
+				124630E020D3110300917C6A /* PersistidoManager.swift */,
 				124630D020D2889500917C6A /* VersionadoManager.swift */,
 				124630D620D2AE9E00917C6A /* SincronizadoManager.swift */,
 				120BB60A20D1694A00892E07 /* UsuarioManager.swift */,
@@ -187,6 +203,8 @@
 				120BB61420D181D300892E07 /* FixaManager.swift */,
 				120BB61620D181DA00892E07 /* VeiculoManager.swift */,
 				124630CE20D279B700917C6A /* PagamentoFixaManager.swift */,
+				124630E620D3232A00917C6A /* PagamentoDiversaManager.swift */,
+				124630DE20D30AEB00917C6A /* RateioManager.swift */,
 				12ADCAB120CEE4AA0068824E /* Database.swift */,
 				12D5829D20CED5B60003B317 /* Mensal.xcdatamodeld */,
 			);
@@ -372,8 +390,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				126FF37620CF02400019BB9F /* Mes.swift in Sources */,
+				124630DF20D30AEB00917C6A /* RateioManager.swift in Sources */,
+				124630DD20D2F3C400917C6A /* JSON.swift in Sources */,
 				126FF37820CF0FD30019BB9F /* MesManager.swift in Sources */,
 				120BB60B20D1694A00892E07 /* UsuarioManager.swift in Sources */,
+				124630E720D3232A00917C6A /* PagamentoDiversaManager.swift in Sources */,
 				120BB60F20D1809800892E07 /* AppConfig.swift in Sources */,
 				12D5829F20CED5B60003B317 /* Mensal.xcdatamodeld in Sources */,
 				120BB61320D181CC00892E07 /* DiversaManager.swift in Sources */,
@@ -385,6 +406,7 @@
 				120BB61D20D1829300892E07 /* FixaProxy.swift in Sources */,
 				124630D520D29C5B00917C6A /* VersionadoProxy.swift in Sources */,
 				12ADCAB220CEE4AA0068824E /* Database.swift in Sources */,
+				124630E320D31AAD00917C6A /* Pagamento.swift in Sources */,
 				124630D720D2AE9E00917C6A /* SincronizadoManager.swift in Sources */,
 				126FF36B20CEF0220019BB9F /* MesesVC.swift in Sources */,
 				126FF37D20CF168E0019BB9F /* Date.swift in Sources */,
@@ -392,6 +414,7 @@
 				12D5829720CED5B60003B317 /* AppDelegate.swift in Sources */,
 				120BB60420D1354200892E07 /* Cache.swift in Sources */,
 				124630D120D2889500917C6A /* VersionadoManager.swift in Sources */,
+				124630E520D322B100917C6A /* PagamentoDiversaProxy.swift in Sources */,
 				120C3B0820D027C00029C184 /* MesCell.swift in Sources */,
 				120BB62120D1A7B900892E07 /* PagamentoProxy.swift in Sources */,
 				126FF37320CF01AD0019BB9F /* GrupoManager.swift in Sources */,
@@ -405,6 +428,7 @@
 				120BB61920D1828000892E07 /* DiariaProxy.swift in Sources */,
 				120C3B0620D020630029C184 /* Grupo.swift in Sources */,
 				120BB61520D181D300892E07 /* FixaManager.swift in Sources */,
+				124630E120D3110300917C6A /* PersistidoManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

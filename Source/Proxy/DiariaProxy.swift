@@ -1,16 +1,17 @@
 import Foundation
 import SwiftyJSON
+import CoreData
 
 class DiariaResponse: VersionadoResponse<Diaria> {
     var valor: Double
     
     required init(_ json: JSON) {
-        self.valor = json["valor"].double!
+        valor = json["valor"].double!
         super.init(json)
     }
     
-    override func preenche(_ persistido: Diaria) {
-        super.preenche(persistido)
+    override func preenche(_ persistido: Diaria, _ context: NSManagedObjectContext) {
+        super.preenche(persistido, context)
         persistido.valor = valor
     }
 }

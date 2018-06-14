@@ -12,14 +12,14 @@ fileprivate class Pagamentos {
         self.mes = mes
     }
     
-//    lazy var fixas        = { Cache<[Pagamento]> { PagamentoManager.obter(.fixas,        self.mes, persistentContainer.viewContext) }}()
-//    lazy var diversas     = { Cache<[Pagamento]> { PagamentoManager.obter(.diversas,     self.mes, persistentContainer.viewContext) }}()
+    lazy var fixas = { Cache<[PagamentoFixa]> { PagamentoFixaManager().obterTodos(persistentContainer.viewContext) }}()
+    lazy var diversas = { Cache<[PagamentoDiversa]> { PagamentoDiversaManager().obterTodos(persistentContainer.viewContext) }}()
 //    lazy var diaristas    = { Cache<[Pagamento]> { PagamentoManager.obter(.diaristas,    self.mes, persistentContainer.viewContext) }}()
 //    lazy var combustiveis = { Cache<[Pagamento]> { PagamentoManager.obter(.combustiveis, self.mes, persistentContainer.viewContext) }}()
     
     func clear() {
-//        fixas.clear()
-//        diversas.clear()
+        fixas.clear()
+        diversas.clear()
 //        diaristas.clear()
 //        combustiveis.clear()
     }
@@ -84,15 +84,24 @@ class MesVC: UITableViewController {
         super.viewDidLoad()
         
         tableView.register(UINib.mesHeader, forHeaderFooterViewReuseIdentifier: mesHeaderId)
-
-        FixaProxy().obterTodos { $0.forEach { print($0.nome) } }
-        PagamentoFixaProxy().obterTodos { $0.forEach { print($0.data) } }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         title = mes.nomeCompleto
+        
+        ////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////
+        
+        PagamentoFixaManager().sincronizar() {
+            self.tableView.reloadData()
+        }
+        
+        PagamentoDiversaManager().sincronizar() {
+            self.tableView.reloadData()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -143,7 +152,9 @@ class MesVC: UITableViewController {
         switch section {
         case 0:
             return fixas.values.count
-            
+        case 1:
+            return pagamentos.diversas.values.count
+
         default:
             return 0
         }
@@ -158,10 +169,16 @@ class MesVC: UITableViewController {
             
             cell.diaLabel.text = ("0" + String(fixa.vencimento)).suffix(2).description
             cell.descricaoLabel.text = fixa.nome
-            cell.valorLabel.text = ""
+            cell.valorLabel.text = pagamentos.fixas.values.first(where: { $0.fixa?.nome == fixa.nome })?.total.description
             
-//            print(pagamentos.fixas.values.first(where: { $0.fixa?.nome == fixa.nome })?.id)
+//            pagamentos.fixas.values.fi
+        case 1:
+            let pagamento = pagamentos.diversas.values[indexPath.row]
             
+            cell.diaLabel.text = ("0" + String(pagamento.data?.day ?? 0)).suffix(2).description
+            cell.descricaoLabel.text = pagamento.diversa?.nome
+            cell.valorLabel.text = pagamento.total.description
+
         default:
             break
         }

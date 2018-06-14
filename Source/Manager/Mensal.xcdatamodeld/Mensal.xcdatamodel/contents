@@ -2,20 +2,20 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17F77" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Diaria" representedClassName="Diaria" parentEntity="Tipo" syncable="YES" codeGenerationType="class">
         <attribute name="valor" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="pagamentos" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PagamentoDiarista" inverseName="diaria" inverseEntity="PagamentoDiarista" syncable="YES"/>
+        <relationship name="pagamentos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PagamentoDiarista" inverseName="diaria" inverseEntity="PagamentoDiarista" syncable="YES"/>
     </entity>
     <entity name="Diversa" representedClassName="Diversa" parentEntity="Tipo" syncable="YES" codeGenerationType="class">
         <attribute name="nome" attributeType="String" syncable="YES"/>
-        <relationship name="pagamentos" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PagamentoDiversa" inverseName="diversa" inverseEntity="PagamentoDiversa" syncable="YES"/>
+        <relationship name="pagamentos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PagamentoDiversa" inverseName="diversa" inverseEntity="PagamentoDiversa" syncable="YES"/>
     </entity>
     <entity name="Fixa" representedClassName="Fixa" parentEntity="Tipo" syncable="YES" codeGenerationType="class">
         <attribute name="nome" attributeType="String" syncable="YES"/>
         <attribute name="vencimento" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="pagamentos" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PagamentoFixa" inverseName="fixa" inverseEntity="PagamentoFixa" syncable="YES"/>
+        <relationship name="pagamentos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PagamentoFixa" inverseName="fixa" inverseEntity="PagamentoFixa" syncable="YES"/>
     </entity>
     <entity name="Pagamento" representedClassName="Pagamento" parentEntity="Versionado" syncable="YES" codeGenerationType="class">
         <attribute name="data" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <relationship name="rateios" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Rateio" inverseName="pagamento" inverseEntity="Rateio" syncable="YES"/>
+        <relationship name="valores" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Rateio" inverseName="pagamento" inverseEntity="Rateio" syncable="YES"/>
     </entity>
     <entity name="PagamentoCombustivel" representedClassName="PagamentoCombustivel" parentEntity="Pagamento" syncable="YES" codeGenerationType="class">
         <attribute name="litro" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
@@ -34,17 +34,17 @@
     </entity>
     <entity name="Rateio" representedClassName="Rateio" syncable="YES" codeGenerationType="class">
         <attribute name="valor" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="pagamento" maxCount="1" deletionRule="Nullify" destinationEntity="Pagamento" inverseName="rateios" inverseEntity="Pagamento" syncable="YES"/>
+        <relationship name="pagamento" maxCount="1" deletionRule="Nullify" destinationEntity="Pagamento" inverseName="valores" inverseEntity="Pagamento" syncable="YES"/>
         <relationship name="usuario" maxCount="1" deletionRule="Nullify" destinationEntity="Usuario" inverseName="rateios" inverseEntity="Usuario" syncable="YES"/>
     </entity>
     <entity name="Tipo" representedClassName="Tipo" isAbstract="YES" parentEntity="Versionado" syncable="YES" codeGenerationType="class"/>
     <entity name="Usuario" representedClassName="Usuario" parentEntity="Versionado" syncable="YES" codeGenerationType="class">
         <attribute name="nome" attributeType="String" syncable="YES"/>
-        <relationship name="rateios" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Rateio" inverseName="usuario" inverseEntity="Rateio" syncable="YES"/>
+        <relationship name="rateios" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Rateio" inverseName="usuario" inverseEntity="Rateio" syncable="YES"/>
     </entity>
     <entity name="Veiculo" representedClassName="Veiculo" parentEntity="Tipo" syncable="YES" codeGenerationType="class">
         <attribute name="nome" attributeType="String" syncable="YES"/>
-        <relationship name="pagamentos" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PagamentoCombustivel" inverseName="veiculo" inverseEntity="PagamentoCombustivel" syncable="YES"/>
+        <relationship name="pagamentos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PagamentoCombustivel" inverseName="veiculo" inverseEntity="PagamentoCombustivel" syncable="YES"/>
     </entity>
     <entity name="Versionado" representedClassName="Versionado" isAbstract="YES" syncable="YES" codeGenerationType="class">
         <attribute name="atualizacaoLocal" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -57,9 +57,9 @@
         <element name="Diaria" positionX="-423" positionY="-36" width="128" height="73"/>
         <element name="Diversa" positionX="-425" positionY="90" width="128" height="73"/>
         <element name="Fixa" positionX="-380" positionY="333" width="128" height="88"/>
-        <element name="Pagamento" positionX="-891" positionY="-30" width="128" height="75"/>
+        <element name="Pagamento" positionX="-891" positionY="-30" width="128" height="73"/>
         <element name="Rateio" positionX="-846" positionY="-216" width="128" height="90"/>
-        <element name="Usuario" positionX="-632" positionY="-219" width="128" height="75"/>
+        <element name="Usuario" positionX="-632" positionY="-219" width="128" height="73"/>
         <element name="Veiculo" positionX="-425" positionY="213" width="128" height="73"/>
         <element name="Versionado" positionX="-126" positionY="-252" width="128" height="120"/>
         <element name="PagamentoDiarista" positionX="-684" positionY="18" width="128" height="60"/>

@@ -1,4 +1,5 @@
 import Foundation
+import CoreData
 import Alamofire
 import AlamofireSwiftyJSON
 import SwiftyJSON
@@ -7,11 +8,11 @@ class VersionadoResponse<E: Versionado> {
     var id: UUID
     
     required init(_ json: JSON) {
-        self.id = UUID(uuidString: json["id"].string!)!
+        id = json["id"].uuid!
     }
     
-    func preenche(_ persistido: E) {
-        persistido.id = self.id
+    func preenche(_ persistido: E, _ context: NSManagedObjectContext) {
+        persistido.id = id
     }
 }
 

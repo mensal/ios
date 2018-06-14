@@ -1,18 +1,19 @@
 import Foundation
 import SwiftyJSON
+import CoreData
 
 class FixaResponse: VersionadoResponse<Fixa> {
     var nome: String
     var vencimento: Int
 
     required init(_ json: JSON) {
-        self.nome       = json["nome"].string!
-        self.vencimento = json["vencimento"].int!
+        nome       = json["nome"].string!
+        vencimento = json["vencimento"].int!
         super.init(json)
     }
 
-    override func preenche(_ persistido: Fixa) {
-        super.preenche(persistido)
+    override func preenche(_ persistido: Fixa, _ context: NSManagedObjectContext) {
+        super.preenche(persistido, context)
         persistido.nome = nome
         persistido.vencimento = Int16(vencimento)
     }

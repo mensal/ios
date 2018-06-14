@@ -1,21 +1,17 @@
 import Foundation
 import SwiftyJSON
-
-import Foundation
-import Alamofire
-import AlamofireSwiftyJSON
-import SwiftyJSON
+import CoreData
 
 class DiversaResponse: VersionadoResponse<Diversa> {
     var nome: String
     
     required init(_ json: JSON) {
-        self.nome = json["nome"].string!
+        nome = json["nome"].string!
         super.init(json)
     }
 
-    override func preenche(_ persistido: Diversa) {
-        super.preenche(persistido)
+    override func preenche(_ persistido: Diversa, _ context: NSManagedObjectContext) {
+        super.preenche(persistido, context)
         persistido.nome = nome
     }
 }

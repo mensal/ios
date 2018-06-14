@@ -1,16 +1,17 @@
 import Foundation
 import SwiftyJSON
+import CoreData
 
 class UsuarioResponse: VersionadoResponse<Usuario> {
     var nome: String
     
     required init(_ json: JSON) {
-        self.nome = json["nome"].string!
+        nome = json["nome"].string!
         super.init(json)
     }
 
-    override func preenche(_ persistido: Usuario) {
-        super.preenche(persistido)
+    override func preenche(_ persistido: Usuario, _ context: NSManagedObjectContext) {
+        super.preenche(persistido, context)
         persistido.nome = nome
     }
 }

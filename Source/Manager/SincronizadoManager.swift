@@ -6,12 +6,13 @@ class SincronizadoManager<E: Versionado, S: VersionadoResponse<E>, P: Versionado
     
     // MARK: - Públicos
 
-    func sincronizar() {
+    func sincronizar(_ completion: (() -> ())? = nil) {
         P().obterTodos { resultado in
             let context = persistentContainer.viewContext
-            resultado.forEach { $0.preenche(self.obterOuNovo($0.id, context)) }
+            resultado.forEach { $0.preenche(self.obterOuNovo($0.id, context), context) }
             
             try? context.save()
+            completion?()
         }
     }
 }

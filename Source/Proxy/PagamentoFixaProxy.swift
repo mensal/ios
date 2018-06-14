@@ -1,13 +1,11 @@
 import Foundation
-import SwiftyJSON
+import CoreData
 
 class PagamentoFixaResponse: PagamentoResponse<PagamentoFixa> {
     
-    override func preenche(_ persistido: PagamentoFixa) {
-        super.preenche(persistido)
-        let context = persistentContainer.viewContext
-        
-        persistido.fixa = FixaManager().obter(self.tipo.id, context)
+    override func preenche(_ persistido: PagamentoFixa, _ context: NSManagedObjectContext) {
+        super.preenche(persistido, context)
+        persistido.fixa = FixaManager().obter(tipo.id, context)
     }
 }
 
