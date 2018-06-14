@@ -4,12 +4,8 @@ import AlamofireSwiftyJSON
 import SwiftyJSON
 
 struct PagamentoResponse {
-    
-    init() {
-    }
-    
+    init() { }
     var id: UUID!
-    
     var nome: String!
 }
 
@@ -22,14 +18,14 @@ class PagamentoProxy {
     
     // MARK: - Estáticos
 
-    static func obter(_ grupo: Grupo, _ mes: Mes, _ callback: @escaping ([Pagamento]) -> ()) {
-//        let headers = AppConfig.shared.authHeader
+    static func obter(_ grupo: Grupo, _ mes: Mes, _ callback: @escaping ([PagamentoResponse]) -> ()) {
+        let headers = AppConfig.shared.authHeader
 //
-//        Alamofire.request(
-//            AppConfig.shared.apiBaseUrl + "/tipo/combustiveis?ano=0&mes=0",
-//            method: .get,
-//            headers: headers).responseSwiftyJSON{ response in
-//                var resultado = [VeiculoResponse]()
+        Alamofire.request(
+            AppConfig.shared.apiBaseUrl + "/pagamento/\(grupo.id!)?ano=\(mes.ano!)&mes=\(mes.ordinal!)",
+            method: .get,
+            headers: headers).responseSwiftyJSON{ response in
+                var resultado = [PagamentoResponse]()
 //
 //                response.result.value?.forEach { _, json in
 //                    var res = VeiculoResponse()
@@ -40,7 +36,7 @@ class PagamentoProxy {
 //                    resultado.append(res)
 //                }
 //
-//                callback(resultado)
-//        }
+                callback(resultado)
+        }
     }
 }

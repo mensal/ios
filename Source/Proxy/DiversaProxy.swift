@@ -4,12 +4,8 @@ import AlamofireSwiftyJSON
 import SwiftyJSON
 
 struct DiversaResponse {
-    
-    init() {
-    }
-    
+    init() { }
     var id: UUID!
-    
     var nome: String!
 }
 

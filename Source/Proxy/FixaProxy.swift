@@ -4,14 +4,9 @@ import AlamofireSwiftyJSON
 import SwiftyJSON
 
 struct FixaResponse {
-    
-    init() {
-    }
-    
+    init() { }
     var id: UUID!
-    
     var vencimento: Int!
-    
     var nome: String!
 }
 

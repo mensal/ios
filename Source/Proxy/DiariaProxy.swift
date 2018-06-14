@@ -4,12 +4,8 @@ import AlamofireSwiftyJSON
 import SwiftyJSON
 
 struct DiariaResponse {
-    
-    init() {
-    }
-    
+    init() { }
     var id: UUID!
-    
     var valor: Double!
 }
 

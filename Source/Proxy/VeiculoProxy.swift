@@ -4,12 +4,8 @@ import AlamofireSwiftyJSON
 import SwiftyJSON
 
 struct VeiculoResponse {
-    
-    init() {
-    }
-    
+    init() { }
     var id: UUID!
-    
     var nome: String!
 }
 

@@ -5,12 +5,8 @@ import SwiftyJSON
 import CoreData
 
 struct UsuarioResponse {
-    
-    init() {
-    }
-    
+    init() { }
     var id: UUID!
-    
     var nome: String!
 }
 
