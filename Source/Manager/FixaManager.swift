@@ -1,7 +1,7 @@
 import Foundation
 import CoreData
 
-class FixaManager: SincronizadoManager<FixaResponse, FixaProxy> {
+class FixaManager: SincronizadoManager<Fixa, FixaResponse, FixaProxy> {
     
     // MARK: - Construtores
     

@@ -1,26 +1,24 @@
 import Foundation
 import SwiftyJSON
 
-class FixaResponse: VersionadoResponse {
-    typealias E = Fixa
-    
-    var id: UUID
+class FixaResponse: VersionadoResponse<Fixa> {
     var nome: String
     var vencimento: Int
 
     required init(_ json: JSON) {
-        self.id         = UUID(uuidString: json["id"].string!)!
         self.nome       = json["nome"].string!
         self.vencimento = json["vencimento"].int!
+        super.init(json)
     }
 
-    func preenche(_ persistido: Fixa) {
+    override func preenche(_ persistido: Fixa) {
+        super.preenche(persistido)
         persistido.nome = nome
         persistido.vencimento = Int16(vencimento)
     }
 }
 
-class FixaProxy: VersionadoProxy<FixaResponse> {
+class FixaProxy: VersionadoProxy<Fixa, FixaResponse> {
     
     // MARK: - Construtores
 

@@ -1,23 +1,21 @@
 import Foundation
 import SwiftyJSON
 
-class UsuarioResponse: VersionadoResponse {
-    typealias E = Usuario
-    
-    var id: UUID
+class UsuarioResponse: VersionadoResponse<Usuario> {
     var nome: String
     
     required init(_ json: JSON) {
-        self.id   = UUID(uuidString: json["id"].string!)!
         self.nome = json["nome"].string!
+        super.init(json)
     }
 
-    func preenche(_ persistido: Usuario) {
+    override func preenche(_ persistido: Usuario) {
+        super.preenche(persistido)
         persistido.nome = nome
     }
 }
 
-class UsuarioProxy: VersionadoProxy<UsuarioResponse> {
+class UsuarioProxy: VersionadoProxy<Usuario, UsuarioResponse> {
     
     // MARK: - Construtores
     

@@ -84,17 +84,15 @@ class MesVC: UITableViewController {
         super.viewDidLoad()
         
         tableView.register(UINib.mesHeader, forHeaderFooterViewReuseIdentifier: mesHeaderId)
-        
-        
+
         FixaProxy().obterTodos { $0.forEach { print($0.nome) } }
+        PagamentoFixaProxy().obterTodos { $0.forEach { print($0.data) } }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         title = mes.nomeCompleto
-        
-//        PagamentoManager.sincronizar(.diversas, mes)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

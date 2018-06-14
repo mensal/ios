@@ -1,11 +1,34 @@
 import Foundation
 import SwiftyJSON
+import SwiftDate
 
-class PagamentoResponse {
-    var id: UUID!
-    var nome: String!
-    var tipo: IdResponse!
-    var valores: [RateioResponse]!
+class PagamentoResponse<E: Pagamento> : VersionadoResponse<E> {
+    var data: Date
+    var tipo: IdResponse
+    var valores: [RateioResponse]
+
+    required init(_ json: JSON) {
+        self.data    = Date.parse(stringToDate: json["data"].string)!
+        self.tipo    = IdResponse()
+        self.tipo.id = UUID(uuidString: json["tipo"]["id"].string!)!
+        self.valores = [RateioResponse]()
+        
+        json["valores"].forEach { _, json in
+            let rateio = RateioResponse()
+            
+            rateio.valor      = json["valor"].double
+            rateio.usuario    = IdResponse()
+            rateio.usuario.id = UUID(uuidString: json["usuario"]["id"].string!)!
+        }
+
+        super.init(json)
+    }
+    
+    override func preenche(_ persistido: E) {
+        super.preenche(persistido)
+        
+        persistido.data = self.data
+    }
 }
 
 class IdResponse {
@@ -15,38 +38,4 @@ class IdResponse {
 class RateioResponse {
     var valor: Double!
     var usuario: IdResponse!
-}
-
-class PagamentoProxy {
-    
-    // MARK: - Construtores
-    
-//    private init() {
-//    }
-    
-    // MARK: - Estáticos
-
-//    static func obter(_ grupoId: GrupoId, _ mes: Mes, _ callback: @escaping ([PagamentoResponse]) -> ()) {
-//        let headers = AppConfig.shared.authHeader
-////
-//        Alamofire.request(
-//            AppConfig.shared.apiBaseUrl + "/pagamento/\(grupoId.rawValue)?ano=\(mes.ano!)&mes=\(mes.ordinal!)",
-//            method: .get,
-//            headers: headers).responseSwiftyJSON{ response in
-//                let resultado = [PagamentoResponse]()
-//
-//                print(response)
-////
-////                response.result.value?.forEach { _, json in
-////                    var res = VeiculoResponse()
-////
-////                    res.id = UUID(uuidString: json["id"].string!)
-////                    res.nome = json["veiculo"].string!
-////
-////                    resultado.append(res)
-////                }
-////
-//                callback(resultado)
-//        }
-//    }
 }

@@ -5,11 +5,19 @@ extension Date {
 
     // MARK: - Conveniência
 
-    public static func currentYear() -> Int {
+    static func parse(stringToDate string: String?) -> Date? {
+        if let string = string {
+            return DateInRegion(string: string, format: .iso8601Auto)?.absoluteDate
+        }
+        
+        return nil
+    }
+    
+    static func currentYear() -> Int {
         return Date().year
     }
 
-    public static func currentMonth() -> Int {
+    static func currentMonth() -> Int {
         return Date().month
     }
     

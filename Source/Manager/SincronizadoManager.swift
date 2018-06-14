@@ -2,7 +2,7 @@ import Foundation
 import CoreData
 import AlecrimCoreData
 
-class SincronizadoManager<S: VersionadoResponse, P: VersionadoProxy<S>>: VersionadoManager<S.E> {
+class SincronizadoManager<E: Versionado, S: VersionadoResponse<E>, P: VersionadoProxy<E, S>>: VersionadoManager<E> {
     
     // MARK: - Públicos
 

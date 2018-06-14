@@ -6,23 +6,21 @@ import Alamofire
 import AlamofireSwiftyJSON
 import SwiftyJSON
 
-class DiversaResponse: VersionadoResponse {
-    typealias E = Diversa
-    
-    var id: UUID
+class DiversaResponse: VersionadoResponse<Diversa> {
     var nome: String
     
     required init(_ json: JSON) {
-        self.id   = UUID(uuidString: json["id"].string!)!
         self.nome = json["nome"].string!
+        super.init(json)
     }
 
-    func preenche(_ persistido: Diversa) {
+    override func preenche(_ persistido: Diversa) {
+        super.preenche(persistido)
         persistido.nome = nome
     }
 }
 
-class DiversaProxy: VersionadoProxy<DiversaResponse> {
+class DiversaProxy: VersionadoProxy<Diversa, DiversaResponse> {
     
     // MARK: - Construtores
     

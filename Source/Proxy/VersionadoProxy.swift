@@ -3,16 +3,19 @@ import Alamofire
 import AlamofireSwiftyJSON
 import SwiftyJSON
 
-protocol VersionadoResponse {
-    associatedtype E : Versionado
+class VersionadoResponse<E: Versionado> {
+    var id: UUID
     
-    var id: UUID {get set}
-    init(_ json: JSON)
+    required init(_ json: JSON) {
+        self.id = UUID(uuidString: json["id"].string!)!
+    }
     
-    func preenche(_ persistido: E)
+    func preenche(_ persistido: E) {
+        persistido.id = self.id
+    }
 }
 
-class VersionadoProxy<S: VersionadoResponse> {
+class VersionadoProxy<E:  Versionado, S: VersionadoResponse<E>> {
     
     private let endpoint: String!
     
