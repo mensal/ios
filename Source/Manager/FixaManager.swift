@@ -9,7 +9,7 @@ class FixaManager: SincronizadoManager<Fixa, FixaResponse, FixaProxy> {
         super.init([NSSortDescriptor(key: "vencimento", ascending: true)])
     }
 
-    // MARK: - Declarados
+    // MARK: - Públicos
     
     func obterPagamentos(_ mes: Mes, _ context: NSManagedObjectContext) -> [Pagamento] {
         return [Pagamento]()

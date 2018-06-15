@@ -9,7 +9,7 @@ class PagamentoCombustivelResponse: PagamentoResponse<PagamentoCombustivel> {
     }
 }
 
-class PagamentoCombustivelProxy: VersionadoProxy<PagamentoCombustivel, PagamentoCombustivelResponse> {
+class PagamentoCombustivelProxy: PagamentoProxy<PagamentoCombustivel, PagamentoCombustivelResponse> {
     
     // MARK: - Construtores
     

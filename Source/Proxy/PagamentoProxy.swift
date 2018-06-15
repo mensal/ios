@@ -52,3 +52,7 @@ class RateioResponse {
     var valor: Double!
     var usuario: IdResponse!
 }
+
+class PagamentoProxy<E: Pagamento, S: PagamentoResponse<E>>: VersionadoProxy<E, S> {
+    
+}

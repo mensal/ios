@@ -9,7 +9,7 @@ class PagamentoDiversaResponse: PagamentoResponse<PagamentoDiversa> {
     }
 }
 
-class PagamentoDiversaProxy: VersionadoProxy<PagamentoDiversa, PagamentoDiversaResponse> {
+class PagamentoDiversaProxy: PagamentoProxy<PagamentoDiversa, PagamentoDiversaResponse> {
     
     // MARK: - Construtores
     

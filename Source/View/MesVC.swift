@@ -12,10 +12,10 @@ fileprivate class Pagamentos {
         self.mes = mes
     }
     
-    lazy var fixas = { Cache<[PagamentoFixa]> { PagamentoFixaManager().obterTodos(persistentContainer.viewContext) }}()
-    lazy var diversas = { Cache<[PagamentoDiversa]> { PagamentoDiversaManager().obterTodos(persistentContainer.viewContext) }}()
-    lazy var diaristas = { Cache<[PagamentoDiarista]> { PagamentoDiaristaManager().obterTodos(persistentContainer.viewContext) }}()
-    lazy var combustiveis = { Cache<[PagamentoCombustivel]> { PagamentoCombustivelManager().obterTodos(persistentContainer.viewContext) }}()
+    lazy var fixas = { Cache<[PagamentoFixa]> { PagamentoFixaManager().obter(self.mes, persistentContainer.viewContext) }}()
+    lazy var diversas = { Cache<[PagamentoDiversa]> { PagamentoDiversaManager().obter(self.mes, persistentContainer.viewContext) }}()
+    lazy var diaristas = { Cache<[PagamentoDiarista]> { PagamentoDiaristaManager().obter(self.mes, persistentContainer.viewContext) }}()
+    lazy var combustiveis = { Cache<[PagamentoCombustivel]> { PagamentoCombustivelManager().obter(self.mes, persistentContainer.viewContext) }}()
     
     func clear() {
         fixas.clear()
@@ -94,6 +94,20 @@ class MesVC: UITableViewController {
         ////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////
+        
+//        let inicio = DateInRegion.init(string: "\(mes.ano!)-\(mes.stringOrdinal!)-01", format: .iso8601Auto, fromRegion: .GMT())!
+        
+//        let inicio = date.startOf(component: .month)
+//        let fim = inicio.endOf(component: .month)
+        
+//        let inicio = date.at(unit: .day, value: 1)?.absoluteDate
+//        let fim = date.nextMonth.at(unit: .day, value: 1)
+//
+        print(mes.inicio!)
+        print(mes.fim!)
+        
+//        x.nextMonth
+        
         
         let context = persistentContainer.viewContext
         
@@ -196,21 +210,21 @@ class MesVC: UITableViewController {
         case 1:
             let pagamento = pagamentos.diversas.cache[indexPath.row]
             
-            cell.diaLabel.text = ("0" + String(pagamento.data?.day ?? 0)).suffix(2).description
+            cell.diaLabel.text = pagamento.data?.stringGMTDay
             cell.descricaoLabel.text = pagamento.diversa?.nome
             cell.valorLabel.text = pagamento.total.description
 
         case 2:
             let pagamento = pagamentos.diaristas.cache[indexPath.row]
-            
-            cell.diaLabel.text = ("0" + String(pagamento.data?.day ?? 0)).suffix(2).description
+
+            cell.diaLabel.text = pagamento.data?.stringGMTDay
             cell.descricaoLabel.text = ""
             cell.valorLabel.text = pagamento.total.description
 
         case 3:
             let pagamento = pagamentos.combustiveis.cache[indexPath.row]
             
-            cell.diaLabel.text = ("0" + String(pagamento.data?.day ?? 0)).suffix(2).description
+            cell.diaLabel.text = pagamento.data?.stringGMTDay
             cell.descricaoLabel.text = pagamento.veiculo?.nome
             cell.valorLabel.text = pagamento.total.description
 

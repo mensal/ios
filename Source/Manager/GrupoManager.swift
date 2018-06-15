@@ -14,7 +14,7 @@ class GrupoManager {
     private init() {
     }
 
-    // MARK: - Estáticos
+    // MARK: - Públicos
 
     static func obterTodos() -> [Grupo] {
         return grupos

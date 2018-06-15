@@ -9,7 +9,7 @@ class PagamentoFixaResponse: PagamentoResponse<PagamentoFixa> {
     }
 }
 
-class PagamentoFixaProxy: VersionadoProxy<PagamentoFixa, PagamentoFixaResponse> {
+class PagamentoFixaProxy: PagamentoProxy<PagamentoFixa, PagamentoFixaResponse> {
     
     // MARK: - Construtores
     

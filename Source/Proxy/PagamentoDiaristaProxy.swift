@@ -9,7 +9,7 @@ class PagamentoDiaristaResponse: PagamentoResponse<PagamentoDiarista> {
     }
 }
 
-class PagamentoDiaristaProxy: VersionadoProxy<PagamentoDiarista, PagamentoDiaristaResponse> {
+class PagamentoDiaristaProxy: PagamentoProxy<PagamentoDiarista, PagamentoDiaristaResponse> {
     
     // MARK: - Construtores
     

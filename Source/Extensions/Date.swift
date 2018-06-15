@@ -5,9 +5,27 @@ extension Date {
 
     // MARK: - Conveniência
 
+    var gmtDay: Int? {
+        get {
+            return self.inGMTRegion().day
+        }
+    }
+
+    var stringGMTDay: String? {
+        get {
+            return self.gmtDay != nil ? ("0" + String(self.gmtDay!)).suffix(2).description : nil
+        }
+    }
+
+    var gmt: Date? {
+        get {
+            return self.inGMTRegion().absoluteDate
+        }
+    }
+
     static func parse(stringToDate string: String?) -> Date? {
         if let string = string {
-            return DateInRegion(string: string, format: .custom("yyyy-mm-dd"))?.absoluteDate
+            return DateInRegion(string: string, format: .iso8601Auto, fromRegion: .GMT())?.toRegion(.GMT()).absoluteDate
         }
         
         return nil

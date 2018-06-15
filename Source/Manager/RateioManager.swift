@@ -8,6 +8,7 @@ class RateioManager: PersistidoManager<Rateio> {
     init() {
         super.init([NSSortDescriptor(key: "usuario.nome", ascending: true)])
     }
+    
     // MARK: - Públicos
     
     func obterOuNovo(_ pagamento: Pagamento, _ usuario: Usuario, _ context: NSManagedObjectContext) -> Rateio {

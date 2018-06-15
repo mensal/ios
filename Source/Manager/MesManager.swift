@@ -12,7 +12,7 @@ class MesManager {
     private init() {
     }
     
-    // MARK: - Estáticos
+    // MARK: - Públicos
 
     static func obterAnos() -> [Int] {
         return (anoInicial...Date.currentYear()).map { $0 }
