@@ -112,14 +112,17 @@ class MesVC: UITableViewController {
         let context = persistentContainer.viewContext
         
         UsuarioManager().sincronizar(context) {
+            
             FixaManager().sincronizar(context) {
                 DiversaManager().sincronizar(context) {
                     DiariaManager().sincronizar(context) {
                         VeiculoManager().sincronizar(context) {
+                            
                             PagamentoFixaManager().sincronizar(context) {
                                 PagamentoDiversaManager().sincronizar(context) {
                                     PagamentoDiaristaManager().sincronizar(context) {
                                         PagamentoCombustivelManager().sincronizar(context) {
+                                            
                                             self.fixas.clear()
                                             self.pagamentos.clear()
                                             self.tableView.reloadData()
@@ -205,28 +208,28 @@ class MesVC: UITableViewController {
             
             cell.diaLabel.text = ("0" + String(fixa.vencimento)).suffix(2).description
             cell.descricaoLabel.text = fixa.nome
-            cell.valorLabel.text = pagamentos.fixas.cache.first(where: { $0.fixa?.nome == fixa.nome })?.total.description
+            cell.valorLabel.text = pagamentos.fixas.cache.first(where: { $0.fixa?.nome == fixa.nome })?.stringTotal
             
         case 1:
             let pagamento = pagamentos.diversas.cache[indexPath.row]
             
             cell.diaLabel.text = pagamento.data?.stringGMTDay
             cell.descricaoLabel.text = pagamento.diversa?.nome
-            cell.valorLabel.text = pagamento.total.description
+            cell.valorLabel.text = pagamento.stringTotal
 
         case 2:
             let pagamento = pagamentos.diaristas.cache[indexPath.row]
 
             cell.diaLabel.text = pagamento.data?.stringGMTDay
             cell.descricaoLabel.text = ""
-            cell.valorLabel.text = pagamento.total.description
+            cell.valorLabel.text = pagamento.stringTotal
 
         case 3:
             let pagamento = pagamentos.combustiveis.cache[indexPath.row]
             
             cell.diaLabel.text = pagamento.data?.stringGMTDay
             cell.descricaoLabel.text = pagamento.veiculo?.nome
-            cell.valorLabel.text = pagamento.total.description
+            cell.valorLabel.text = pagamento.stringTotal
 
         default:
             break
