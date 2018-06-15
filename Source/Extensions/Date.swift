@@ -7,6 +7,14 @@ extension Date {
 
     static func parse(stringToDate string: String?) -> Date? {
         if let string = string {
+            return DateInRegion(string: string, format: .custom("yyyy-mm-dd"))?.absoluteDate
+        }
+        
+        return nil
+    }
+    
+    static func parse(stringToTimestamp string: String?) -> Date? {
+        if let string = string {
             return DateInRegion(string: string, format: .iso8601Auto)?.absoluteDate
         }
         

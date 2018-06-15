@@ -26,7 +26,7 @@
         <relationship name="diaria" maxCount="1" deletionRule="Nullify" destinationEntity="Diaria" inverseName="pagamentos" inverseEntity="Diaria" syncable="YES"/>
     </entity>
     <entity name="PagamentoDiversa" representedClassName="PagamentoDiversa" parentEntity="Pagamento" syncable="YES" codeGenerationType="class">
-        <attribute name="observacao" attributeType="String" syncable="YES"/>
+        <attribute name="observacao" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="diversa" maxCount="1" deletionRule="Nullify" destinationEntity="Diversa" inverseName="pagamentos" inverseEntity="Diversa" syncable="YES"/>
     </entity>
     <entity name="PagamentoFixa" representedClassName="PagamentoFixa" parentEntity="Pagamento" syncable="YES" codeGenerationType="class">
@@ -58,14 +58,14 @@
         <element name="Diversa" positionX="-425" positionY="90" width="128" height="73"/>
         <element name="Fixa" positionX="-380" positionY="333" width="128" height="88"/>
         <element name="Pagamento" positionX="-891" positionY="-30" width="128" height="73"/>
+        <element name="PagamentoCombustivel" positionX="-657" positionY="225" width="128" height="90"/>
+        <element name="PagamentoDiarista" positionX="-684" positionY="18" width="128" height="60"/>
+        <element name="PagamentoDiversa" positionX="-657" positionY="114" width="128" height="75"/>
+        <element name="PagamentoFixa" positionX="-722" positionY="360" width="128" height="60"/>
         <element name="Rateio" positionX="-846" positionY="-216" width="128" height="90"/>
+        <element name="Tipo" positionX="-155" positionY="72" width="128" height="43"/>
         <element name="Usuario" positionX="-632" positionY="-219" width="128" height="73"/>
         <element name="Veiculo" positionX="-425" positionY="213" width="128" height="73"/>
         <element name="Versionado" positionX="-126" positionY="-252" width="128" height="120"/>
-        <element name="PagamentoDiarista" positionX="-684" positionY="18" width="128" height="60"/>
-        <element name="PagamentoCombustivel" positionX="-657" positionY="225" width="128" height="90"/>
-        <element name="PagamentoFixa" positionX="-722" positionY="360" width="128" height="60"/>
-        <element name="PagamentoDiversa" positionX="-657" positionY="114" width="128" height="75"/>
-        <element name="Tipo" positionX="-155" positionY="72" width="128" height="43"/>
     </elements>
 </model>

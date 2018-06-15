@@ -15,7 +15,7 @@ class MesesVC: UITableViewController {
     }
     
     private func obterMeses(_ section: Int) -> [Mes] {
-        return MesManager.extrairMeses(meses.values, ano: converterAno(section))
+        return MesManager.extrairMeses(meses.cache, ano: converterAno(section))
     }
     
     private func obterMes(_ indexPath: IndexPath?) -> Mes? {

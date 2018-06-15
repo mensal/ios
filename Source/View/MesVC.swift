@@ -14,7 +14,7 @@ fileprivate class Pagamentos {
     
     lazy var fixas = { Cache<[PagamentoFixa]> { PagamentoFixaManager().obterTodos(persistentContainer.viewContext) }}()
     lazy var diversas = { Cache<[PagamentoDiversa]> { PagamentoDiversaManager().obterTodos(persistentContainer.viewContext) }}()
-    lazy var diaristas    = { Cache<[PagamentoDiarista]> { PagamentoDiaristaManager().obterTodos(persistentContainer.viewContext) }}()
+    lazy var diaristas = { Cache<[PagamentoDiarista]> { PagamentoDiaristaManager().obterTodos(persistentContainer.viewContext) }}()
     lazy var combustiveis = { Cache<[PagamentoCombustivel]> { PagamentoCombustivelManager().obterTodos(persistentContainer.viewContext) }}()
     
     func clear() {
@@ -95,11 +95,27 @@ class MesVC: UITableViewController {
         ////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////
         
-        PagamentoFixaManager().sincronizar() {
-            PagamentoDiversaManager().sincronizar() {
-                PagamentoDiaristaManager().sincronizar() {
-                    PagamentoCombustivelManager().sincronizar() {
-                        self.tableView.reloadData()
+        let context = persistentContainer.viewContext
+        
+        UsuarioManager().sincronizar(context) {
+            FixaManager().sincronizar(context) {
+                DiversaManager().sincronizar(context) {
+                    DiariaManager().sincronizar(context) {
+                        VeiculoManager().sincronizar(context) {
+                            PagamentoFixaManager().sincronizar(context) {
+                                PagamentoDiversaManager().sincronizar(context) {
+                                    PagamentoDiaristaManager().sincronizar(context) {
+                                        PagamentoCombustivelManager().sincronizar(context) {
+                                            self.fixas.clear()
+                                            self.pagamentos.clear()
+                                            self.tableView.reloadData()
+                                            
+                                            try! context.save()
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -136,7 +152,7 @@ class MesVC: UITableViewController {
     // MARK: - Table View Controller
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return grupos.values.count
+        return grupos.cache.count
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -145,7 +161,7 @@ class MesVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: mesHeaderId) as! MesHeader
-        header.grupo = grupos.values[section]
+        header.grupo = grupos.cache[section]
 
         return header
     }
@@ -153,13 +169,13 @@ class MesVC: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return fixas.values.count
+            return fixas.cache.count
         case 1:
-            return pagamentos.diversas.values.count
+            return pagamentos.diversas.cache.count
         case 2:
-            return pagamentos.diaristas.values.count
+            return pagamentos.diaristas.cache.count
         case 3:
-            return pagamentos.combustiveis.values.count
+            return pagamentos.combustiveis.cache.count
 
         default:
             return 0
@@ -171,29 +187,28 @@ class MesVC: UITableViewController {
         
         switch indexPath.section {
         case 0:
-            let fixa = fixas.values[indexPath.row]
+            let fixa = fixas.cache[indexPath.row]
             
             cell.diaLabel.text = ("0" + String(fixa.vencimento)).suffix(2).description
             cell.descricaoLabel.text = fixa.nome
-            cell.valorLabel.text = pagamentos.fixas.values.first(where: { $0.fixa?.nome == fixa.nome })?.total.description
+            cell.valorLabel.text = pagamentos.fixas.cache.first(where: { $0.fixa?.nome == fixa.nome })?.total.description
             
-//            pagamentos.fixas.values.fi
         case 1:
-            let pagamento = pagamentos.diversas.values[indexPath.row]
+            let pagamento = pagamentos.diversas.cache[indexPath.row]
             
             cell.diaLabel.text = ("0" + String(pagamento.data?.day ?? 0)).suffix(2).description
             cell.descricaoLabel.text = pagamento.diversa?.nome
             cell.valorLabel.text = pagamento.total.description
 
         case 2:
-            let pagamento = pagamentos.diaristas.values[indexPath.row]
+            let pagamento = pagamentos.diaristas.cache[indexPath.row]
             
             cell.diaLabel.text = ("0" + String(pagamento.data?.day ?? 0)).suffix(2).description
             cell.descricaoLabel.text = ""
             cell.valorLabel.text = pagamento.total.description
 
         case 3:
-            let pagamento = pagamentos.combustiveis.values[indexPath.row]
+            let pagamento = pagamentos.combustiveis.cache[indexPath.row]
             
             cell.diaLabel.text = ("0" + String(pagamento.data?.day ?? 0)).suffix(2).description
             cell.descricaoLabel.text = pagamento.veiculo?.nome
@@ -203,7 +218,7 @@ class MesVC: UITableViewController {
             break
         }
         
-        cell.grupo = grupos.values[indexPath.section]
+        cell.grupo = grupos.cache[indexPath.section]
         
         return cell
     }

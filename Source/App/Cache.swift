@@ -8,7 +8,7 @@ class Cache<T: Any> {
     
     private var _values: T?
     
-    var values: T {
+    var cache: T {
         get {
             if _values == nil {
                 _values = loader()
