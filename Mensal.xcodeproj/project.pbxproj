@@ -42,6 +42,7 @@
 		124630ED20D3291E00917C6A /* PagamentoDiaristaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124630EC20D3291E00917C6A /* PagamentoDiaristaManager.swift */; };
 		124630EF20D3292A00917C6A /* PagamentoCombustivelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124630EE20D3292A00917C6A /* PagamentoCombustivelManager.swift */; };
 		1252716520D40010000D679D /* PagamentoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1252716420D40010000D679D /* PagamentoManager.swift */; };
+		1252716720D429EF000D679D /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1252716620D429EF000D679D /* Double.swift */; };
 		126FF36420CEEF880019BB9F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 126FF36620CEEF880019BB9F /* InfoPlist.strings */; };
 		126FF36720CEEF8B0019BB9F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 126FF36920CEEF8B0019BB9F /* Localizable.strings */; };
 		126FF36B20CEF0220019BB9F /* MesesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FF36A20CEF0220019BB9F /* MesesVC.swift */; };
@@ -98,6 +99,7 @@
 		124630EC20D3291E00917C6A /* PagamentoDiaristaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagamentoDiaristaManager.swift; sourceTree = "<group>"; };
 		124630EE20D3292A00917C6A /* PagamentoCombustivelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagamentoCombustivelManager.swift; sourceTree = "<group>"; };
 		1252716420D40010000D679D /* PagamentoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagamentoManager.swift; sourceTree = "<group>"; };
+		1252716620D429EF000D679D /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		126FF36520CEEF880019BB9F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		126FF36820CEEF8B0019BB9F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		126FF36A20CEF0220019BB9F /* MesesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MesesVC.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				126FF38020CF43DA0019BB9F /* UIStoryboard.swift */,
 				120C3B1120D05CAE0029C184 /* UINib.swift */,
 				124630DC20D2F3C400917C6A /* JSON.swift */,
+				1252716620D429EF000D679D /* Double.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -438,6 +441,7 @@
 				120BB62120D1A7B900892E07 /* PagamentoProxy.swift in Sources */,
 				126FF37320CF01AD0019BB9F /* GrupoManager.swift in Sources */,
 				126FF37F20CF43060019BB9F /* PrincipalVC.swift in Sources */,
+				1252716720D429EF000D679D /* Double.swift in Sources */,
 				120BB61B20D1828B00892E07 /* DiversaProxy.swift in Sources */,
 				120C3B1220D05CAE0029C184 /* UINib.swift in Sources */,
 				120BB61F20D1829B00892E07 /* VeiculoProxy.swift in Sources */,

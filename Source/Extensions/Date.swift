@@ -17,12 +17,6 @@ extension Date {
         }
     }
 
-    var gmt: Date? {
-        get {
-            return self.inGMTRegion().absoluteDate
-        }
-    }
-
     static func parse(stringToDate string: String?) -> Date? {
         if let string = string {
             return DateInRegion(string: string, format: .iso8601Auto, fromRegion: .GMT())?.toRegion(.GMT()).absoluteDate
