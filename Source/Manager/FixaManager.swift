@@ -6,7 +6,7 @@ class FixaManager: SincronizadoManager<Fixa, FixaResponse, FixaProxy> {
     // MARK: - Construtores
     
     init() {
-        super.init([NSSortDescriptor(key: "vencimento", ascending: true)])
+        super.init([NSSortDescriptor(key: "vencimento", ascending: true), NSSortDescriptor(key: "nome", ascending: true)])
     }
 
     // MARK: - Públicos

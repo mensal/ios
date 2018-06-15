@@ -26,7 +26,6 @@ fileprivate class Pagamentos {
 }
 
 private let mostraEdicaoSegueId = "mostraEdicao"
-private let mostraNovoSegueId   = "mostraNovo"
 private let mesHeaderId         = "mesHeader"
 private let mesCellId           = "mesCell"
 
@@ -63,7 +62,7 @@ class MesVC: UITableViewController {
         
         GrupoManager.obterTodos().filter { $0.dinamico ?? false }.forEach { grupo in
             let action = GrupoAlertAction(title: grupo.nomePlural, style: .default) {
-                self.performSegue(withIdentifier: mostraNovoSegueId, sender: $0)
+                self.performSegue(withIdentifier: mostraEdicaoSegueId, sender: $0)
             }
             
             action.grupo = grupo
@@ -153,9 +152,9 @@ class MesVC: UITableViewController {
         }
         
         if segue.identifier == mostraEdicaoSegueId {
-//            let nc = segue.destination as! UINavigationController
-//            let vc = nc.topViewController as! EdicaoVC
-            let vc = segue.destination as! EdicaoVC
+            let nc = segue.destination as! UINavigationController
+            let vc = nc.topViewController as! EdicaoVC
+//            let vc = segue.destination as! EdicaoVC
             vc.grupo = grupo
         }
     }
