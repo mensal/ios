@@ -14,6 +14,6 @@ class PagamentoDiaristaProxy: PagamentoProxy<PagamentoDiarista, PagamentoDiarist
     // MARK: - Construtores
     
     required init() {
-        super.init("/pagamento/diaristas?ano=2018&mes=6")
+        super.init("/pagamento/diaristas")
     }
 }

@@ -14,6 +14,6 @@ class PagamentoDiversaProxy: PagamentoProxy<PagamentoDiversa, PagamentoDiversaRe
     // MARK: - Construtores
     
     required init() {
-        super.init("/pagamento/diversas?ano=2018&mes=6")
+        super.init("/pagamento/diversas")
     }
 }

@@ -14,6 +14,6 @@ class PagamentoCombustivelProxy: PagamentoProxy<PagamentoCombustivel, PagamentoC
     // MARK: - Construtores
     
     required init() {
-        super.init("/pagamento/combustiveis?ano=2018&mes=6")
+        super.init("/pagamento/combustiveis")
     }
 }

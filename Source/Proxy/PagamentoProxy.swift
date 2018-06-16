@@ -54,5 +54,4 @@ class RateioResponse {
 }
 
 class PagamentoProxy<E: Pagamento, S: PagamentoResponse<E>>: VersionadoProxy<E, S> {
-    
 }

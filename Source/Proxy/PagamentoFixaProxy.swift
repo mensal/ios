@@ -14,6 +14,6 @@ class PagamentoFixaProxy: PagamentoProxy<PagamentoFixa, PagamentoFixaResponse> {
     // MARK: - Construtores
     
     required init() {
-        super.init("/pagamento/fixas?ano=2018&mes=6")
+        super.init("/pagamento/fixas")
     }
 }
