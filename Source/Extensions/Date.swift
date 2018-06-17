@@ -21,18 +21,18 @@ extension Date {
         if let string = string {
             return DateInRegion(string: string, format: .iso8601Auto, fromRegion: .GMT())?.toRegion(.GMT()).absoluteDate
         }
-        
+
         return nil
     }
-    
+
     static func parse(stringToTimestamp string: String?) -> Date? {
         if let string = string {
             return DateInRegion(string: string, format: .iso8601Auto)?.absoluteDate
         }
-        
+
         return nil
     }
-    
+
     static func currentYear() -> Int {
         return Date().year
     }
@@ -40,7 +40,7 @@ extension Date {
     static func currentMonth() -> Int {
         return Date().month
     }
-    
+
     public static func monthSymbol(for month: Int16) -> String {
         return DateFormatter().monthSymbols[Int(month) - 1].capitalized
     }

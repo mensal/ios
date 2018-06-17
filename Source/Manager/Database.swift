@@ -7,7 +7,7 @@ let persistentContainer = Database.shared.persistentContainer
 class Database {
 
     lazy var persistentContainer = Database.loadPersistentContainer()
-    
+
     static var shared = Database()
 
     private init() {
@@ -16,7 +16,7 @@ class Database {
     private static func loadPersistentContainer() -> PersistentContainer {
         let name = Bundle.main.infoDictionary![kCFBundleNameKey as String] as! String
         let container = PersistentContainer(name: name, automaticallyLoadPersistentStores: false)
-        
+
         loadPersistentStores(container)
 
         return container

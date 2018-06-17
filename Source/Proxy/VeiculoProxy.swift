@@ -4,7 +4,7 @@ import CoreData
 
 class VeiculoResponse: VersionadoResponse<Veiculo> {
     var nome: String
-    
+
     required init(_ json: JSON) {
         nome = json["veiculo"].string!
         super.init(json)
@@ -17,7 +17,7 @@ class VeiculoResponse: VersionadoResponse<Veiculo> {
 }
 
 class VeiculoProxy: VersionadoProxy<Veiculo, VeiculoResponse> {
-    
+
     // MARK: - Construtores
 
     required init() {

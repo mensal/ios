@@ -4,7 +4,7 @@ import CoreData
 
 class DiversaResponse: VersionadoResponse<Diversa> {
     var nome: String
-    
+
     required init(_ json: JSON) {
         nome = json["nome"].string!
         super.init(json)
@@ -17,9 +17,9 @@ class DiversaResponse: VersionadoResponse<Diversa> {
 }
 
 class DiversaProxy: VersionadoProxy<Diversa, DiversaResponse> {
-    
+
     // MARK: - Construtores
-    
+
     required init() {
         super.init("/tipo/diversas?ano=0&mes=0")
     }

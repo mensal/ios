@@ -7,7 +7,7 @@ class FixaResponse: VersionadoResponse<Fixa> {
     var vencimento: Int
 
     required init(_ json: JSON) {
-        nome       = json["nome"].string!
+        nome = json["nome"].string!
         vencimento = json["vencimento"].int!
         super.init(json)
     }
@@ -20,7 +20,7 @@ class FixaResponse: VersionadoResponse<Fixa> {
 }
 
 class FixaProxy: VersionadoProxy<Fixa, FixaResponse> {
-    
+
     // MARK: - Construtores
 
     required init() {

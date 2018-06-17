@@ -2,7 +2,7 @@ import Foundation
 import CoreData
 
 class PagamentoDiaristaResponse: PagamentoResponse<PagamentoDiarista> {
-    
+
     override func preenche(_ persistido: PagamentoDiarista, _ context: NSManagedObjectContext) {
         super.preenche(persistido, context)
         persistido.diaria = DiariaManager().obter(tipo.id, context)
@@ -10,9 +10,9 @@ class PagamentoDiaristaResponse: PagamentoResponse<PagamentoDiarista> {
 }
 
 class PagamentoDiaristaProxy: PagamentoProxy<PagamentoDiarista, PagamentoDiaristaResponse> {
-    
+
     // MARK: - Construtores
-    
+
     required init() {
         super.init("/pagamento/diaristas")
     }

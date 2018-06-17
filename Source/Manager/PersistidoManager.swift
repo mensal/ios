@@ -5,11 +5,11 @@ import AlecrimCoreData
 class PersistidoManager<T: NSManagedObject> {
 
     // MARK: - Propriedades
-    
+
     let sortDescriptors: [NSSortDescriptor]
-    
+
     // MARK: - Construtores
-    
+
     init(_ sortDescriptors: [NSSortDescriptor]) {
         self.sortDescriptors = sortDescriptors
     }

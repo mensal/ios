@@ -9,11 +9,11 @@ enum GrupoId: String {
 }
 
 class Grupo {
-    
+
     // MARK: - Propriedades
-    
+
     var id: GrupoId?
-    
+
     var dinamico: Bool?
 
     var nomeSingular: String? {
@@ -27,9 +27,9 @@ class Grupo {
             return id == nil ? nil : id!.rawValue.localized()
         }
     }
-    
+
     // MARK: - Construtores
-    
+
     init(_ id: GrupoId, _ dinamico: Bool?) {
         self.id = id
         self.dinamico = dinamico

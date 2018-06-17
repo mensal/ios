@@ -2,7 +2,7 @@ import Foundation
 import SwiftyJSON
 
 extension JSON {
-    
+
     // MARK: - Conveniência
 
     var date: Date? {
