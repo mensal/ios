@@ -24,6 +24,6 @@ class FixaProxy: VersionadoProxy<Fixa, FixaResponse> {
     // MARK: - Construtores
 
     required init() {
-        super.init("/tipo/fixas?ano=0&mes=0")
+        super.init("/tipo/fixas")
     }
 }

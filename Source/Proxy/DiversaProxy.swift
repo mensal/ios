@@ -21,6 +21,6 @@ class DiversaProxy: VersionadoProxy<Diversa, DiversaResponse> {
     // MARK: - Construtores
 
     required init() {
-        super.init("/tipo/diversas?ano=0&mes=0")
+        super.init("/tipo/diversas")
     }
 }

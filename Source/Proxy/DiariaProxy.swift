@@ -21,6 +21,6 @@ class DiariaProxy: VersionadoProxy<Diaria, DiariaResponse> {
     // MARK: - Construtores
 
     required init() {
-        super.init("/tipo/diaristas?ano=0&mes=0")
+        super.init("/tipo/diaristas")
     }
 }

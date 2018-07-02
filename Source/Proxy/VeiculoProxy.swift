@@ -21,6 +21,6 @@ class VeiculoProxy: VersionadoProxy<Veiculo, VeiculoResponse> {
     // MARK: - Construtores
 
     required init() {
-        super.init("/tipo/combustiveis?ano=0&mes=0")
+        super.init("/tipo/combustiveis")
     }
 }
