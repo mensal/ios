@@ -28,6 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //                }
 //            }
 //        }
+        
+        let x = PagamentoDiaristaManager().obterUltimaAtualizacao(persistentContainer.viewContext)
+        print(x?.inRegion())
 
         return true
     }

@@ -24,24 +24,24 @@ class VersionadoResponse<E: Versionado> {
 
 class VersionadoProxy<E: Versionado, S: VersionadoResponse<E>> {
 
-    private let endpoint: String!
+    private let path: String!
 
     required init() {
-        self.endpoint = nil
+        self.path = nil
     }
 
-    init(_ endpoint: String) {
-        self.endpoint = endpoint
+    init(_ path: String) {
+        self.path = path
     }
 
-    func obterTodos(_ callback: @escaping ([S]) -> Void) {
+    func obterTodos(apos: Date?, _ callback: @escaping ([S]) -> Void) {
         let headers = AppConfig.shared.authHeader
 //        let parameters = [
 //            "atualizado_apos" : Date()
 //        ]
-
+        
         Alamofire.request(
-            AppConfig.shared.apiBaseUrl + endpoint,
+            AppConfig.shared.apiBaseUrl.appendingPathComponent(path),
             method: .get,
 //            parameters: parameters,
             headers: headers).responseSwiftyJSON { response in

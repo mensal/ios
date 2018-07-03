@@ -7,7 +7,9 @@ class SincronizadoManager<E: Versionado, S: VersionadoResponse<E>, P: Versionado
     // MARK: - Públicos
 
     func sincronizar(_ context: NSManagedObjectContext, _ completion: (() -> Void)? = nil) {
-        P().obterTodos { resultado in
+        let ultimaAtualizacao = obterUltimaAtualizacao(context)
+        
+        P().obterTodos(apos: ultimaAtualizacao) { resultado in
             resultado.forEach { $0.preenche(self.obterOuNovo($0.id, context), context) }
             completion?()
         }

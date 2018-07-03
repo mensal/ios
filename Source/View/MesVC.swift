@@ -102,8 +102,8 @@ class MesVC: UITableViewController {
 //        let inicio = date.at(unit: .day, value: 1)?.absoluteDate
 //        let fim = date.nextMonth.at(unit: .day, value: 1)
 //
-        print(mes.inicio!)
-        print(mes.fim!)
+//        print(mes.inicio!)
+//        print(mes.fim!)
 
 //        x.nextMonth
 
