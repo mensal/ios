@@ -5,9 +5,15 @@ extension Pagamento {
     var total: Double {
         get {
             var total: Double = 0
-            (valores?.array as? [Rateio])?.forEach { total += $0.valor }
+            rateiosArray?.forEach { total += $0.valor }
 
             return total
+        }
+    }
+    
+    var rateiosArray: [Rateio]? {
+        get {
+            return self.rateios?.array as? [Rateio]
         }
     }
 }

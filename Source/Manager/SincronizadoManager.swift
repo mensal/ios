@@ -1,6 +1,5 @@
 import Foundation
 import CoreData
-//import AlecrimCoreData
 
 class SincronizadoManager<E: Versionado, S: VersionadoResponse<E>, P: VersionadoProxy<E, S>>: VersionadoManager<E> {
 
@@ -11,13 +10,7 @@ class SincronizadoManager<E: Versionado, S: VersionadoResponse<E>, P: Versionado
 
         P().obterTodos(apos: ultimaAtualizacao) { resultado in
             resultado.forEach {
-                let persistido = self.obterOuNovo($0.id, context)
-
-                if $0.excluidoEm != nil {
-                    self.excluirLocal(persistido, $0, context)
-                } else if persistido.atualizacaoLocalEm ?? Date.distantPast < $0.atualizacaoRemotaEm! {
-                    self.atualizarLocal(persistido, $0, context)
-                }
+                self.atualizarLocal($0, context)
             }
 
             self.obterExcluidos(context).forEach {
@@ -28,16 +21,18 @@ class SincronizadoManager<E: Versionado, S: VersionadoResponse<E>, P: Versionado
         }
     }
 
-    private func excluirLocal(_ persistido: E, _ response: S, _ context: NSManagedObjectContext) {
-        self.excluir(persistido, modo: .fisica, context)
-    }
+    // MARK: - Privados
 
-    private func atualizarLocal(_ persistido: E, _ response: S, _ context: NSManagedObjectContext) {
-        if persistido is Pagamento {
-            RateioManager().excluirTodos(persistido as! Pagamento, context)
+    private func atualizarLocal(_ response: S, _ context: NSManagedObjectContext) {
+        let persistido = self.obterOuNovo(response.id, context)
+
+        if persistido.atualizacaoLocalEm ?? Date.distantPast < response.atualizacaoRemotaEm ?? Date.distantFuture {
+            if persistido is Pagamento {
+                RateioManager().excluirTodos(persistido as! Pagamento, context)
+            }
+
+            response.preenche(persistido, context)
         }
-
-        response.preenche(self.obterOuNovo(response.id, context), context)
     }
 
     private func excluirRemoto(_ persistido: E, _ context: NSManagedObjectContext) {

@@ -12,6 +12,7 @@ target 'Mensal' do
 #    pod 'AlecrimCoreData', '~> 6.0'
     pod 'Alamofire', '~> 4.7'
     pod 'AlamofireNetworkActivityIndicator', '~> 2.2'
+    pod 'AlamofireNetworkActivityLogger', '~> 2.3'
     pod 'AlamofireSwiftyJSON', '~> 1.0'
     pod 'SwiftyUserDefaults', '~> 3.0'
 end

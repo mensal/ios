@@ -38,7 +38,7 @@ class VersionadoProxy<E: Versionado, S: VersionadoResponse<E>> {
     func obterTodos(apos: Date?, _ callback: @escaping ([S]) -> Void) {
         let headers = AppConfig.shared.authHeader
         let parameters = [
-            "atualizado_apos": (apos ?? Date.distantPast).iso8601(),
+            "atualizado_apos": (apos ?? Date.distantPast).iso8601(opts: .withInternetDateTimeExtended),
             "mostrar_excluidos": "true"
         ]
 
