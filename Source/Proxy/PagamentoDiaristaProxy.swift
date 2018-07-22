@@ -5,7 +5,7 @@ class PagamentoDiaristaResponse: PagamentoResponse<PagamentoDiarista> {
 
     override func preenche(_ persistido: PagamentoDiarista, _ context: NSManagedObjectContext) {
         super.preenche(persistido, context)
-        persistido.diaria = DiariaManager().obter(tipo.id, context)
+        persistido.diaria = DiariaManager().obter(tipo!.id, context)
     }
 }
 

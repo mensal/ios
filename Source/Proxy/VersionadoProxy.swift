@@ -3,6 +3,7 @@ import CoreData
 import Alamofire
 import AlamofireSwiftyJSON
 import SwiftyJSON
+import SwiftDate
 
 class VersionadoResponse<E: Versionado> {
     var id: UUID
@@ -36,15 +37,21 @@ class VersionadoProxy<E: Versionado, S: VersionadoResponse<E>> {
 
     func obterTodos(apos: Date?, _ callback: @escaping ([S]) -> Void) {
         let headers = AppConfig.shared.authHeader
-//        let parameters = [
-//            "atualizado_apos" : Date()
-//        ]
-        
+        let parameters = [
+            "atualizado_apos": (apos ?? Date.distantPast).iso8601(),
+            "mostrar_excluidos": "true"
+        ]
+
         Alamofire.request(
             AppConfig.shared.apiBaseUrl.appendingPathComponent(path),
             method: .get,
-//            parameters: parameters,
+            parameters: parameters,
             headers: headers).responseSwiftyJSON { response in
+
+                if response.response?.statusCode == 401 {
+                    print(response.response!.statusCode )
+                }
+
                 let resultado = response.result.value?.map { S($1) }
                 callback(resultado ?? [S]())
         }

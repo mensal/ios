@@ -2,7 +2,7 @@ import Foundation
 import CoreData
 import AlecrimCoreData
 
-class PersistidoManager<T: NSManagedObject> {
+class PersistidoManager<E: NSManagedObject> {
 
     // MARK: - Propriedades
 
@@ -16,15 +16,11 @@ class PersistidoManager<T: NSManagedObject> {
 
     // MARK: - Públicos
 
-    func novo(_ context: NSManagedObjectContext) -> T {
+    func novo(_ context: NSManagedObjectContext) -> E {
         return tabela(context).create()
     }
 
-    func tabela(_ context: NSManagedObjectContext) -> Table<T> {
-        return Table<T>(context: context)
-    }
-
-    func obterTodos(_ context: NSManagedObjectContext) -> [T] {
-        return tabela(context).sort(using: sortDescriptors).execute()
+    func tabela(_ context: NSManagedObjectContext) -> Table<E> {
+        return Table<E>(context: context)
     }
 }

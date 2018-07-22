@@ -3,14 +3,14 @@ import SwiftyJSON
 import CoreData
 
 class PagamentoResponse<E: Pagamento>: VersionadoResponse<E> {
-    var data: Date
-    var tipo: IdResponse
-    var valores: [RateioResponse]
+    var data: Date?
+    var tipo: IdResponse?
+    var valores: [RateioResponse]?
 
     required init(_ json: JSON) {
-        data = json["data"].date!
+        data = json["data"].date
         tipo = IdResponse()
-        tipo.id = json["tipo"]["id"].uuid!
+        tipo?.id = json["tipo"]["id"].uuid
         valores = [RateioResponse]()
 
         super.init(json)
@@ -22,7 +22,7 @@ class PagamentoResponse<E: Pagamento>: VersionadoResponse<E> {
             rateio.usuario = IdResponse()
             rateio.usuario.id = json["usuario"]["id"].uuid!
 
-            valores.append(rateio)
+            valores?.append(rateio)
         }
     }
 
@@ -31,7 +31,7 @@ class PagamentoResponse<E: Pagamento>: VersionadoResponse<E> {
 
         persistido.data = data
 
-        valores.forEach { rateioResponse in
+        valores?.forEach { rateioResponse in
             var rateioPersistido = (persistido.valores?.array as? [Rateio])?.first(where: { $0.usuario?.id == rateioResponse.usuario.id })
 
             if rateioPersistido == nil {

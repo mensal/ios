@@ -5,7 +5,7 @@ class PagamentoFixaResponse: PagamentoResponse<PagamentoFixa> {
 
     override func preenche(_ persistido: PagamentoFixa, _ context: NSManagedObjectContext) {
         super.preenche(persistido, context)
-        persistido.fixa = FixaManager().obter(tipo.id, context)
+        persistido.fixa = FixaManager().obter(tipo!.id, context)
     }
 }
 

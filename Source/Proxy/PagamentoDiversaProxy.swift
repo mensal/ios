@@ -5,7 +5,7 @@ class PagamentoDiversaResponse: PagamentoResponse<PagamentoDiversa> {
 
     override func preenche(_ persistido: PagamentoDiversa, _ context: NSManagedObjectContext) {
         super.preenche(persistido, context)
-        persistido.diversa = DiversaManager().obter(tipo.id, context)
+        persistido.diversa = DiversaManager().obter(tipo!.id, context)
     }
 }
 
