@@ -204,6 +204,7 @@ class MesVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: mesCellId, for: indexPath) as! MesCell
+//        cell.mes = self.mes
 
         switch indexPath.section {
         case 0:
@@ -237,6 +238,10 @@ class MesVC: UITableViewController {
         default:
             break
         }
+
+        let corTexto = (mes.isCorrente ?? false && String(Date().day) == cell.diaLabel.text) ? cell.tintColor : .black
+        cell.diaLabel.textColor = corTexto
+        cell.descricaoLabel.textColor = corTexto
 
         cell.grupo = grupos.cache[indexPath.section]
 
