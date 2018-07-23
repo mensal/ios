@@ -10,7 +10,7 @@ extension Pagamento {
             return total
         }
     }
-    
+
     var rateiosArray: [Rateio]? {
         get {
             return self.rateios?.array as? [Rateio]

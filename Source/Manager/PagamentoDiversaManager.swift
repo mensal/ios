@@ -1,7 +1,7 @@
 import Foundation
 import CoreData
 
-class PagamentoDiversaManager: PagamentoManager<PagamentoDiversa, PagamentoDiversaResponse, PagamentoDiversaProxy> {
+class PagamentoDiversaManager: PagamentoManager<PagamentoDiversa, PagamentoDiversaRequest, PagamentoDiversaResponse, PagamentoDiversaProxy> {
 
     // MARK: - Construtores
 

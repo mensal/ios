@@ -2,6 +2,9 @@ import Foundation
 import SwiftyJSON
 import CoreData
 
+class DiariaRequest: VersionadoRequest<Diaria> {
+}
+
 class DiariaResponse: VersionadoResponse<Diaria> {
     var valor: Double
 
@@ -16,7 +19,7 @@ class DiariaResponse: VersionadoResponse<Diaria> {
     }
 }
 
-class DiariaProxy: VersionadoProxy<Diaria, DiariaResponse> {
+class DiariaProxy: VersionadoProxy<Diaria, DiariaRequest, DiariaResponse> {
 
     // MARK: - Construtores
 

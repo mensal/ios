@@ -2,6 +2,9 @@ import Foundation
 import SwiftyJSON
 import CoreData
 
+class PagamentoRequest<E: Pagamento>: VersionadoRequest<E> {
+}
+
 class PagamentoResponse<E: Pagamento>: VersionadoResponse<E> {
     var data: Date
     var tipo: IdResponse
@@ -53,5 +56,5 @@ class RateioResponse {
     var usuario: IdResponse!
 }
 
-class PagamentoProxy<E: Pagamento, S: PagamentoResponse<E>>: VersionadoProxy<E, S> {
+class PagamentoProxy<E: Pagamento, Q: PagamentoRequest<E>, S: PagamentoResponse<E>>: VersionadoProxy<E, Q, S> {
 }

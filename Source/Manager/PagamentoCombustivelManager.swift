@@ -1,7 +1,7 @@
 import Foundation
 import CoreData
 
-class PagamentoCombustivelManager: PagamentoManager<PagamentoCombustivel, PagamentoCombustivelResponse, PagamentoCombustivelProxy> {
+class PagamentoCombustivelManager: PagamentoManager<PagamentoCombustivel, PagamentoCombustivelRequest, PagamentoCombustivelResponse, PagamentoCombustivelProxy> {
 
     // MARK: - Construtores
 

@@ -1,7 +1,7 @@
 import Foundation
 import CoreData
 
-class SincronizadoManager<E: Versionado, S: VersionadoResponse<E>, P: VersionadoProxy<E, S>>: VersionadoManager<E> {
+class SincronizadoManager<E: Versionado, Q: VersionadoRequest<E>, S: VersionadoResponse<E>, P: VersionadoProxy<E, Q, S>>: VersionadoManager<E> {
 
     // MARK: - Públicos
 
@@ -36,5 +36,9 @@ class SincronizadoManager<E: Versionado, S: VersionadoResponse<E>, P: Versionado
     }
 
     private func excluirRemoto(_ persistido: E, _ context: NSManagedObjectContext) {
+        P().excluir(persistido) { response in
+            let persistido = self.obterOuNovo(response.id, context)
+            response.preenche(persistido, context)
+        }
     }
 }

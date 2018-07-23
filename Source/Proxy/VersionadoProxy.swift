@@ -5,6 +5,16 @@ import AlamofireSwiftyJSON
 import SwiftyJSON
 import SwiftDate
 
+class VersionadoRequest<E: Versionado> {
+    var id: UUID?
+    var atualizacaoRemotaEm: Date?
+
+    required init(_ entidade: E) {
+        self.id = entidade.id
+        self.atualizacaoRemotaEm = entidade.atualizacaoRemotaEm
+    }
+}
+
 class VersionadoResponse<E: Versionado> {
     var id: UUID
     var atualizacaoRemotaEm: Date?
@@ -23,7 +33,7 @@ class VersionadoResponse<E: Versionado> {
     }
 }
 
-class VersionadoProxy<E: Versionado, S: VersionadoResponse<E>> {
+class VersionadoProxy<E: Versionado, R: VersionadoRequest<E>, S: VersionadoResponse<E>> {
 
     private let path: String!
 
@@ -54,6 +64,23 @@ class VersionadoProxy<E: Versionado, S: VersionadoResponse<E>> {
 
                 let resultado = response.result.value?.map { S($1) }
                 callback(resultado ?? [S]())
+        }
+    }
+
+    func excluir(_ entidade: E, _ callback: @escaping (S) -> Void) {
+        let headers = AppConfig.shared.authHeader
+
+        Alamofire.request(
+            AppConfig.shared.apiBaseUrl.appendingPathComponent(path).appendingPathComponent(entidade.id!.uuidString),
+            method: .delete,
+            headers: headers).responseSwiftyJSON { response in
+
+                if response.response?.statusCode == 401 {
+                    print(response.response!.statusCode )
+                }
+
+                let resultado = S(response.result.value ?? JSON())
+                callback(resultado)
         }
     }
 }

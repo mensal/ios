@@ -77,6 +77,14 @@ class MesVC: UITableViewController {
         sender.endRefreshing()
     }
 
+    // MARK: - Privados
+
+    private func recarregar() {
+        self.fixas.clear()
+        self.pagamentos.clear()
+        self.tableView.reloadData()
+    }
+
     // MARK: - View Controller
 
     override func viewDidLoad() {
@@ -121,10 +129,7 @@ class MesVC: UITableViewController {
                                     PagamentoDiaristaManager().sincronizar(context) {
                                         PagamentoCombustivelManager().sincronizar(context) {
 
-                                            self.fixas.clear()
-                                            self.pagamentos.clear()
-                                            self.tableView.reloadData()
-
+                                            self.recarregar()
                                             try! context.save()
                                         }
                                     }
@@ -240,5 +245,40 @@ class MesVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 44
+    }
+
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return indexPath.section > 0
+    }
+
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
+            let context = persistentContainer.viewContext
+            let pagamento: Pagamento?
+
+            switch indexPath.section {
+            case 1:
+                pagamento = pagamentos.diversas.cache[indexPath.row]
+            case 2:
+                pagamento = pagamentos.diaristas.cache[indexPath.row]
+            case 3:
+                pagamento = pagamentos.combustiveis.cache[indexPath.row]
+            default:
+                pagamento = nil
+            }
+
+            if indexPath.section > 0 {
+                let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+                alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel))
+                alert.addAction(UIAlertAction(title: "Apagar", style: .destructive) { _ in
+                    PagamentoManager([NSSortDescriptor]()).excluir(pagamento!, context)
+                    self.recarregar()
+                })
+
+                present(alert, animated: true)
+            }
+
+            try! context.save()
+        }
     }
 }

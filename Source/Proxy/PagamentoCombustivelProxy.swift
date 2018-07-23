@@ -1,6 +1,9 @@
 import Foundation
 import CoreData
 
+class PagamentoCombustivelRequest: PagamentoRequest<PagamentoCombustivel> {
+}
+
 class PagamentoCombustivelResponse: PagamentoResponse<PagamentoCombustivel> {
 
     override func preenche(_ persistido: PagamentoCombustivel, _ context: NSManagedObjectContext) {
@@ -9,7 +12,7 @@ class PagamentoCombustivelResponse: PagamentoResponse<PagamentoCombustivel> {
     }
 }
 
-class PagamentoCombustivelProxy: PagamentoProxy<PagamentoCombustivel, PagamentoCombustivelResponse> {
+class PagamentoCombustivelProxy: PagamentoProxy<PagamentoCombustivel, PagamentoCombustivelRequest, PagamentoCombustivelResponse> {
 
     // MARK: - Construtores
 

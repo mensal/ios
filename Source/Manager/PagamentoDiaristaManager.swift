@@ -1,7 +1,7 @@
 import Foundation
 import CoreData
 
-class PagamentoDiaristaManager: PagamentoManager<PagamentoDiarista, PagamentoDiaristaResponse, PagamentoDiaristaProxy> {
+class PagamentoDiaristaManager: PagamentoManager<PagamentoDiarista, PagamentoDiaristaRequest, PagamentoDiaristaResponse, PagamentoDiaristaProxy> {
 
     // MARK: - Construtores
 

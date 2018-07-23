@@ -2,6 +2,9 @@ import Foundation
 import SwiftyJSON
 import CoreData
 
+class VeiculoRequest: VersionadoRequest<Veiculo> {
+}
+
 class VeiculoResponse: VersionadoResponse<Veiculo> {
     var nome: String
 
@@ -16,7 +19,7 @@ class VeiculoResponse: VersionadoResponse<Veiculo> {
     }
 }
 
-class VeiculoProxy: VersionadoProxy<Veiculo, VeiculoResponse> {
+class VeiculoProxy: VersionadoProxy<Veiculo, VeiculoRequest, VeiculoResponse> {
 
     // MARK: - Construtores
 

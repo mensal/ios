@@ -1,7 +1,7 @@
 import Foundation
 import CoreData
 
-class DiariaManager: SincronizadoManager<Diaria, DiariaResponse, DiariaProxy> {
+class DiariaManager: SincronizadoManager<Diaria, DiariaRequest, DiariaResponse, DiariaProxy> {
 
     // MARK: - Construtores
 

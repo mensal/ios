@@ -49,8 +49,6 @@
     <entity name="Versionado" representedClassName="Versionado" isAbstract="YES" syncable="YES" codeGenerationType="class">
         <attribute name="atualizacaoLocalEm" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="atualizacaoRemotaEm" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="conflitoEm" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="enviadoEm" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="excluidoEm" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="id" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
     </entity>
@@ -67,6 +65,6 @@
         <element name="Tipo" positionX="-155" positionY="72" width="128" height="43"/>
         <element name="Usuario" positionX="-632" positionY="-219" width="128" height="73"/>
         <element name="Veiculo" positionX="-425" positionY="213" width="128" height="73"/>
-        <element name="Versionado" positionX="-126" positionY="-252" width="128" height="135"/>
+        <element name="Versionado" positionX="-126" positionY="-252" width="128" height="105"/>
     </elements>
 </model>

@@ -2,6 +2,9 @@ import Foundation
 import SwiftyJSON
 import CoreData
 
+class FixaRequest: VersionadoRequest<Fixa> {
+}
+
 class FixaResponse: VersionadoResponse<Fixa> {
     var nome: String
     var vencimento: Int
@@ -19,7 +22,7 @@ class FixaResponse: VersionadoResponse<Fixa> {
     }
 }
 
-class FixaProxy: VersionadoProxy<Fixa, FixaResponse> {
+class FixaProxy: VersionadoProxy<Fixa, FixaRequest, FixaResponse> {
 
     // MARK: - Construtores
 

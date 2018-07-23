@@ -1,7 +1,7 @@
 import Foundation
 import CoreData
 
-class PagamentoFixaManager: PagamentoManager<PagamentoFixa, PagamentoFixaResponse, PagamentoFixaProxy> {
+class PagamentoFixaManager: PagamentoManager<PagamentoFixa, PagamentoFixaRequest, PagamentoFixaResponse, PagamentoFixaProxy> {
 
     // MARK: - Construtores
 

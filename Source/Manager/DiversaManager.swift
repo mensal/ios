@@ -1,7 +1,7 @@
 import Foundation
 import CoreData
 
-class DiversaManager: SincronizadoManager<Diversa, DiversaResponse, DiversaProxy> {
+class DiversaManager: SincronizadoManager<Diversa, DiversaRequest, DiversaResponse, DiversaProxy> {
 
     // MARK: - Construtores
 

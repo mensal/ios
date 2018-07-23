@@ -27,7 +27,7 @@ class RateioManager: PersistidoManager<Rateio> {
         tabela(context)
             .filter { _ in NSPredicate(format: "pagamento.id = %@", argumentArray: [pagamento.id ?? UUID()]) }
             .execute().forEach { tabela(context).delete($0) }
-        
+
         pagamento.rateios = nil
     }
 

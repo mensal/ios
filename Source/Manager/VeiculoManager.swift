@@ -1,7 +1,7 @@
 import Foundation
 import CoreData
 
-class VeiculoManager: SincronizadoManager<Veiculo, VeiculoResponse, VeiculoProxy> {
+class VeiculoManager: SincronizadoManager<Veiculo, VeiculoRequest, VeiculoResponse, VeiculoProxy> {
 
     // MARK: - Construtores
 

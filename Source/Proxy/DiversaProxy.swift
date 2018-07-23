@@ -2,6 +2,9 @@ import Foundation
 import SwiftyJSON
 import CoreData
 
+class DiversaRequest: VersionadoRequest<Diversa> {
+}
+
 class DiversaResponse: VersionadoResponse<Diversa> {
     var nome: String
 
@@ -16,7 +19,7 @@ class DiversaResponse: VersionadoResponse<Diversa> {
     }
 }
 
-class DiversaProxy: VersionadoProxy<Diversa, DiversaResponse> {
+class DiversaProxy: VersionadoProxy<Diversa, DiversaRequest, DiversaResponse> {
 
     // MARK: - Construtores
 

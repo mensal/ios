@@ -2,7 +2,7 @@ import Foundation
 import CoreData
 import AlecrimCoreData
 
-class UsuarioManager: SincronizadoManager<Usuario, UsuarioResponse, UsuarioProxy> {
+class UsuarioManager: SincronizadoManager<Usuario, UsuarioRequest, UsuarioResponse, UsuarioProxy> {
 
     // MARK: - Construtores
 

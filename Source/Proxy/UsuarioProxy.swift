@@ -2,6 +2,9 @@ import Foundation
 import SwiftyJSON
 import CoreData
 
+class UsuarioRequest: VersionadoRequest<Usuario> {
+}
+
 class UsuarioResponse: VersionadoResponse<Usuario> {
     var nome: String
 
@@ -16,7 +19,7 @@ class UsuarioResponse: VersionadoResponse<Usuario> {
     }
 }
 
-class UsuarioProxy: VersionadoProxy<Usuario, UsuarioResponse> {
+class UsuarioProxy: VersionadoProxy<Usuario, UsuarioRequest, UsuarioResponse> {
 
     // MARK: - Construtores
 
