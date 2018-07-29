@@ -4,29 +4,16 @@ private class GrupoAlertAction: UIAlertAction {
     var grupo: Grupo?
 }
 
-private class Pagamentos {
-
-    private let mes: Mes
-
-    init(_ mes: Mes) {
-        self.mes = mes
-    }
-
-    lazy var caches: [Cache<[Pagamento]>] = [
-        Cache<[Pagamento]> { PagamentoFixaManager().obter(self.mes, persistentContainer.viewContext) },
-        Cache<[Pagamento]> { PagamentoDiaristaManager().obter(self.mes, persistentContainer.viewContext) },
-        Cache<[Pagamento]> { PagamentoCombustivelManager().obter(self.mes, persistentContainer.viewContext) },
-        Cache<[Pagamento]> { PagamentoDiversaManager().obter(self.mes, persistentContainer.viewContext) }
-    ]
-
-    func clear() {
-        caches.forEach { $0.clear() }
-    }
-}
-
 private let mostraEdicaoSegueId = "mostraEdicao"
 private let mesHeaderId         = "mesHeader"
 private let mesCellId           = "mesCell"
+
+extension Array where Element : Cache<[Pagamento]> {
+
+    func clear() {
+        self.forEach { $0.clear() }
+    }
+}
 
 class MesVC: UITableViewController {
 
@@ -37,8 +24,13 @@ class MesVC: UITableViewController {
     private let grupos = Cache<[Grupo]> { GrupoManager.obterTodos() }
 
     private let fixas = Cache<[Fixa]> { FixaManager().obterTodos(persistentContainer.viewContext) }
-
-    private lazy var pagamentos = { Pagamentos(self.mes) }()
+    
+    lazy var pagamentos: [Cache<[Pagamento]>] = [
+        Cache<[Pagamento]> { PagamentoFixaManager().obter(self.mes, persistentContainer.viewContext) },
+        Cache<[Pagamento]> { PagamentoDiaristaManager().obter(self.mes, persistentContainer.viewContext) },
+        Cache<[Pagamento]> { PagamentoCombustivelManager().obter(self.mes, persistentContainer.viewContext) },
+        Cache<[Pagamento]> { PagamentoDiversaManager().obter(self.mes, persistentContainer.viewContext) }
+    ]
 
     // MARK: - Conveniência
 
@@ -79,9 +71,9 @@ class MesVC: UITableViewController {
     // MARK: - Privados
 
     private func recarregar() {
-        self.fixas.clear()
-        self.pagamentos.clear()
-        self.tableView.reloadData()
+        fixas.clear()
+        pagamentos.clear()
+        tableView.reloadData()
     }
 
     // MARK: - View Controller
@@ -191,7 +183,7 @@ class MesVC: UITableViewController {
             return fixas.cached.count
 
         default:
-            return pagamentos.caches[section].cached.count
+            return pagamentos[section].cached.count
         }
     }
 
@@ -202,14 +194,14 @@ class MesVC: UITableViewController {
         switch indexPath.section {
         case 0:
             let fixa = fixas.cached[indexPath.row]
-            let cached = pagamentos.caches[indexPath.section].cached as! [PagamentoFixa]
+            let cached = pagamentos[indexPath.section].cached as! [PagamentoFixa]
 
             cell.diaLabel.text = ("0" + String(fixa.vencimento)).suffix(2).description
             cell.descricaoLabel.text = fixa.nome
             cell.valorLabel.text = cached.first(where: { $0.fixa?.nome == fixa.nome })?.total.string(fractionDigits: 2)
 
         default:
-            let pagamento = pagamentos.caches[indexPath.section].cached[indexPath.row]
+            let pagamento = pagamentos[indexPath.section].cached[indexPath.row]
             
             cell.diaLabel.text = pagamento.data?.stringGMTDay
             cell.descricaoLabel.text = pagamento.description
@@ -241,7 +233,7 @@ class MesVC: UITableViewController {
             var pagamento: Pagamento? = nil
             
             if indexPath.section > 0 {
-                pagamento = pagamentos.caches[indexPath.section].cached[indexPath.row]
+                pagamento = pagamentos[indexPath.section].cached[indexPath.row]
             }
 
             if indexPath.section > 0 {
@@ -262,7 +254,7 @@ class MesVC: UITableViewController {
 
 extension MesVC: VersionadoProxyDelegate {
     
-    func didReceiveNotAuthenticatedRespose() {
+    func didReceiveNotAuthenticatedResponse() {
         
         present(AutenticacaoVC.obter(), animated: true, completion: nil)
     }
