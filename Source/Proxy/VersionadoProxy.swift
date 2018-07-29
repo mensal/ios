@@ -5,9 +5,11 @@ import AlamofireSwiftyJSON
 import SwiftyJSON
 import SwiftDate
 
-class VersionadoRequest<E: Versionado> {
+class VersionadoRequest<E: Versionado>: ProxyRequest {
     var id: UUID?
     var atualizacaoRemotaEm: Date?
+
+    var json: JSON?
 
     required init(_ entidade: E) {
         self.id = entidade.id
@@ -15,7 +17,7 @@ class VersionadoRequest<E: Versionado> {
     }
 }
 
-class VersionadoResponse<E: Versionado> {
+class VersionadoResponse<E: Versionado>: ProxyResponse {
     var id: UUID
     var atualizacaoRemotaEm: Date?
     var excluidoEm: Date?
@@ -33,12 +35,19 @@ class VersionadoResponse<E: Versionado> {
     }
 }
 
-class VersionadoProxy<E: Versionado, R: VersionadoRequest<E>, S: VersionadoResponse<E>> {
+protocol VersionadoProxyDelegate {
+    
+    func didReceiveNotAuthenticatedRespose()
+}
 
-    private let path: String!
+class VersionadoProxy<E: Versionado, R: VersionadoRequest<E>, S: VersionadoResponse<E>>: Proxy {
+    
+    var path: String
+    
+    var delegate: VersionadoProxyDelegate?
 
     required init() {
-        self.path = nil
+        self.path = ""
     }
 
     init(_ path: String) {
@@ -59,7 +68,7 @@ class VersionadoProxy<E: Versionado, R: VersionadoRequest<E>, S: VersionadoRespo
             headers: headers).responseSwiftyJSON { response in
 
                 if response.response?.statusCode == 401 {
-                    print(response.response!.statusCode )
+                    self.delegate?.didReceiveNotAuthenticatedRespose()
                 }
 
                 let resultado = response.result.value?.map { S($1) }
@@ -76,7 +85,7 @@ class VersionadoProxy<E: Versionado, R: VersionadoRequest<E>, S: VersionadoRespo
             headers: headers).responseSwiftyJSON { response in
 
                 if response.response?.statusCode == 401 {
-                    print(response.response!.statusCode )
+                    self.delegate?.didReceiveNotAuthenticatedRespose()
                 }
 
                 let resultado = S(response.result.value ?? JSON())

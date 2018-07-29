@@ -4,9 +4,11 @@ extension UIStoryboard {
 
     // MARK: - Conveniência
 
+    static var autenticacao: UIStoryboard {
+        return UIStoryboard(name: "Autenticacao", bundle: nil)
+    }
+
     static var lancamento: UIStoryboard {
-        get {
-            return UIStoryboard(name: "Lancamentos", bundle: nil)
-        }
+        return UIStoryboard(name: "Lancamentos", bundle: nil)
     }
 }

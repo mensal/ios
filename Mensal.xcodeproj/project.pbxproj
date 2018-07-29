@@ -11,6 +11,10 @@
 		12002E8A210E712C003DA3EF /* PagamentoDiversa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12002E89210E712C003DA3EF /* PagamentoDiversa.swift */; };
 		12002E8C210E7143003DA3EF /* PagamentoDiarista.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12002E8B210E7143003DA3EF /* PagamentoDiarista.swift */; };
 		12002E8E210E714A003DA3EF /* PagamentoCombustivel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12002E8D210E714A003DA3EF /* PagamentoCombustivel.swift */; };
+		12002E91210E7A2F003DA3EF /* Autenticacao.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12002E93210E7A2F003DA3EF /* Autenticacao.storyboard */; };
+		12002E95210E7AF8003DA3EF /* AutenticacaoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12002E94210E7AF8003DA3EF /* AutenticacaoVC.swift */; };
+		12002E97210E7E57003DA3EF /* AutenticacaoProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12002E96210E7E57003DA3EF /* AutenticacaoProxy.swift */; };
+		12002E99210E8107003DA3EF /* Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12002E98210E8107003DA3EF /* Proxy.swift */; };
 		120BB60420D1354200892E07 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120BB60320D1354200892E07 /* Cache.swift */; };
 		120BB60720D140E600892E07 /* UsuarioProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120BB60620D140E600892E07 /* UsuarioProxy.swift */; };
 		120BB60B20D1694A00892E07 /* UsuarioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120BB60A20D1694A00892E07 /* UsuarioManager.swift */; };
@@ -69,6 +73,10 @@
 		12002E89210E712C003DA3EF /* PagamentoDiversa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagamentoDiversa.swift; sourceTree = "<group>"; };
 		12002E8B210E7143003DA3EF /* PagamentoDiarista.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagamentoDiarista.swift; sourceTree = "<group>"; };
 		12002E8D210E714A003DA3EF /* PagamentoCombustivel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagamentoCombustivel.swift; sourceTree = "<group>"; };
+		12002E92210E7A2F003DA3EF /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "pt-BR"; path = "pt-BR.lproj/Autenticacao.storyboard"; sourceTree = "<group>"; };
+		12002E94210E7AF8003DA3EF /* AutenticacaoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutenticacaoVC.swift; sourceTree = "<group>"; };
+		12002E96210E7E57003DA3EF /* AutenticacaoProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutenticacaoProxy.swift; sourceTree = "<group>"; };
+		12002E98210E8107003DA3EF /* Proxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proxy.swift; sourceTree = "<group>"; };
 		120BB60320D1354200892E07 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		120BB60620D140E600892E07 /* UsuarioProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuarioProxy.swift; sourceTree = "<group>"; };
 		120BB60A20D1694A00892E07 /* UsuarioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuarioManager.swift; sourceTree = "<group>"; };
@@ -143,6 +151,8 @@
 		120BB60520D140C800892E07 /* Proxy */ = {
 			isa = PBXGroup;
 			children = (
+				12002E98210E8107003DA3EF /* Proxy.swift */,
+				12002E96210E7E57003DA3EF /* AutenticacaoProxy.swift */,
 				124630D420D29C5B00917C6A /* VersionadoProxy.swift */,
 				120BB60620D140E600892E07 /* UsuarioProxy.swift */,
 				120BB61820D1828000892E07 /* DiariaProxy.swift */,
@@ -187,6 +197,8 @@
 			isa = PBXGroup;
 			children = (
 				12D582A220CED5B80003B317 /* LaunchScreen.storyboard */,
+				12002E93210E7A2F003DA3EF /* Autenticacao.storyboard */,
+				12002E94210E7AF8003DA3EF /* AutenticacaoVC.swift */,
 				12D5829A20CED5B60003B317 /* Lancamentos.storyboard */,
 				126FF37E20CF43060019BB9F /* PrincipalVC.swift */,
 				126FF36A20CEF0220019BB9F /* MesesVC.swift */,
@@ -351,6 +363,7 @@
 				126FF36420CEEF880019BB9F /* InfoPlist.strings in Resources */,
 				12D582A120CED5B80003B317 /* Assets.xcassets in Resources */,
 				12D5829C20CED5B60003B317 /* Lancamentos.storyboard in Resources */,
+				12002E91210E7A2F003DA3EF /* Autenticacao.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,7 +454,9 @@
 				12ADCAB220CEE4AA0068824E /* Database.swift in Sources */,
 				124630E320D31AAD00917C6A /* Pagamento.swift in Sources */,
 				124630D720D2AE9E00917C6A /* SincronizadoManager.swift in Sources */,
+				12002E95210E7AF8003DA3EF /* AutenticacaoVC.swift in Sources */,
 				126FF36B20CEF0220019BB9F /* MesesVC.swift in Sources */,
+				12002E97210E7E57003DA3EF /* AutenticacaoProxy.swift in Sources */,
 				12002E8E210E714A003DA3EF /* PagamentoCombustivel.swift in Sources */,
 				126FF37D20CF168E0019BB9F /* Date.swift in Sources */,
 				120C3B0E20D03EFC0029C184 /* MesHeader.swift in Sources */,
@@ -464,6 +479,7 @@
 				124630D920D2E50B00917C6A /* PagamentoFixaProxy.swift in Sources */,
 				126FF38120CF43DA0019BB9F /* UIStoryboard.swift in Sources */,
 				120BB61920D1828000892E07 /* DiariaProxy.swift in Sources */,
+				12002E99210E8107003DA3EF /* Proxy.swift in Sources */,
 				120C3B0620D020630029C184 /* Grupo.swift in Sources */,
 				120BB61520D181D300892E07 /* FixaManager.swift in Sources */,
 				124630E120D3110300917C6A /* PersistidoManager.swift in Sources */,
@@ -473,6 +489,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		12002E93210E7A2F003DA3EF /* Autenticacao.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				12002E92210E7A2F003DA3EF /* pt-BR */,
+			);
+			name = Autenticacao.storyboard;
+			sourceTree = "<group>";
+		};
 		126FF36620CEEF880019BB9F /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

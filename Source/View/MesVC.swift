@@ -116,17 +116,17 @@ class MesVC: UITableViewController {
 
         let context = persistentContainer.viewContext
 
-        UsuarioManager().sincronizar(context) {
+        UsuarioManager().sincronizar(self, context) {
 
-            FixaManager().sincronizar(context) {
-                DiversaManager().sincronizar(context) {
-                    DiariaManager().sincronizar(context) {
-                        VeiculoManager().sincronizar(context) {
+            FixaManager().sincronizar(self, context) {
+                DiversaManager().sincronizar(self, context) {
+                    DiariaManager().sincronizar(self, context) {
+                        VeiculoManager().sincronizar(self, context) {
 
-                            PagamentoFixaManager().sincronizar(context) {
-                                PagamentoDiversaManager().sincronizar(context) {
-                                    PagamentoDiaristaManager().sincronizar(context) {
-                                        PagamentoCombustivelManager().sincronizar(context) {
+                            PagamentoFixaManager().sincronizar(self, context) {
+                                PagamentoDiversaManager().sincronizar(self, context) {
+                                    PagamentoDiaristaManager().sincronizar(self, context) {
+                                        PagamentoCombustivelManager().sincronizar(self, context) {
 
                                             self.recarregar()
                                             try! context.save()
@@ -257,5 +257,13 @@ class MesVC: UITableViewController {
 
             try! context.save()
         }
+    }
+}
+
+extension MesVC: VersionadoProxyDelegate {
+    
+    func didReceiveNotAuthenticatedRespose() {
+        
+        present(AutenticacaoVC.obter(), animated: true, completion: nil)
     }
 }

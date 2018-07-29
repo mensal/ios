@@ -5,16 +5,19 @@ class SincronizadoManager<E: Versionado, Q: VersionadoRequest<E>, S: VersionadoR
 
     // MARK: - Públicos
 
-    func sincronizar(_ context: NSManagedObjectContext, _ completion: (() -> Void)? = nil) {
+    func sincronizar(_ delegate: VersionadoProxyDelegate, _ context: NSManagedObjectContext, _ completion: (() -> Void)? = nil) {
         let ultimaAtualizacao = obterUltimaAtualizacao(context)
+        
+        let proxy = P()
+        proxy.delegate = delegate
 
-        P().obterTodos(apos: ultimaAtualizacao) { resultado in
+        proxy.obterTodos(apos: ultimaAtualizacao) { resultado in
             resultado.forEach {
                 self.atualizarLocal($0, context)
             }
 
             self.obterExcluidos(context).forEach {
-                self.excluirRemoto($0, context)
+                self.excluirRemoto($0, delegate, context)
             }
 
             completion?()
@@ -35,8 +38,11 @@ class SincronizadoManager<E: Versionado, Q: VersionadoRequest<E>, S: VersionadoR
         }
     }
 
-    private func excluirRemoto(_ persistido: E, _ context: NSManagedObjectContext) {
-        P().excluir(persistido) { response in
+    private func excluirRemoto(_ persistido: E, _ delegate: VersionadoProxyDelegate, _ context: NSManagedObjectContext) {
+        let proxy = P()
+        proxy.delegate = delegate
+        
+        proxy.excluir(persistido) { response in
             let persistido = self.obterOuNovo(response.id, context)
             response.preenche(persistido, context)
         }
