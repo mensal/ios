@@ -6,9 +6,9 @@ class GrupoManager {
 
     private static let grupos = [
         Grupo(.fixas, false),
-        Grupo(.diversas, true),
         Grupo(.diaristas, true),
-        Grupo(.combustiveis, true)
+        Grupo(.combustiveis, true),
+        Grupo(.diversas, true)
     ]
 
     private init() {

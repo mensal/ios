@@ -12,16 +12,15 @@ private class Pagamentos {
         self.mes = mes
     }
 
-    lazy var fixas = { Cache<[PagamentoFixa]> { PagamentoFixaManager().obter(self.mes, persistentContainer.viewContext) }}()
-    lazy var diversas = { Cache<[PagamentoDiversa]> { PagamentoDiversaManager().obter(self.mes, persistentContainer.viewContext) }}()
-    lazy var diaristas = { Cache<[PagamentoDiarista]> { PagamentoDiaristaManager().obter(self.mes, persistentContainer.viewContext) }}()
-    lazy var combustiveis = { Cache<[PagamentoCombustivel]> { PagamentoCombustivelManager().obter(self.mes, persistentContainer.viewContext) }}()
+    lazy var caches: [Cache<[Pagamento]>] = [
+        Cache<[Pagamento]> { PagamentoFixaManager().obter(self.mes, persistentContainer.viewContext) },
+        Cache<[Pagamento]> { PagamentoDiaristaManager().obter(self.mes, persistentContainer.viewContext) },
+        Cache<[Pagamento]> { PagamentoCombustivelManager().obter(self.mes, persistentContainer.viewContext) },
+        Cache<[Pagamento]> { PagamentoDiversaManager().obter(self.mes, persistentContainer.viewContext) }
+    ]
 
     func clear() {
-        fixas.clear()
-        diversas.clear()
-        diaristas.clear()
-        combustiveis.clear()
+        caches.forEach { $0.clear() }
     }
 }
 
@@ -46,7 +45,7 @@ class MesVC: UITableViewController {
     static func corrente() -> MesVC {
         let resultado = UIStoryboard.lancamento.instantiateViewController(withIdentifier: "MesVC") as! MesVC
         resultado.mes = Mes.corrente()
-
+        
         return resultado
     }
 
@@ -172,7 +171,7 @@ class MesVC: UITableViewController {
     // MARK: - Table View Controller
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return grupos.cache.count
+        return grupos.cached.count
     }
 
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -181,7 +180,7 @@ class MesVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: mesHeaderId) as! MesHeader
-        header.grupo = grupos.cache[section]
+        header.grupo = grupos.cached[section]
 
         return header
     }
@@ -189,16 +188,10 @@ class MesVC: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return fixas.cache.count
-        case 1:
-            return pagamentos.diversas.cache.count
-        case 2:
-            return pagamentos.diaristas.cache.count
-        case 3:
-            return pagamentos.combustiveis.cache.count
+            return fixas.cached.count
 
         default:
-            return 0
+            return pagamentos.caches[section].cached.count
         }
     }
 
@@ -208,34 +201,20 @@ class MesVC: UITableViewController {
 
         switch indexPath.section {
         case 0:
-            let fixa = fixas.cache[indexPath.row]
+            let fixa = fixas.cached[indexPath.row]
+            let cached = pagamentos.caches[indexPath.section].cached as! [PagamentoFixa]
 
             cell.diaLabel.text = ("0" + String(fixa.vencimento)).suffix(2).description
             cell.descricaoLabel.text = fixa.nome
-            cell.valorLabel.text = pagamentos.fixas.cache.first(where: { $0.fixa?.nome == fixa.nome })?.total.string(fractionDigits: 2)
-
-        case 1:
-            let pagamento = pagamentos.diversas.cache[indexPath.row]
-
-            cell.diaLabel.text = pagamento.data?.stringGMTDay
-            cell.descricaoLabel.text = pagamento.diversa?.nome
-            cell.valorLabel.text = pagamento.total.string(fractionDigits: 2)
-
-        case 2:
-            let pagamento = pagamentos.diaristas.cache[indexPath.row]
-
-            cell.diaLabel.text = pagamento.data?.stringGMTDay
-            cell.descricaoLabel.text = pagamento.data?.inGMTRegion().string(custom: "EEEE").capitalized
-            cell.valorLabel.text = pagamento.total.string(fractionDigits: 2)
-
-        case 3:
-            let pagamento = pagamentos.combustiveis.cache[indexPath.row]
-
-            cell.diaLabel.text = pagamento.data?.stringGMTDay
-            cell.descricaoLabel.text = pagamento.veiculo?.nome
-            cell.valorLabel.text = pagamento.total.string(fractionDigits: 2)
+            cell.valorLabel.text = cached.first(where: { $0.fixa?.nome == fixa.nome })?.total.string(fractionDigits: 2)
 
         default:
+            let pagamento = pagamentos.caches[indexPath.section].cached[indexPath.row]
+            
+            cell.diaLabel.text = pagamento.data?.stringGMTDay
+            cell.descricaoLabel.text = pagamento.description
+            cell.valorLabel.text = pagamento.total.string(fractionDigits: 2)
+
             break
         }
 
@@ -243,7 +222,7 @@ class MesVC: UITableViewController {
         cell.diaLabel.textColor = corTexto
         cell.descricaoLabel.textColor = corTexto
 
-        cell.grupo = grupos.cache[indexPath.section]
+        cell.grupo = grupos.cached[indexPath.section]
 
         return cell
     }
@@ -259,17 +238,10 @@ class MesVC: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.delete) {
             let context = persistentContainer.viewContext
-            let pagamento: Pagamento?
-
-            switch indexPath.section {
-            case 1:
-                pagamento = pagamentos.diversas.cache[indexPath.row]
-            case 2:
-                pagamento = pagamentos.diaristas.cache[indexPath.row]
-            case 3:
-                pagamento = pagamentos.combustiveis.cache[indexPath.row]
-            default:
-                pagamento = nil
+            var pagamento: Pagamento? = nil
+            
+            if indexPath.section > 0 {
+                pagamento = pagamentos.caches[indexPath.section].cached[indexPath.row]
             }
 
             if indexPath.section > 0 {

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		014307DC69168EA44F0FCA67 /* Pods_Mensal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BA46E1885F46DF90003EC6E /* Pods_Mensal.framework */; };
+		12002E8A210E712C003DA3EF /* PagamentoDiversa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12002E89210E712C003DA3EF /* PagamentoDiversa.swift */; };
+		12002E8C210E7143003DA3EF /* PagamentoDiarista.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12002E8B210E7143003DA3EF /* PagamentoDiarista.swift */; };
+		12002E8E210E714A003DA3EF /* PagamentoCombustivel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12002E8D210E714A003DA3EF /* PagamentoCombustivel.swift */; };
 		120BB60420D1354200892E07 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120BB60320D1354200892E07 /* Cache.swift */; };
 		120BB60720D140E600892E07 /* UsuarioProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120BB60620D140E600892E07 /* UsuarioProxy.swift */; };
 		120BB60B20D1694A00892E07 /* UsuarioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120BB60A20D1694A00892E07 /* UsuarioManager.swift */; };
@@ -63,6 +66,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		12002E89210E712C003DA3EF /* PagamentoDiversa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagamentoDiversa.swift; sourceTree = "<group>"; };
+		12002E8B210E7143003DA3EF /* PagamentoDiarista.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagamentoDiarista.swift; sourceTree = "<group>"; };
+		12002E8D210E714A003DA3EF /* PagamentoCombustivel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagamentoCombustivel.swift; sourceTree = "<group>"; };
 		120BB60320D1354200892E07 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		120BB60620D140E600892E07 /* UsuarioProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuarioProxy.swift; sourceTree = "<group>"; };
 		120BB60A20D1694A00892E07 /* UsuarioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuarioManager.swift; sourceTree = "<group>"; };
@@ -158,6 +164,9 @@
 				126FF37520CF02400019BB9F /* Mes.swift */,
 				120C3B0520D020630029C184 /* Grupo.swift */,
 				124630E220D31AAD00917C6A /* Pagamento.swift */,
+				12002E89210E712C003DA3EF /* PagamentoDiversa.swift */,
+				12002E8B210E7143003DA3EF /* PagamentoDiarista.swift */,
+				12002E8D210E714A003DA3EF /* PagamentoCombustivel.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -414,6 +423,7 @@
 				124630DF20D30AEB00917C6A /* RateioManager.swift in Sources */,
 				124630DD20D2F3C400917C6A /* JSON.swift in Sources */,
 				126FF37820CF0FD30019BB9F /* MesManager.swift in Sources */,
+				12002E8A210E712C003DA3EF /* PagamentoDiversa.swift in Sources */,
 				120BB60B20D1694A00892E07 /* UsuarioManager.swift in Sources */,
 				1252716520D40010000D679D /* PagamentoManager.swift in Sources */,
 				124630E720D3232A00917C6A /* PagamentoDiversaManager.swift in Sources */,
@@ -432,6 +442,7 @@
 				124630E320D31AAD00917C6A /* Pagamento.swift in Sources */,
 				124630D720D2AE9E00917C6A /* SincronizadoManager.swift in Sources */,
 				126FF36B20CEF0220019BB9F /* MesesVC.swift in Sources */,
+				12002E8E210E714A003DA3EF /* PagamentoCombustivel.swift in Sources */,
 				126FF37D20CF168E0019BB9F /* Date.swift in Sources */,
 				120C3B0E20D03EFC0029C184 /* MesHeader.swift in Sources */,
 				12D5829720CED5B60003B317 /* AppDelegate.swift in Sources */,
@@ -445,6 +456,7 @@
 				126FF37F20CF43060019BB9F /* PrincipalVC.swift in Sources */,
 				1252716720D429EF000D679D /* Double.swift in Sources */,
 				120BB61B20D1828B00892E07 /* DiversaProxy.swift in Sources */,
+				12002E8C210E7143003DA3EF /* PagamentoDiarista.swift in Sources */,
 				120C3B1220D05CAE0029C184 /* UINib.swift in Sources */,
 				120BB61F20D1829B00892E07 /* VeiculoProxy.swift in Sources */,
 				124630E920D328F900917C6A /* PagamentoDiaristaProxy.swift in Sources */,
@@ -621,7 +633,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BZA995XLF9;
 				INFOPLIST_FILE = "$(SRCROOT)/Source/App/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = teste.crud.ios.Mensal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -640,7 +655,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BZA995XLF9;
 				INFOPLIST_FILE = "$(SRCROOT)/Source/App/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = teste.crud.ios.Mensal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
