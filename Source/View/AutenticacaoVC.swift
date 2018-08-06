@@ -40,7 +40,7 @@ class AutenticacaoVC: UIViewController {
     
     // MARK: - Conveniência
     
-    static func obter() -> AutenticacaoVC {
+    private static func obter() -> AutenticacaoVC {
         return UIStoryboard.autenticacao.instantiateViewController(withIdentifier: "AutenticacaoVC") as! AutenticacaoVC
     }
     

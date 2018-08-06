@@ -62,7 +62,7 @@ class MesVC: UITableViewController {
 
         present(alert, animated: true)
         
-        AppConfig.shared.token = nil
+//        AppConfig.shared.token = nil
     }
 
     @IBAction func atualizar(_ sender: UIRefreshControl) {
