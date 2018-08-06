@@ -33,11 +33,19 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lUv-ja-4L0">
-                                <rect key="frame" x="166" y="256" width="42" height="30"/>
+                                <rect key="frame" x="136" y="255" width="42" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Enviar"/>
                                 <connections>
                                     <action selector="logar:" destination="zT6-Q7-6Qj" eventType="touchUpInside" id="pcG-jc-jQJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G2J-HQ-JTG">
+                                <rect key="frame" x="203" y="255" width="61" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancelar"/>
+                                <connections>
+                                    <action selector="cancelar:" destination="zT6-Q7-6Qj" eventType="touchUpInside" id="vs4-u6-Kls"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -45,8 +53,8 @@
                         <viewLayoutGuide key="safeArea" id="yRf-JU-E8k"/>
                     </view>
                     <connections>
+                        <outlet property="loginLabel" destination="75b-ed-6xT" id="yxg-R6-DsU"/>
                         <outlet property="senhaLabel" destination="M9j-Ng-iwv" id="xWs-s2-EW0"/>
-                        <outlet property="usuarioLabel" destination="75b-ed-6xT" id="yxg-R6-DsU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ov9-yT-xyb" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -33,6 +33,8 @@
 		120C3B0E20D03EFC0029C184 /* MesHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120C3B0D20D03EFC0029C184 /* MesHeader.swift */; };
 		120C3B1020D05B810029C184 /* MesHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 120C3B0F20D05B810029C184 /* MesHeader.xib */; };
 		120C3B1220D05CAE0029C184 /* UINib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120C3B1120D05CAE0029C184 /* UINib.swift */; };
+		122EED412118F33D007DBCFF /* Credenciais.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122EED402118F33D007DBCFF /* Credenciais.swift */; };
+		122EED432118F7E9007DBCFF /* AutenticacaoDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122EED422118F7E9007DBCFF /* AutenticacaoDelegate.swift */; };
 		124630CF20D279B700917C6A /* PagamentoFixaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124630CE20D279B700917C6A /* PagamentoFixaManager.swift */; };
 		124630D120D2889500917C6A /* VersionadoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124630D020D2889500917C6A /* VersionadoManager.swift */; };
 		124630D520D29C5B00917C6A /* VersionadoProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124630D420D29C5B00917C6A /* VersionadoProxy.swift */; };
@@ -97,6 +99,8 @@
 		120C3B1120D05CAE0029C184 /* UINib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINib.swift; sourceTree = "<group>"; };
 		1222AC0020CEEB46002CC4AD /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.storyboard"; sourceTree = "<group>"; };
 		1222AC0120CEEB46002CC4AD /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "pt-BR"; path = "pt-BR.lproj/Lancamentos.storyboard"; sourceTree = "<group>"; };
+		122EED402118F33D007DBCFF /* Credenciais.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credenciais.swift; sourceTree = "<group>"; };
+		122EED422118F7E9007DBCFF /* AutenticacaoDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutenticacaoDelegate.swift; sourceTree = "<group>"; };
 		124630CE20D279B700917C6A /* PagamentoFixaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagamentoFixaManager.swift; sourceTree = "<group>"; };
 		124630D020D2889500917C6A /* VersionadoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionadoManager.swift; sourceTree = "<group>"; };
 		124630D420D29C5B00917C6A /* VersionadoProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionadoProxy.swift; sourceTree = "<group>"; };
@@ -177,6 +181,7 @@
 				12002E89210E712C003DA3EF /* PagamentoDiversa.swift */,
 				12002E8B210E7143003DA3EF /* PagamentoDiarista.swift */,
 				12002E8D210E714A003DA3EF /* PagamentoCombustivel.swift */,
+				122EED402118F33D007DBCFF /* Credenciais.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -215,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				12D5829620CED5B60003B317 /* AppDelegate.swift */,
+				122EED422118F7E9007DBCFF /* AutenticacaoDelegate.swift */,
 				120BB60E20D1809800892E07 /* AppConfig.swift */,
 				12D582A520CED5B80003B317 /* Info.plist */,
 				126FF36620CEEF880019BB9F /* InfoPlist.strings */,
@@ -432,6 +438,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				126FF37620CF02400019BB9F /* Mes.swift in Sources */,
+				122EED432118F7E9007DBCFF /* AutenticacaoDelegate.swift in Sources */,
 				124630EB20D3290900917C6A /* PagamentoCombustivelProxy.swift in Sources */,
 				124630DF20D30AEB00917C6A /* RateioManager.swift in Sources */,
 				124630DD20D2F3C400917C6A /* JSON.swift in Sources */,
@@ -446,6 +453,7 @@
 				124630CF20D279B700917C6A /* PagamentoFixaManager.swift in Sources */,
 				124630ED20D3291E00917C6A /* PagamentoDiaristaManager.swift in Sources */,
 				120BB60720D140E600892E07 /* UsuarioProxy.swift in Sources */,
+				122EED412118F33D007DBCFF /* Credenciais.swift in Sources */,
 				126FF36F20CEF6A50019BB9F /* EdicaoVC.swift in Sources */,
 				120BB61720D181DA00892E07 /* VeiculoManager.swift in Sources */,
 				126FF36D20CEF68E0019BB9F /* MesVC.swift in Sources */,

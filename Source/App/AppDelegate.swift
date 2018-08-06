@@ -20,6 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Ignorando HTTP Cache
         URLCache.shared = URLCache(memoryCapacity: 0, diskCapacity: 0, diskPath: nil)
+        
+//        AppConfig.shared.credenciais = nil
+//        AppConfig.shared.token = nil
 
 //        let context = persistentContainer.viewContext
 //        

@@ -35,16 +35,11 @@ class VersionadoResponse<E: Versionado>: ProxyResponse {
     }
 }
 
-protocol VersionadoProxyDelegate {
-    
-    func didReceiveNotAuthenticatedResponse()
-}
-
 class VersionadoProxy<E: Versionado, R: VersionadoRequest<E>, S: VersionadoResponse<E>>: Proxy {
     
     var path: String
     
-    var delegate: VersionadoProxyDelegate?
+    var autenticacaoDelegate: AutenticacaoDelegate?
 
     required init() {
         self.path = ""
@@ -68,7 +63,7 @@ class VersionadoProxy<E: Versionado, R: VersionadoRequest<E>, S: VersionadoRespo
             headers: headers).responseSwiftyJSON { response in
 
                 if response.response?.statusCode == 401 {
-                    self.delegate?.didReceiveNotAuthenticatedResponse()
+                    self.autenticacaoDelegate?.naoAutenticado()
                 }
 
                 let resultado = response.result.value?.map { S($1) }
@@ -85,7 +80,7 @@ class VersionadoProxy<E: Versionado, R: VersionadoRequest<E>, S: VersionadoRespo
             headers: headers).responseSwiftyJSON { response in
 
                 if response.response?.statusCode == 401 {
-                    self.delegate?.didReceiveNotAuthenticatedResponse()
+                    self.autenticacaoDelegate?.naoAutenticado()
                 }
 
                 let resultado = S(response.result.value ?? JSON())

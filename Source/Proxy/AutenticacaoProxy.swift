@@ -4,12 +4,12 @@ import AlamofireSwiftyJSON
 import SwiftyJSON
 
 class AutenticacaoRequest: ProxyRequest {
-    var usuario: String?
+    var login: String?
     var senha: String?
-
+    
     var json: JSON? {
         let json = [
-            "login": usuario ?? "",
+            "login": login ?? "",
             "senha": senha ?? ""
         ]
         
@@ -18,22 +18,24 @@ class AutenticacaoRequest: ProxyRequest {
 }
 
 class AutenticacaoProxy: Proxy {
-
+    
     var path = "/autenticacao"
     
-    func autenticar(_ request: AutenticacaoRequest) {
+    var autenticacaoDelegate: AutenticacaoDelegate?
+    
+    func autenticar(_ request: AutenticacaoRequest, _ completo: @escaping (String?) -> Void) {
         Alamofire.request(
             AppConfig.shared.apiBaseUrl.appendingPathComponent(path),
             method: .post,
             parameters: request.json?.dictionaryObject,
-            encoding: JSONEncoding.default).responseSwiftyJSON { response in
+            encoding: JSONEncoding.default).responseString { response in
                 
-//                if response.response?.statusCode == 401 {
-//                    self.delegate?.didReceiveNotAuthenticatedRespose()
-//                }
-//
-//                let resultado = response.result.value?.map { S($1) }
-//                callback(resultado ?? [S]())
+                switch response.response?.statusCode {
+                case 200:
+                    completo(response.result.value!)
+                default:
+                    completo(nil)
+                }
         }
     }
 }

@@ -1,20 +1,41 @@
 import UIKit
+import LocalAuthentication
 
 class AutenticacaoVC: UIViewController {
 
-    @IBOutlet weak var usuarioLabel: UITextField!
+    @IBOutlet weak var loginLabel: UITextField!
    
     @IBOutlet weak var senhaLabel: UITextField!
     
+    private static var mostrando = false
+    
     @IBAction func logar(_ sender: UIButton) {
+        let credenciais = Credenciais(
+            loginLabel.text?.trimmingCharacters(in: .whitespaces) ?? "",
+            senhaLabel.text?.trimmingCharacters(in: .whitespaces) ?? ""
+        )
         
+        logar(credenciais)
+    }
+    
+    @IBAction func cancelar(_ sender: UIButton) {
+        dismiss(animated: true)
+    }
+    
+    func logar(_ credenciais: Credenciais) {
         let request = AutenticacaoRequest()
-        request.usuario = usuarioLabel.text
-        request.senha = senhaLabel.text
+        request.login = credenciais.login
+        request.senha = credenciais.senha
         
-        AutenticacaoProxy().autenticar(request)
-        
-//        dismiss(animated: true, completion: nil)
+        let proxy = AutenticacaoProxy()
+        proxy.autenticar(request) { token in
+            if let token = token {
+                AppConfig.shared.credenciais = credenciais
+                AppConfig.shared.token = token
+                
+                self.dismiss(animated: true)
+            }
+        }
     }
     
     // MARK: - Conveniência
@@ -23,10 +44,51 @@ class AutenticacaoVC: UIViewController {
         return UIStoryboard.autenticacao.instantiateViewController(withIdentifier: "AutenticacaoVC") as! AutenticacaoVC
     }
     
+    static func mostrar (sender: UIViewController) {
+        if mostrando {
+            return
+        }
+        
+        mostrando = true
+        
+        if let credenciais = AppConfig.shared.credenciais {
+            // pede autenticacao biometrica
+            let authContext = LAContext()
+            
+            var error: NSError?
+            if authContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+                authContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Teste") { success, error in
+                    if success {
+                        AutenticacaoVC.obter().logar(credenciais)
+//
+//
+//                        mostrando = false
+//                        sender.viewWillAppear(false)
+                    }
+                }
+            }
+            
+        } else {
+            sender.present(AutenticacaoVC.obter(), animated: true, completion: nil)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        AutenticacaoVC.mostrando = true
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        AutenticacaoVC.mostrando = false
     }
 
     override func didReceiveMemoryWarning() {

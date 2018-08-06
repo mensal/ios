@@ -61,6 +61,8 @@ class MesVC: UITableViewController {
         }
 
         present(alert, animated: true)
+        
+        AppConfig.shared.token = nil
     }
 
     @IBAction func atualizar(_ sender: UIRefreshControl) {
@@ -83,7 +85,13 @@ class MesVC: UITableViewController {
 
         tableView.register(UINib.mesHeader, forHeaderFooterViewReuseIdentifier: mesHeaderId)
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        print("xxxxxxxxxxxx")
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
@@ -252,10 +260,9 @@ class MesVC: UITableViewController {
     }
 }
 
-extension MesVC: VersionadoProxyDelegate {
+extension MesVC: AutenticacaoDelegate {
     
-    func didReceiveNotAuthenticatedResponse() {
-        
-        present(AutenticacaoVC.obter(), animated: true, completion: nil)
+    func naoAutenticado() {
+        AutenticacaoVC.mostrar(sender: self)
     }
 }
