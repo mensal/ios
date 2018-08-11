@@ -7,7 +7,7 @@ class PersistidoManager<E: NSManagedObject> {
     // MARK: - Propriedades
 
     let sortDescriptors: [NSSortDescriptor]
-    
+
     // MARK: - Construtores
 
     init(_ sortDescriptors: [NSSortDescriptor]) {

@@ -8,7 +8,7 @@ private let mostraEdicaoSegueId = "mostraEdicao"
 private let mesHeaderId         = "mesHeader"
 private let mesCellId           = "mesCell"
 
-extension Array where Element : Cache<[Pagamento]> {
+extension Array where Element: Cache<[Pagamento]> {
 
     func clear() {
         self.forEach { $0.clear() }
@@ -24,7 +24,7 @@ class MesVC: UITableViewController {
     private let grupos = Cache<[Grupo]> { GrupoManager.obterTodos() }
 
     private let fixas = Cache<[Fixa]> { FixaManager().obterTodos(persistentContainer.viewContext) }
-    
+
     lazy var pagamentos: [Cache<[Pagamento]>] = [
         Cache<[Pagamento]> { PagamentoFixaManager().obter(self.mes, persistentContainer.viewContext) },
         Cache<[Pagamento]> { PagamentoDiaristaManager().obter(self.mes, persistentContainer.viewContext) },
@@ -37,7 +37,7 @@ class MesVC: UITableViewController {
     static func corrente() -> MesVC {
         let resultado = UIStoryboard.lancamento.instantiateViewController(withIdentifier: "MesVC") as! MesVC
         resultado.mes = Mes.corrente()
-        
+
         return resultado
     }
 
@@ -61,7 +61,7 @@ class MesVC: UITableViewController {
         }
 
         present(alert, animated: true)
-        
+
 //        AppConfig.shared.token = nil
     }
 
@@ -85,13 +85,13 @@ class MesVC: UITableViewController {
 
         tableView.register(UINib.mesHeader, forHeaderFooterViewReuseIdentifier: mesHeaderId)
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+
         print("xxxxxxxxxxxx")
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
@@ -210,7 +210,7 @@ class MesVC: UITableViewController {
 
         default:
             let pagamento = pagamentos[indexPath.section].cached[indexPath.row]
-            
+
             cell.diaLabel.text = pagamento.data?.stringGMTDay
             cell.descricaoLabel.text = pagamento.description
             cell.valorLabel.text = pagamento.total.string(fractionDigits: 2)
@@ -239,7 +239,7 @@ class MesVC: UITableViewController {
         if (editingStyle == UITableViewCellEditingStyle.delete) {
             let context = persistentContainer.viewContext
             var pagamento: Pagamento? = nil
-            
+
             if indexPath.section > 0 {
                 pagamento = pagamentos[indexPath.section].cached[indexPath.row]
             }
@@ -261,8 +261,8 @@ class MesVC: UITableViewController {
 }
 
 extension MesVC: AutenticacaoDelegate {
-    
+
     func naoAutenticado() {
-        AutenticacaoVC.mostrar(sender: self)
+        AutenticacaoVC.autenticar(sender: self)
     }
 }

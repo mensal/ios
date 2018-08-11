@@ -36,9 +36,9 @@ class VersionadoResponse<E: Versionado>: ProxyResponse {
 }
 
 class VersionadoProxy<E: Versionado, R: VersionadoRequest<E>, S: VersionadoResponse<E>>: Proxy {
-    
+
     var path: String
-    
+
     var autenticacaoDelegate: AutenticacaoDelegate?
 
     required init() {
