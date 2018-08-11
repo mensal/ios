@@ -174,6 +174,16 @@
 			path = Proxy;
 			sourceTree = "<group>";
 		};
+		121A8F7C211F8375007C50C8 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				126FF37420CF022F0019BB9F /* Entity */,
+				12ADCAAC20CEDC5E0068824E /* Manager */,
+				120BB60520D140C800892E07 /* Proxy */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 		126FF37420CF022F0019BB9F /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -281,9 +291,7 @@
 			isa = PBXGroup;
 			children = (
 				12ADCAAA20CEDC4D0068824E /* View */,
-				126FF37420CF022F0019BB9F /* Entity */,
-				12ADCAAC20CEDC5E0068824E /* Manager */,
-				120BB60520D140C800892E07 /* Proxy */,
+				121A8F7C211F8375007C50C8 /* Core */,
 				126FF37B20CF16730019BB9F /* Extensions */,
 				12ADCAAB20CEDC550068824E /* App */,
 			);
