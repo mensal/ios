@@ -7,9 +7,11 @@ class AutenticacaoVC: UIViewController {
 
     @IBOutlet weak var senhaLabel: UITextField!
 
+    @IBOutlet weak var logarButton: UIButton!
+    
     private static var mostrando = false
 
-    @IBAction func logar(_ sender: UIButton) {
+    @IBAction func logar() {
         let credenciais = Credenciais(
             loginLabel.text?.trimmingCharacters(in: .whitespaces) ?? "",
             senhaLabel.text?.trimmingCharacters(in: .whitespaces) ?? ""
@@ -22,7 +24,7 @@ class AutenticacaoVC: UIViewController {
         }
     }
 
-    @IBAction func cancelar(_ sender: UIButton) {
+    @IBAction func cancelar() {
         dismiss(animated: true)
     }
 
@@ -75,6 +77,20 @@ class AutenticacaoVC: UIViewController {
     static private func mostrar(_ sender: UIViewController) {
         DispatchQueue.main.async {
             sender.present(AutenticacaoVC.obter(), animated: true, completion: nil)
+        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        view.subviews.filter { $0 is UITextField }.map { $0 as! UITextField}.forEach { textField in
+            
+//            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20));
+//            imageView.image = UIImage(named: "Logo");
+//            $0.leftViewMode = .always
+//            $0.leftView = imageView
+//
+//            $0.borderStyle = .roundedRect
         }
     }
 

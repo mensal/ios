@@ -15,6 +15,16 @@ target 'Mensal' do
     pod 'AlamofireNetworkActivityLogger', '~> 2.3'
     pod 'AlamofireSwiftyJSON', '~> 1.0'
     pod 'SwiftyUserDefaults', '~> 3.0'
+#    pod 'IBDesignable', '~> 0.1'
+#    pod 'ImageTextField','~> 1.0'
+#    pod 'MRTextField', '~> 1.0'
+    pod 'Material', '~> 2.16'
+
+
+    #pod 'DCKit', '~> 1.0'
+    
+#    https://cocoapods.org/pods/UITextField+Shake
+
 end
 
 post_install do |installer|
