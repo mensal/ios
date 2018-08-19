@@ -1,6 +1,8 @@
 import UIKit
 import LocalAuthentication
 
+typealias AutenticacaoCallback = (_ sucesso: Bool) -> Void
+
 class AutenticacaoVC: UIViewController {
 
     @IBOutlet weak var loginLabel: UITextField!
@@ -8,8 +10,10 @@ class AutenticacaoVC: UIViewController {
     @IBOutlet weak var senhaLabel: UITextField!
 
     @IBOutlet weak var logarButton: UIButton!
-    
+
     private static var mostrando = false
+
+    private var callback: AutenticacaoCallback?
 
     @IBAction func logar() {
         let credenciais = Credenciais(
@@ -30,11 +34,11 @@ class AutenticacaoVC: UIViewController {
 
     // MARK: - Conveniência
 
-    private static func obter() -> AutenticacaoVC {
+    private static func instancia() -> AutenticacaoVC {
         return UIStoryboard.autenticacao.instantiateViewController(withIdentifier: "AutenticacaoVC") as! AutenticacaoVC
     }
 
-    static func autenticar(sender: UIViewController) {
+    static func autenticar(sender: UIViewController, callback: @escaping AutenticacaoCallback) {
         if mostrando {
             return
         }
@@ -51,8 +55,9 @@ class AutenticacaoVC: UIViewController {
                         AutenticacaoManager.autenticar(credenciais) { sucesso in
                             if sucesso {
                                 mostrando = false
+                                callback(sucesso)
                             } else {
-                                mostrar(sender)
+                                exibirTelaLogin(sender, callback)
                             }
                         }
 
@@ -60,31 +65,35 @@ class AutenticacaoVC: UIViewController {
                         switch error {
                         case LAError.userCancel:
                             mostrando = false
+                            callback(false)
                         default:
-                            mostrar(sender)
+                            exibirTelaLogin(sender, callback)
                         }
                     }
                 }
             } else {
-                mostrar(sender)
+                exibirTelaLogin(sender, callback)
             }
 
         } else {
-            mostrar(sender)
+            exibirTelaLogin(sender, callback)
         }
     }
 
-    static private func mostrar(_ sender: UIViewController) {
+    static private func exibirTelaLogin(_ sender: UIViewController, _ callback: @escaping AutenticacaoCallback) {
         DispatchQueue.main.async {
-            sender.present(AutenticacaoVC.obter(), animated: true, completion: nil)
+            let autenticacaoVC = AutenticacaoVC.instancia()
+            autenticacaoVC.callback = callback
+
+            sender.present(autenticacaoVC, animated: true, completion: nil)
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.subviews.filter { $0 is UITextField }.map { $0 as! UITextField}.forEach { textField in
-            
+
+        view.subviews.filter { $0 is UITextField }.map { $0 as! UITextField}.forEach { _ in
+
 //            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20));
 //            imageView.image = UIImage(named: "Logo");
 //            $0.leftViewMode = .always

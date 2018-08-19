@@ -18,7 +18,7 @@ target 'Mensal' do
 #    pod 'IBDesignable', '~> 0.1'
 #    pod 'ImageTextField','~> 1.0'
 #    pod 'MRTextField', '~> 1.0'
-    pod 'Material', '~> 2.16'
+#    pod 'Material', '~> 2.16'
 
 
     #pod 'DCKit', '~> 1.0'

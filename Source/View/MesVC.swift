@@ -19,6 +19,8 @@ class MesVC: UITableViewController {
 
     // MARK: - Propriedades
 
+    var autenticacaoCancelada = false
+
     var mes: Mes!
 
     private let grupos = Cache<[Grupo]> { GrupoManager.obterTodos() }
@@ -62,7 +64,7 @@ class MesVC: UITableViewController {
 
         present(alert, animated: true)
 
-//        AppConfig.shared.token = nil
+        //        AppConfig.shared.token = nil
     }
 
     @IBAction func atualizar(_ sender: UIRefreshControl) {
@@ -78,42 +80,7 @@ class MesVC: UITableViewController {
         tableView.reloadData()
     }
 
-    // MARK: - View Controller
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        tableView.register(UINib.mesHeader, forHeaderFooterViewReuseIdentifier: mesHeaderId)
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
-        print("xxxxxxxxxxxx")
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        title = mes.nomeCompleto
-
-        ////////////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////////////
-
-//        let inicio = DateInRegion.init(string: "\(mes.ano!)-\(mes.stringOrdinal!)-01", format: .iso8601Auto, fromRegion: .GMT())!
-
-//        let inicio = date.startOf(component: .month)
-//        let fim = inicio.endOf(component: .month)
-
-//        let inicio = date.at(unit: .day, value: 1)?.absoluteDate
-//        let fim = date.nextMonth.at(unit: .day, value: 1)
-//
-//        print(mes.inicio!)
-//        print(mes.fim!)
-
-//        x.nextMonth
-
+    private func sincronizar() {
         let context = persistentContainer.viewContext
 
         UsuarioManager().sincronizar(self, context) {
@@ -141,6 +108,48 @@ class MesVC: UITableViewController {
         }
     }
 
+    // MARK: - View Controller
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        tableView.register(UINib.mesHeader, forHeaderFooterViewReuseIdentifier: mesHeaderId)
+        sincronizar()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        print("xxxxxxxxxxxx")
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        title = mes.nomeCompleto
+
+        ////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////
+
+        //        let inicio = DateInRegion.init(string: "\(mes.ano!)-\(mes.stringOrdinal!)-01", format: .iso8601Auto, fromRegion: .GMT())!
+
+        //        let inicio = date.startOf(component: .month)
+        //        let fim = inicio.endOf(component: .month)
+
+        //        let inicio = date.at(unit: .day, value: 1)?.absoluteDate
+        //        let fim = date.nextMonth.at(unit: .day, value: 1)
+        //
+        //        print(mes.inicio!)
+        //        print(mes.fim!)
+
+        //        x.nextMonth
+
+//        if !autenticacaoCancelada {
+//            sincronizar()
+//        }
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
 
@@ -157,7 +166,7 @@ class MesVC: UITableViewController {
         if segue.identifier == mostraEdicaoSegueId {
             let nc = segue.destination as! UINavigationController
             let vc = nc.topViewController as! EdicaoVC
-//            let vc = segue.destination as! EdicaoVC
+            //            let vc = segue.destination as! EdicaoVC
             vc.grupo = grupo
         }
     }
@@ -167,6 +176,9 @@ class MesVC: UITableViewController {
 
         grupos.clear()
     }
+}
+
+extension MesVC {
 
     // MARK: - Table View Controller
 
@@ -197,7 +209,7 @@ class MesVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: mesCellId, for: indexPath) as! MesCell
-//        cell.mes = self.mes
+        //        cell.mes = self.mes
 
         switch indexPath.section {
         case 0:
@@ -263,6 +275,12 @@ class MesVC: UITableViewController {
 extension MesVC: AutenticacaoDelegate {
 
     func naoAutenticado() {
-        AutenticacaoVC.autenticar(sender: self)
+        AutenticacaoVC.autenticar(sender: self) { sucesso in
+            self.autenticacaoCancelada = !sucesso
+
+            if sucesso {
+                self.sincronizar()
+            }
+        }
     }
 }
