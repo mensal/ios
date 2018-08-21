@@ -21,26 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Ignorando HTTP Cache
         URLCache.shared = URLCache(memoryCapacity: 0, diskCapacity: 0, diskPath: nil)
 
-//        AppConfig.shared.credenciais = nil
+        AppConfig.shared.credenciais = nil
         AppConfig.shared.token = nil
 //        AppConfig.shared.credenciais = Credenciais("teste", "teste")
-
-//        let context = persistentContainer.viewContext
-//        
-//        UsuarioManager().sincronizar(context) {
-//            FixaManager().sincronizar(context) {
-//                DiversaManager().sincronizar(context) {
-//                    DiariaManager().sincronizar(context) {
-//                        VeiculoManager().sincronizar(context) {
-//                            try! context.save()
-//                        }
-//                    }
-//                }
-//            }
-//        }
-
-//        let x = PagamentoDiaristaManager().obterUltimaAtualizacao(persistentContainer.viewContext)
-//        print(x?.inRegion())
 
         return true
     }

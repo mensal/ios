@@ -23,13 +23,17 @@ class AutenticacaoVC: UIViewController {
 
         AutenticacaoManager.autenticar(credenciais) { sucesso in
             if sucesso {
-                self.dismiss(animated: true)
+                self.dismiss(animated: true) {
+                    self.callback?(true)
+                }
             }
         }
     }
 
     @IBAction func cancelar() {
-        dismiss(animated: true)
+        dismiss(animated: true) {
+            self.callback?(false)
+        }
     }
 
     // MARK: - Conveniência
@@ -92,6 +96,9 @@ class AutenticacaoVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        loginLabel.delegate = self
+        senhaLabel.delegate = self
+
         view.subviews.filter { $0 is UITextField }.map { $0 as! UITextField}.forEach { _ in
 
 //            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20));
@@ -124,5 +131,59 @@ class AutenticacaoVC: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+}
+
+extension AutenticacaoVC: UITextFieldDelegate {
+    
+    private func ativaOuDesativaBotao() {
+        let inativo = senhaLabel.text?.isEmpty ?? true && senhaLabel.text?.isEmpty ?? true
+        
+        x(!inativo)
+    }
+
+    private func x(_ ativo: Bool) {
+        if logarButton.isEnabled != ativo {
+            UIView.animate(withDuration: 0.5) {
+                self.logarButton.isEnabled = ativo
+            }
+        }
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        ativaOuDesativaBotao()
+        
+        print("\(textField.text) / \(string)")
+        
+        return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        ativaOuDesativaBotao()
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        ativaOuDesativaBotao()
+    }
+    
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        ativaOuDesativaBotao()
+        
+        print("\(textField.text)")
+        
+        return true
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField.tag {
+        case 1:
+            senhaLabel.becomeFirstResponder()
+        case 2:
+            logar()
+        default:
+            break
+        }
+
+        return true
     }
 }
