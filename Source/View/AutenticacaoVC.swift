@@ -1,6 +1,15 @@
 import UIKit
 import LocalAuthentication
 
+extension UIButton {
+
+    open override var isEnabled: Bool {
+        didSet {
+            alpha = isEnabled ? 1.0 : 0.5
+        }
+    }
+}
+
 typealias AutenticacaoCallback = (_ sucesso: Bool) -> Void
 
 class AutenticacaoVC: UIViewController {
@@ -14,6 +23,8 @@ class AutenticacaoVC: UIViewController {
     private static var mostrando = false
 
     private var callback: AutenticacaoCallback?
+
+    private var habilitador: Enabler?
 
     @IBAction func logar() {
         let credenciais = Credenciais(
@@ -99,6 +110,9 @@ class AutenticacaoVC: UIViewController {
         loginLabel.delegate = self
         senhaLabel.delegate = self
 
+        logarButton.isEnabled = false
+        habilitador = Enabler(required: [loginLabel, senhaLabel], dependent: [logarButton])
+
         view.subviews.filter { $0 is UITextField }.map { $0 as! UITextField}.forEach { _ in
 
 //            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20));
@@ -135,10 +149,10 @@ class AutenticacaoVC: UIViewController {
 }
 
 extension AutenticacaoVC: UITextFieldDelegate {
-    
+
     private func ativaOuDesativaBotao() {
         let inativo = senhaLabel.text?.isEmpty ?? true && senhaLabel.text?.isEmpty ?? true
-        
+
         x(!inativo)
     }
 
@@ -149,28 +163,28 @@ extension AutenticacaoVC: UITextFieldDelegate {
             }
         }
     }
-    
+
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         ativaOuDesativaBotao()
-        
+
         print("\(textField.text) / \(string)")
-        
+
         return true
     }
-    
+
     func textFieldDidBeginEditing(_ textField: UITextField) {
         ativaOuDesativaBotao()
     }
-    
+
     func textFieldDidEndEditing(_ textField: UITextField) {
         ativaOuDesativaBotao()
     }
-    
+
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         ativaOuDesativaBotao()
-        
+
         print("\(textField.text)")
-        
+
         return true
     }
 

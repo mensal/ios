@@ -19,12 +19,9 @@ target 'Mensal' do
 #    pod 'ImageTextField','~> 1.0'
 #    pod 'MRTextField', '~> 1.0'
 #    pod 'Material', '~> 2.16'
+#    pod 'DCKit', '~> 1.0'
 
-
-    #pod 'DCKit', '~> 1.0'
-    
 #    https://cocoapods.org/pods/UITextField+Shake
-
 end
 
 post_install do |installer|

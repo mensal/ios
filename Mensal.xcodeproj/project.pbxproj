@@ -51,6 +51,7 @@
 		124630EB20D3290900917C6A /* PagamentoCombustivelProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124630EA20D3290900917C6A /* PagamentoCombustivelProxy.swift */; };
 		124630ED20D3291E00917C6A /* PagamentoDiaristaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124630EC20D3291E00917C6A /* PagamentoDiaristaManager.swift */; };
 		124630EF20D3292A00917C6A /* PagamentoCombustivelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124630EE20D3292A00917C6A /* PagamentoCombustivelManager.swift */; };
+		124D9DC82130958A0077907F /* Enabler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124D9DC72130958A0077907F /* Enabler.swift */; };
 		1252716520D40010000D679D /* PagamentoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1252716420D40010000D679D /* PagamentoManager.swift */; };
 		1252716720D429EF000D679D /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1252716620D429EF000D679D /* Double.swift */; };
 		126FF36420CEEF880019BB9F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 126FF36620CEEF880019BB9F /* InfoPlist.strings */; };
@@ -118,6 +119,7 @@
 		124630EA20D3290900917C6A /* PagamentoCombustivelProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagamentoCombustivelProxy.swift; sourceTree = "<group>"; };
 		124630EC20D3291E00917C6A /* PagamentoDiaristaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagamentoDiaristaManager.swift; sourceTree = "<group>"; };
 		124630EE20D3292A00917C6A /* PagamentoCombustivelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagamentoCombustivelManager.swift; sourceTree = "<group>"; };
+		124D9DC72130958A0077907F /* Enabler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enabler.swift; sourceTree = "<group>"; };
 		1252716420D40010000D679D /* PagamentoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagamentoManager.swift; sourceTree = "<group>"; };
 		1252716620D429EF000D679D /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		126FF36520CEEF880019BB9F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -180,8 +182,17 @@
 				126FF37420CF022F0019BB9F /* Entity */,
 				12ADCAAC20CEDC5E0068824E /* Manager */,
 				120BB60520D140C800892E07 /* Proxy */,
+				124D9DC6213095650077907F /* Util */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		124D9DC6213095650077907F /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				124D9DC72130958A0077907F /* Enabler.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 		126FF37420CF022F0019BB9F /* Entity */ = {
@@ -481,6 +492,7 @@
 				120C3B0E20D03EFC0029C184 /* MesHeader.swift in Sources */,
 				12D5829720CED5B60003B317 /* AppDelegate.swift in Sources */,
 				120BB60420D1354200892E07 /* Cache.swift in Sources */,
+				124D9DC82130958A0077907F /* Enabler.swift in Sources */,
 				124630D120D2889500917C6A /* VersionadoManager.swift in Sources */,
 				124630E520D322B100917C6A /* PagamentoDiversaProxy.swift in Sources */,
 				124630EF20D3292A00917C6A /* PagamentoCombustivelManager.swift in Sources */,
@@ -677,7 +689,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BZA995XLF9;
 				INFOPLIST_FILE = "$(SRCROOT)/Source/App/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = teste.crud.ios.Mensal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -696,7 +711,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BZA995XLF9;
 				INFOPLIST_FILE = "$(SRCROOT)/Source/App/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = teste.crud.ios.Mensal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
