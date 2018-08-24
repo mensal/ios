@@ -1,9 +1,11 @@
 import Foundation
 import UIKit
 
+private typealias Pair = (textField: UITextField, delegate: UITextFieldDelegate?)
+
 class Enabler: NSObject {
 
-    private var pairs = [(textField: UITextField, delegate: UITextFieldDelegate?)]()
+    private var pairs = [Pair]()
     private let views: [UIView]
 
     init(required textFields: [UITextField], dependent views: [UIView]) {
@@ -15,44 +17,65 @@ class Enabler: NSObject {
             textField.delegate = self
         }
     }
+    
+    private func pair(with textField: UITextField) -> Pair? {
+        return pairs.first { $0.textField == textField }
+    }
+    
+    private func pairs(without textField: UITextField) -> [Pair]? {
+        return pairs.filter { $0.textField != textField }
+    }
+    
+    private func isAllEmpty(_ textField: UITextField) -> Bool {
+        var isEmpty = true
+        
+        isEmpty = isEmpty && textField.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ?? true
+        
+        return isEmpty
+    }
 }
 
 extension Enabler: UITextFieldDelegate {
 
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        let res = pairs.first { $0.textField == textField }?.delegate?.textFieldShouldBeginEditing?(textField)
+        let res = pair(with: textField)?.delegate?.textFieldShouldBeginEditing?(textField)
         return res ?? true
     }
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        pairs.first { $0.textField == textField }?.delegate?.textFieldDidBeginEditing?(textField)
+        pair(with: textField)?.delegate?.textFieldDidBeginEditing?(textField)
     }
 
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        let res = pairs.first { $0.textField == textField }?.delegate?.textFieldShouldEndEditing?(textField)
+        let res = pair(with: textField)?.delegate?.textFieldShouldEndEditing?(textField)
         return res ?? true
     }
 
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
-        let res = pairs.first { $0.textField == textField }?.delegate?.textFieldShouldClear?(textField)
+        let res = pair(with: textField)?.delegate?.textFieldShouldClear?(textField)
         return res ?? true
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
-        pairs.first { $0.textField == textField }?.delegate?.textFieldDidEndEditing?(textField)
+        pair(with: textField)?.delegate?.textFieldDidEndEditing?(textField)
     }
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let res = pairs.first { $0.textField == textField }?.delegate?.textField?(textField, shouldChangeCharactersIn: range, replacementString: string)
+        let p = pair(with: textField)
+        let o = pairs(without: textField)
+        
+        //
+        
+        let res = p?.delegate?.textField?(textField, shouldChangeCharactersIn: range, replacementString: string)
         return res ?? true
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        let res = pairs.first { $0.textField == textField }?.delegate?.textFieldShouldReturn?(textField)
+        let res = pair(with: textField)?.delegate?.textFieldShouldReturn?(textField)
         return res ?? true
     }
 
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
-        pairs.first { $0.textField == textField }?.delegate?.textFieldDidEndEditing?(textField, reason: reason)
+        pair(with: textField)?.delegate?.textFieldDidEndEditing?(textField, reason: reason)
     }
 }
