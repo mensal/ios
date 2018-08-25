@@ -80,7 +80,7 @@ class AutenticacaoVC: UIViewController {
 
             var error: NSError?
             if authContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-                authContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Teste") { success, error in
+                authContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Acesse com a digital") { success, error in
                     if success {
                         AutenticacaoManager.autenticar(credenciais) { sucesso in
                             if sucesso {
