@@ -32,11 +32,26 @@ class AutenticacaoVC: UIViewController {
             senhaLabel.text?.trimmingCharacters(in: .whitespaces) ?? ""
         )
 
+        loginLabel.resignFirstResponder()
+        senhaLabel.resignFirstResponder()
+        logarButton.isEnabled = false
+
         AutenticacaoManager.autenticar(credenciais) { sucesso in
             if sucesso {
                 self.dismiss(animated: true) {
                     self.callback?(true)
                 }
+            } else {
+                let alert = UIAlertController(title: "Falha no login", message: "O usuário ou a senha informados são inválidos.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Tentar novamente", style: .default) { _ in
+                    self.loginLabel.becomeFirstResponder()
+                    self.logarButton.isEnabled = true
+                })
+                alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel) { _ in
+                    self.cancelar()
+                })
+
+                self.present(alert, animated: true)
             }
         }
     }
@@ -149,44 +164,6 @@ class AutenticacaoVC: UIViewController {
 }
 
 extension AutenticacaoVC: UITextFieldDelegate {
-
-//    private func ativaOuDesativaBotao() {
-//        let inativo = senhaLabel.text?.isEmpty ?? true && senhaLabel.text?.isEmpty ?? true
-//
-//        x(!inativo)
-//    }
-//
-//    private func x(_ ativo: Bool) {
-//        if logarButton.isEnabled != ativo {
-//            UIView.animate(withDuration: 0.5) {
-//                self.logarButton.isEnabled = ativo
-//            }
-//        }
-//    }
-//
-//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//        ativaOuDesativaBotao()
-//
-//        print("\(textField.text) / \(string)")
-//
-//        return true
-//    }
-//
-//    func textFieldDidBeginEditing(_ textField: UITextField) {
-//        ativaOuDesativaBotao()
-//    }
-//
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-//        ativaOuDesativaBotao()
-//    }
-//
-//    func textFieldShouldClear(_ textField: UITextField) -> Bool {
-//        ativaOuDesativaBotao()
-//
-//        print("\(textField.text)")
-//
-//        return true
-//    }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField.tag {
