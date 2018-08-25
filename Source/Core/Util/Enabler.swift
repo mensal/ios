@@ -27,8 +27,8 @@ class Enabler: NSObject {
     }
 
     private func isAnyEmpty(skip textField: UITextField, check text: String?) -> Bool {
-        var isEmpty = text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ?? true
-        pairs(without: textField)?.forEach { isEmpty = isEmpty || $0.textField.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ?? true }
+        var isEmpty = text?.isEmpty ?? true
+        pairs(without: textField)?.forEach { isEmpty = isEmpty || $0.textField.text?.isEmpty ?? true }
 
         return isEmpty
     }
