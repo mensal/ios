@@ -42,18 +42,22 @@ class AutenticacaoVC: UIViewController {
                     self.callback?(true)
                 }
             } else {
-                let alert = UIAlertController(title: "Falha no login", message: "O usuário ou a senha informados são inválidos.", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Tentar novamente", style: .default) { _ in
-                    self.loginLabel.becomeFirstResponder()
-                    self.logarButton.isEnabled = true
-                })
-                alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel) { _ in
-                    self.cancelar()
-                })
-
-                self.present(alert, animated: true)
+                self.present(self.falhaDeAutenticacao(), animated: true)
             }
         }
+    }
+
+    func falhaDeAutenticacao() -> UIAlertController {
+        let alert = UIAlertController(title: "Falha no login", message: "O usuário ou a senha informados são inválidos.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Tentar novamente", style: .default) { _ in
+            self.loginLabel.becomeFirstResponder()
+            self.logarButton.isEnabled = true
+        })
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel) { _ in
+            self.cancelar()
+        })
+
+        return alert
     }
 
     @IBAction func cancelar() {
