@@ -8,6 +8,15 @@ class MesesVC: UITableViewController {
 
     private let meses = Cache<[Mes]> { MesManager.obterTodos().reversed() }
 
+    // MARK: - UIActions
+    
+    @IBAction func compartilhar() {
+        if let sqlite = persistentContainer.persistentStoreDescriptions.first?.url {
+            let vc = UIActivityViewController(activityItems: [sqlite], applicationActivities: [])
+            present(vc, animated: true)
+        }
+    }
+    
     // MARK: - Declarados
 
     private func converterAno(_ section: Int) -> Int {

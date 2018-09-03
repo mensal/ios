@@ -45,7 +45,13 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Meses" largeTitleDisplayMode="always" id="aMw-Wa-Bkf"/>
+                    <navigationItem key="navigationItem" title="Meses" largeTitleDisplayMode="always" id="aMw-Wa-Bkf">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="action" id="Ozf-hZ-eps">
+                            <connections>
+                                <action selector="compartilhar" destination="j2d-et-r9Z" id="wFS-WZ-fUA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="85F-ZZ-1qp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
