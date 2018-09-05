@@ -11,8 +11,8 @@ class PagamentoResponse<E: Pagamento>: VersionadoResponse<E> {
     var valores: [RateioResponse]
 
     required init(_ json: JSON) {
-        data = json["data"].date!
-        tipo = IdResponse()
+        data    = json["data"].date!
+        tipo    = IdResponse()
         tipo.id = json["tipo"]["id"].uuid
         valores = [RateioResponse]()
 
@@ -21,8 +21,8 @@ class PagamentoResponse<E: Pagamento>: VersionadoResponse<E> {
         json["valores"].array?.forEach { json in
             let rateio = RateioResponse()
 
-            rateio.valor = json["valor"].double
-            rateio.usuario = IdResponse()
+            rateio.valor      = json["valor"].double
+            rateio.usuario    = IdResponse()
             rateio.usuario.id = json["usuario"]["id"].uuid!
 
             valores.append(rateio)

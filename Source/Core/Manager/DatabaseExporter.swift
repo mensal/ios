@@ -13,9 +13,9 @@ class DatabaseExporter {
     static func exportar(_ context: NSManagedObjectContext) -> Data {
         var sql = ""
 
-        UsuarioManager().obterTodos(context).enumerated().forEach {
-            if let id = $1.id, let atualizacaoRemotaEm = $1.atualizacaoRemotaEm {
-                sql += "INSERT INTO usuario (id, email, nome, atualizado_em, excluido_em) VALUES ('\(id)', 'x\($0)@x.x', '\($1.nome ?? "")', '\(atualizacaoRemotaEm.iso8601Extended)', null);\n"
+        UsuarioManager().obterTodos(context).forEach {
+            if let id = $0.id, let atualizacaoRemotaEm = $0.atualizacaoRemotaEm {
+                sql += "INSERT INTO usuario (id, email, nome, atualizado_em, excluido_em) VALUES ('\(id)', '\($0.email ?? "")', '\($0.nome ?? "")', '\(atualizacaoRemotaEm.iso8601Extended)', null);\n"
             }
         }
 

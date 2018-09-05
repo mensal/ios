@@ -39,6 +39,7 @@
     </entity>
     <entity name="Tipo" representedClassName="Tipo" isAbstract="YES" parentEntity="Versionado" syncable="YES" codeGenerationType="class"/>
     <entity name="Usuario" representedClassName="Usuario" parentEntity="Versionado" syncable="YES" codeGenerationType="class">
+        <attribute name="email" attributeType="String" syncable="YES"/>
         <attribute name="nome" attributeType="String" syncable="YES"/>
         <relationship name="rateios" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Rateio" inverseName="usuario" inverseEntity="Rateio" syncable="YES"/>
     </entity>
@@ -63,7 +64,7 @@
         <element name="PagamentoFixa" positionX="-722" positionY="360" width="128" height="60"/>
         <element name="Rateio" positionX="-846" positionY="-216" width="128" height="90"/>
         <element name="Tipo" positionX="-155" positionY="72" width="128" height="43"/>
-        <element name="Usuario" positionX="-632" positionY="-219" width="128" height="73"/>
+        <element name="Usuario" positionX="-632" positionY="-219" width="128" height="88"/>
         <element name="Veiculo" positionX="-425" positionY="213" width="128" height="73"/>
         <element name="Versionado" positionX="-126" positionY="-252" width="128" height="105"/>
     </elements>
