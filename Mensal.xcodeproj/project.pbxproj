@@ -34,6 +34,7 @@
 		120C3B1020D05B810029C184 /* MesHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 120C3B0F20D05B810029C184 /* MesHeader.xib */; };
 		120C3B1220D05CAE0029C184 /* UINib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120C3B1120D05CAE0029C184 /* UINib.swift */; };
 		121A8F7B211F2BEF007C50C8 /* AutenticacaoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121A8F7A211F2BEF007C50C8 /* AutenticacaoManager.swift */; };
+		122AA71B213F42F10087B2B2 /* DatabaseExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122AA71A213F42F10087B2B2 /* DatabaseExporter.swift */; };
 		122EED412118F33D007DBCFF /* Credenciais.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122EED402118F33D007DBCFF /* Credenciais.swift */; };
 		122EED432118F7E9007DBCFF /* AutenticacaoDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122EED422118F7E9007DBCFF /* AutenticacaoDelegate.swift */; };
 		124630CF20D279B700917C6A /* PagamentoFixaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124630CE20D279B700917C6A /* PagamentoFixaManager.swift */; };
@@ -102,6 +103,7 @@
 		121A8F7A211F2BEF007C50C8 /* AutenticacaoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutenticacaoManager.swift; sourceTree = "<group>"; };
 		1222AC0020CEEB46002CC4AD /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.storyboard"; sourceTree = "<group>"; };
 		1222AC0120CEEB46002CC4AD /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "pt-BR"; path = "pt-BR.lproj/Lancamentos.storyboard"; sourceTree = "<group>"; };
+		122AA71A213F42F10087B2B2 /* DatabaseExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseExporter.swift; sourceTree = "<group>"; };
 		122EED402118F33D007DBCFF /* Credenciais.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credenciais.swift; sourceTree = "<group>"; };
 		122EED422118F7E9007DBCFF /* AutenticacaoDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutenticacaoDelegate.swift; sourceTree = "<group>"; };
 		124630CE20D279B700917C6A /* PagamentoFixaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagamentoFixaManager.swift; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 				124630EE20D3292A00917C6A /* PagamentoCombustivelManager.swift */,
 				124630DE20D30AEB00917C6A /* RateioManager.swift */,
 				12ADCAB120CEE4AA0068824E /* Database.swift */,
+				122AA71A213F42F10087B2B2 /* DatabaseExporter.swift */,
 				12D5829D20CED5B60003B317 /* Mensal.xcdatamodeld */,
 			);
 			path = Manager;
@@ -464,6 +467,7 @@
 				124630EB20D3290900917C6A /* PagamentoCombustivelProxy.swift in Sources */,
 				124630DF20D30AEB00917C6A /* RateioManager.swift in Sources */,
 				124630DD20D2F3C400917C6A /* JSON.swift in Sources */,
+				122AA71B213F42F10087B2B2 /* DatabaseExporter.swift in Sources */,
 				126FF37820CF0FD30019BB9F /* MesManager.swift in Sources */,
 				12002E8A210E712C003DA3EF /* PagamentoDiversa.swift in Sources */,
 				120BB60B20D1694A00892E07 /* UsuarioManager.swift in Sources */,

@@ -17,6 +17,18 @@ extension Date {
         }
     }
 
+    var iso8601Extended: String {
+        get {
+            return self.inGMTRegion().iso8601(opts: .withInternetDateTimeExtended)
+        }
+    }
+
+    var iso8601Date: String {
+        get {
+            return self.inGMTRegion().iso8601(opts: .withFullDate)
+        }
+    }
+
     static func parse(stringToDate string: String?) -> Date? {
         if let string = string {
             return DateInRegion(string: string, format: .iso8601Auto, fromRegion: .GMT())?.toRegion(.GMT()).absoluteDate

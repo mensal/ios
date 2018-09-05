@@ -9,14 +9,30 @@ class MesesVC: UITableViewController {
     private let meses = Cache<[Mes]> { MesManager.obterTodos().reversed() }
 
     // MARK: - UIActions
-    
+
     @IBAction func compartilhar() {
-        if let sqlite = persistentContainer.persistentStoreDescriptions.first?.url {
-            let vc = UIActivityViewController(activityItems: [sqlite], applicationActivities: [])
+
+        let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let sqlURL = documentsURL.appendingPathComponent("sql-dump-\(Date().iso8601().replacingOccurrences(of: ":", with: "_") ).sql")
+        let sqliteURL = persistentContainer.persistentStoreDescriptions.first!.url!
+        
+        do {
+           try DatabaseExporter.exportar(persistentContainer.viewContext).write(to: sqlURL)
+            
+            let vc = UIActivityViewController(activityItems: [sqlURL, sqliteURL], applicationActivities: [])
+            vc.completionWithItemsHandler = { activity, success, items, error in
+                try? FileManager.default.removeItem(at: sqlURL)
+            }
+            
             present(vc, animated: true)
+
+        } catch {
+            print(error)
         }
+        
+        // let sqlite = persistentContainer.persistentStoreDescriptions.first?.url
     }
-    
+
     // MARK: - Declarados
 
     private func converterAno(_ section: Int) -> Int {

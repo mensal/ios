@@ -34,4 +34,10 @@ class RateioManager: PersistidoManager<Rateio> {
     func obter(_ pagamento: Pagamento, _ usuario: Usuario, _ context: NSManagedObjectContext) -> Rateio? {
         return tabela(context).first { _ in NSPredicate(format: "pagamento.id = %@ and usuario.id = %@", argumentArray: [pagamento.id ?? UUID(), usuario.id ?? UUID()]) }
     }
+
+    func obterTodos(_ context: NSManagedObjectContext) -> [Rateio] {
+        return tabela(context)
+            .sort(using: sortDescriptors)
+            .execute()
+    }
 }
