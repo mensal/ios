@@ -1,4 +1,5 @@
 import UIKit
+import Zip
 
 private let mostraMesSegueId = "mostraMes"
 
@@ -11,17 +12,18 @@ class MesesVC: UITableViewController {
     // MARK: - UIActions
 
     @IBAction func compartilhar() {
-
         let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let sqlURL = documentsURL.appendingPathComponent("sql-dump-\(Date().iso8601().replacingOccurrences(of: ":", with: "_") ).sql")
+        let sqlURL = documentsURL.appendingPathComponent("sql-dump.sql")
         let sqliteURL = persistentContainer.persistentStoreDescriptions.first!.url!
 
         do {
-           try DatabaseExporter.exportar(persistentContainer.viewContext).write(to: sqlURL)
+            try DatabaseExporter.exportar(persistentContainer.viewContext).write(to: sqlURL)
+            let zipURL = try Zip.quickZipFiles([sqlURL, sqliteURL], fileName: "database-backup-\(Date().inRegion().iso8601().replacingOccurrences(of: ":", with: "_"))")
+            try? FileManager.default.removeItem(at: sqlURL)
 
-            let vc = UIActivityViewController(activityItems: [sqlURL, sqliteURL], applicationActivities: [])
+            let vc = UIActivityViewController(activityItems: [zipURL], applicationActivities: [])
             vc.completionWithItemsHandler = { activity, success, items, error in
-                try? FileManager.default.removeItem(at: sqlURL)
+                try? FileManager.default.removeItem(at: zipURL)
             }
 
             present(vc, animated: true)

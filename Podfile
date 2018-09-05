@@ -15,6 +15,8 @@ target 'Mensal' do
     pod 'AlamofireNetworkActivityLogger', '~> 2.3'
     pod 'AlamofireSwiftyJSON', '~> 1.0'
     pod 'SwiftyUserDefaults', '~> 3.0'
+    pod 'Zip', '~> 1.1'
+    
 #    pod 'IBDesignable', '~> 0.1'
 #    pod 'ImageTextField','~> 1.0'
 #    pod 'MRTextField', '~> 1.0'
