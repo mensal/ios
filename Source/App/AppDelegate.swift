@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         URLCache.shared = URLCache(memoryCapacity: 0, diskCapacity: 0, diskPath: nil)
 
 //        AppConfig.shared.credenciais = nil
-        AppConfig.shared.token = nil
+//        AppConfig.shared.token = nil
 //        AppConfig.shared.credenciais = Credenciais("teste", "teste")
 
         return true
