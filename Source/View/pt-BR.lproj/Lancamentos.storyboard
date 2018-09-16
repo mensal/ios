@@ -55,7 +55,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="85F-ZZ-1qp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="172" y="-8"/>
+            <point key="canvasLocation" x="584" y="454"/>
         </scene>
         <!--MesVC-->
         <scene sceneID="mTG-m6-9fJ">
@@ -138,7 +138,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1hs-Wf-KJZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="984.05797101449286" y="-9.7826086956521738"/>
+            <point key="canvasLocation" x="1296" y="454"/>
         </scene>
         <!--EdicaoVC-->
         <scene sceneID="ycN-52-UJ7">
@@ -175,7 +175,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="9wT-YY-wQq" kind="show" id="PZL-hC-6nq"/>
+                                            <segue destination="9wT-YY-wQq" kind="show" id="5fm-St-ZIK"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -206,7 +206,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="9wT-YY-wQq" kind="show" id="wNe-x9-SAi"/>
+                                            <segue destination="oxg-Au-05u" kind="show" id="hlb-iS-oES"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="celula" id="6rY-11-vZB">
@@ -285,7 +285,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="9wT-YY-wQq" kind="show" id="cHx-eM-y5F"/>
+                                            <segue destination="AGn-mi-fdL" kind="show" id="haR-jL-S11"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="celula" rowHeight="100" id="V48-EK-VMQ">
@@ -441,9 +441,9 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uHg-er-yGK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1909.5999999999999" y="504.19790104947532"/>
+            <point key="canvasLocation" x="1910" y="454"/>
         </scene>
-        <!--Title-->
+        <!--Diárias-->
         <scene sceneID="G7G-CG-GYv">
             <objects>
                 <tableViewController id="9wT-YY-wQq" sceneMemberID="viewController">
@@ -466,11 +466,69 @@
                             <outlet property="delegate" destination="9wT-YY-wQq" id="Zbc-6P-qZb"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Title" largeTitleDisplayMode="never" id="udC-93-7Wb"/>
+                    <navigationItem key="navigationItem" title="Diárias" largeTitleDisplayMode="never" id="udC-93-7Wb"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N9T-5I-EYI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3318" y="523"/>
+            <point key="canvasLocation" x="2574" y="-370"/>
+        </scene>
+        <!--Tipos de despesa-->
+        <scene sceneID="uHP-Ei-Pbc">
+            <objects>
+                <tableViewController id="AGn-mi-fdL" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="RfD-Ux-kqN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="vwT-O7-3br">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vwT-O7-3br" id="fb0-Vq-QTe">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="AGn-mi-fdL" id="mde-Ij-hwP"/>
+                            <outlet property="delegate" destination="AGn-mi-fdL" id="H4x-mR-GVk"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Tipos de despesa" id="vLD-Sv-QG2"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NWf-r8-ynl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2574" y="1285"/>
+        </scene>
+        <!--Automóveis-->
+        <scene sceneID="IrM-TU-IRx">
+            <objects>
+                <tableViewController id="oxg-Au-05u" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="pZb-Rc-YN9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="kkE-dz-YIh">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kkE-dz-YIh" id="M6H-T4-Qcv">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="oxg-Au-05u" id="NXZ-GU-SYk"/>
+                            <outlet property="delegate" destination="oxg-Au-05u" id="iKT-qe-ija"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Automóveis" id="eP4-af-OuD"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JeG-9Z-m9z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2574" y="454"/>
         </scene>
         <!--PrincipalVC-->
         <scene sceneID="IpJ-mE-eTp">
@@ -486,7 +544,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YCU-HD-uP1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-644" y="-7"/>
+            <point key="canvasLocation" x="-63" y="454"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DdB-Qh-baG">
@@ -504,10 +562,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BjF-OM-pS1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1910" y="-334"/>
+            <point key="canvasLocation" x="1910" y="-369"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="cHx-eM-y5F"/>
-    </inferredMetricsTieBreakers>
 </document>
