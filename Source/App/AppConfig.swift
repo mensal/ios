@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 //import SwiftyUserDefaults
 
 //extension DefaultsKeys {
@@ -22,7 +23,7 @@ class AppConfig {
             return nil
         }
         set {
-            var resultado: [String: String]? = nil
+            var resultado: [String: String]?
 
             if let newValue = newValue {
                 resultado = ["login": newValue.login!, "senha": newValue.senha! ]

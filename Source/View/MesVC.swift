@@ -1,7 +1,8 @@
 import UIKit
 
 private class GrupoAlertAction: UIAlertAction {
-    var grupo: Grupo?
+    var mes: Mes!
+    var grupo: Grupo!
 }
 
 private let mostraEdicaoSegueId = "mostraEdicao"
@@ -58,6 +59,7 @@ class MesVC: UITableViewController {
                 self.performSegue(withIdentifier: mostraEdicaoSegueId, sender: $0)
             }
 
+            action.mes = mes
             action.grupo = grupo
             alert.addAction(action)
         }
@@ -171,6 +173,7 @@ class MesVC: UITableViewController {
             let vc = nc.topViewController as! EdicaoVC
             //            let vc = segue.destination as! EdicaoVC
             vc.grupo = grupo
+            vc.mes   = mes
         }
     }
 
@@ -226,7 +229,7 @@ extension MesVC {
         default:
             let pagamento = pagamentos[indexPath.section].cached[indexPath.row]
 
-            cell.diaLabel.text = pagamento.data?.stringGMTDay
+            cell.diaLabel.text = String(pagamento.data!.day).padding(toLength: 2, withPad: "0")
             cell.descricaoLabel.text = pagamento.description
             cell.valorLabel.text = pagamento.total.string(fractionDigits: 2)
 
@@ -253,7 +256,7 @@ extension MesVC {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.delete) {
             let context = persistentContainer.viewContext
-            var pagamento: Pagamento? = nil
+            var pagamento: Pagamento?
 
             if indexPath.section > 0 {
                 pagamento = pagamentos[indexPath.section].cached[indexPath.row]

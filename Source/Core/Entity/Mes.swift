@@ -48,21 +48,22 @@ class Mes {
         }
     }
 
-    private var inicioInRegion: DateInRegion? {
-        get {
-            return DateInRegion(string: "\(self.ano ?? 0)-\(self.stringOrdinal ?? "")-01", format: .iso8601Auto, fromRegion: .GMT())
-        }
-    }
+//    private var inicioInRegion: Date? {
+//        get {
+//            return Date.parse(year: self.ano ?? 0, month: self.ordinal ?? 0, day: 1)
+//        }
+//    }
 
     var inicio: Date? {
         get {
-            return self.inicioInRegion?.absoluteDate
+//            return self.inicioInRegion
+            return Date.parse(year: self.ano ?? 0, month: self.ordinal ?? 0, day: 1)
         }
     }
 
     var fim: Date? {
         get {
-            return self.inicioInRegion?.endOf(component: .month).absoluteDate
+            return self.inicio?.dateAtEndOf(.month)
         }
     }
 

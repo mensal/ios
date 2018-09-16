@@ -1,12 +1,17 @@
 import UIKit
+import SwiftDate
 
 class EdicaoVC: UITableViewController {
 
     // MARK: - Propriedades
 
-    var mes: Mes?
+    var mes: Mes!
 
-    var grupo: Grupo?
+    var grupo: Grupo!
+
+    // MARK: - IBOutlet
+
+    @IBOutlet weak var diaPickerView: UIPickerView!
 
     // MARK: - IBAction
 
@@ -19,6 +24,9 @@ class EdicaoVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        diaPickerView.dataSource = self
+        diaPickerView.delegate   = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -47,5 +55,34 @@ class EdicaoVC: UITableViewController {
 //        cell.textLabel?.text = "1"
 //
 //        return cell
+//    }
+}
+
+extension EdicaoVC: UIPickerViewDataSource {
+
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return mes.fim?.day ?? 0
+    }
+}
+
+extension EdicaoVC: UIPickerViewDelegate {
+
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        let dia = row + 1
+        var attributes = [NSAttributedStringKey: Any]()
+
+        if mes.isCorrente ?? false && Date.currentDay() == dia {
+            attributes[.foregroundColor] = pickerView.tintColor
+        }
+
+        let string = Date.parse(year: mes.ano!, month: mes.ordinal!, day: dia)!.stringForDatePicker!
+        return NSAttributedString(string: string, attributes: attributes)
+    }
+
+//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
 //    }
 }

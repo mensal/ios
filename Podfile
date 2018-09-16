@@ -4,7 +4,7 @@ inhibit_all_warnings!
 target 'Mensal' do
     platform :ios, '11.0'
 
-    pod 'SwiftDate', '~> 4.5'
+    pod 'SwiftDate', '~> 5.0'
     pod 'SwiftyJSON', '~> 3.1'
     pod 'SwiftyBeaver', '~> 1.6'
     pod 'Localize-Swift', '~> 2.0'

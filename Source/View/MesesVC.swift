@@ -18,7 +18,7 @@ class MesesVC: UITableViewController {
 
         do {
             try DatabaseExporter.exportar(persistentContainer.viewContext).write(to: sqlURL)
-            let zipURL = try Zip.quickZipFiles([sqlURL, sqliteURL], fileName: "database-backup-\(Date().inRegion().iso8601().replacingOccurrences(of: ":", with: "_"))")
+            let zipURL = try Zip.quickZipFiles([sqlURL, sqliteURL], fileName: "database-backup-\(Date().iso8601Extended.replacingOccurrences(of: ":", with: "_"))")
             try? FileManager.default.removeItem(at: sqlURL)
 
             let vc = UIActivityViewController(activityItems: [zipURL], applicationActivities: [])

@@ -7,7 +7,7 @@ extension JSON {
 
     var date: Date? {
         get {
-            return Date.parse(stringToDate: self.string)
+            return Date.parse(string: self.string)
         }
     }
 
