@@ -28,7 +28,17 @@ extension Date {
 //            print("\(self) : \(self.isCurrentDay) __ \(Date.currentDay()) __ \(self.inRegion())")
 
 //            return self.isCurrentDay ? "Hoje" : self.inGMTRegion().string(dateStyle: .short, timeStyle: .none)
-            return self.isCurrentDay ? "Hoje" : date.description
+
+//            let formatter = DateFormatter()
+//            formatter.dateStyle = .long
+//            formatter.timeStyle = .none
+
+//            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+//            [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+//            [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+
+//            return self.isCurrentDay ? "Hoje" : date.toString(DateToStringStyles.date(.full))
+            return self.isCurrentDay ? "Hoje" : date.toFormat("E d 'de' MMM")
         }
     }
 
@@ -85,9 +95,8 @@ extension Date {
         let year   = year.description.padding(toLength: 4, withPad: "0")
         let month  = month.description.padding(toLength: 2, withPad: "0")
         let day    = day.description.padding(toLength: 2, withPad: "0")
-        let string = "\(year)-\(month)-\(day)"
 
-        return DateInRegion(string, format: nil, region: .current)?.date
+        return DateInRegion("\(year)-\(month)-\(day)", format: nil, region: .current)?.date
     }
 
     static func currentYear() -> Int {
