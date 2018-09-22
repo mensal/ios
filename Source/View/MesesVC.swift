@@ -31,8 +31,6 @@ class MesesVC: UITableViewController {
         } catch {
             print(error)
         }
-
-        // let sqlite = persistentContainer.persistentStoreDescriptions.first?.url
     }
 
     // MARK: - Declarados

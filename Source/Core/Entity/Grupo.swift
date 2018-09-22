@@ -17,15 +17,11 @@ class Grupo {
     var dinamico: Bool?
 
     var nomeSingular: String? {
-        //        get {
         return id == nil ? nil : (id!.rawValue + "Singular").localized()
-        //        }
     }
 
     var nomePlural: String? {
-        //        get {
         return id == nil ? nil : id!.rawValue.localized()
-        //        }
     }
 
     // MARK: - Construtores
