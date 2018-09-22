@@ -4,7 +4,11 @@ class MesCell: UITableViewCell {
 
     // MARK: - Propriedades
 
-    var grupo: Grupo?
+    var grupo: Grupo!
+
+    var fixa: Fixa?
+
+    var pagamento: Pagamento?
 
     // MARK: - IBOutlets
 
@@ -20,7 +24,7 @@ class MesCell: UITableViewCell {
         super.awakeFromNib()
     }
 
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//    }
+    //    override func setSelected(_ selected: Bool, animated: Bool) {
+    //        super.setSelected(selected, animated: animated)
+    //    }
 }

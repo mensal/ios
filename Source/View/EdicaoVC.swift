@@ -8,6 +8,10 @@ class EdicaoVC: UITableViewController {
     var mes: Mes!
 
     var grupo: Grupo!
+    
+    var fixa: Fixa?
+
+    var pagamento: Pagamento?
 
     // MARK: - IBOutlet
 
@@ -27,6 +31,8 @@ class EdicaoVC: UITableViewController {
 
         diaPickerView.dataSource = self
         diaPickerView.delegate   = self
+
+        print("\(grupo.nomeSingular!) \(String(describing: pagamento?.id?.description)) \(String(describing: pagamento?.data?.stringForDatePicker)) \(String(describing: pagamento?.total.description)) \(String(describing: fixa?.nome))")
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -41,22 +47,9 @@ class EdicaoVC: UITableViewController {
 
     // MARK: - Table View Controller
 
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        return 1
-//    }
-//
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 1
-//    }
-//
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "celula", for: indexPath)
-//
-//        cell.textLabel?.text = "1"
-//
-//        return cell
-//    }
 }
+
+// MARK: - Picker View
 
 extension EdicaoVC: UIPickerViewDataSource {
 
@@ -83,6 +76,6 @@ extension EdicaoVC: UIPickerViewDelegate {
         return NSAttributedString(string: string, attributes: attributes)
     }
 
-//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-//    }
+    //    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    //    }
 }

@@ -16,6 +16,13 @@ extension Array where Element: Cache<[Pagamento]> {
     }
 }
 
+extension Array where Element: PagamentoFixa {
+
+    func pagamento(fixa: Fixa) -> PagamentoFixa? {
+        return self.first(where: { $0.fixa?.nome == fixa.nome })
+    }
+}
+
 class MesVC: UITableViewController {
 
     // MARK: - Propriedades
@@ -124,8 +131,6 @@ class MesVC: UITableViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
-        print("xxxxxxxxxxxx")
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -150,30 +155,39 @@ class MesVC: UITableViewController {
 
         //        x.nextMonth
 
-//        if !autenticacaoCancelada {
-//            sincronizar()
-//        }
+        //        if !autenticacaoCancelada {
+        //            sincronizar()
+        //        }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
 
         let grupo: Grupo
+        let fixa: Fixa?
+        let pagamento: Pagamento?
 
         if sender is GrupoAlertAction {
             let action = sender as! GrupoAlertAction
-            grupo = action.grupo!
+            grupo = action.grupo
+            fixa = nil
+            pagamento = nil
+
         } else {
             let sender = sender as! MesCell
-            grupo = sender.grupo!
+            grupo = sender.grupo
+            fixa = sender.fixa
+            pagamento = sender.pagamento
         }
 
         if segue.identifier == mostraEdicaoSegueId {
             let nc = segue.destination as! UINavigationController
             let vc = nc.topViewController as! EdicaoVC
-            //            let vc = segue.destination as! EdicaoVC
+
             vc.grupo = grupo
-            vc.mes   = mes
+            vc.mes = mes
+            vc.fixa = fixa
+            vc.pagamento = pagamento
         }
     }
 
@@ -184,9 +198,9 @@ class MesVC: UITableViewController {
     }
 }
 
-extension MesVC {
+// MARK: - Table View Controller
 
-    // MARK: - Table View Controller
+extension MesVC {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return grupos.cached.count
@@ -215,32 +229,34 @@ extension MesVC {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: mesCellId, for: indexPath) as! MesCell
-        //        cell.mes = self.mes
+
+        let fixa: Fixa?
+        let pagamento: Pagamento?
 
         switch indexPath.section {
         case 0:
-            let fixa = fixas.cached[indexPath.row]
-            let cached = pagamentos[indexPath.section].cached as! [PagamentoFixa]
+            fixa = fixas.cached[indexPath.row]
+            pagamento = (pagamentos[indexPath.section].cached as! [PagamentoFixa]).pagamento(fixa: fixa!)
 
-            cell.diaLabel.text = ("0" + String(fixa.vencimento)).suffix(2).description
-            cell.descricaoLabel.text = fixa.nome
-            cell.valorLabel.text = cached.first(where: { $0.fixa?.nome == fixa.nome })?.total.string(fractionDigits: 2)
+            cell.diaLabel.text = ("0" + String(fixa!.vencimento)).suffix(2).description
+            cell.descricaoLabel.text = fixa!.nome
 
         default:
-            let pagamento = pagamentos[indexPath.section].cached[indexPath.row]
+            fixa = nil
+            pagamento = pagamentos[indexPath.section].cached[indexPath.row]
 
-            cell.diaLabel.text = String(pagamento.data!.day).padding(toLength: 2, withPad: "0")
-            cell.descricaoLabel.text = pagamento.description
-            cell.valorLabel.text = pagamento.total.string(fractionDigits: 2)
-
-            break
+            cell.diaLabel.text = String(pagamento!.data!.day).padding(toLength: 2, withPad: "0")
+            cell.descricaoLabel.text = pagamento!.description
         }
 
         let corTexto = (mes.isCorrente ?? false && String(Date().day) == cell.diaLabel.text) ? cell.tintColor : .black
         cell.diaLabel.textColor = corTexto
         cell.descricaoLabel.textColor = corTexto
+        cell.valorLabel.text = pagamento?.total.string(fractionDigits: 2)
 
         cell.grupo = grupos.cached[indexPath.section]
+        cell.fixa = fixa
+        cell.pagamento = pagamento
 
         return cell
     }
@@ -277,6 +293,8 @@ extension MesVC {
         }
     }
 }
+
+// MARK: - Autenticação
 
 extension MesVC: AutenticacaoDelegate {
 

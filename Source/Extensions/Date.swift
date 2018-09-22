@@ -5,53 +5,20 @@ extension Date {
 
     // MARK: - Conveniência
 
-//    var gmtDay: Int? {
-//        get {
-//            return self.in(region: .UTC).day
-//        }
-//    }
-//
-//    var stringGMTDay: String? {
-//        get {
-//            return self.gmtDay != nil ? ("0" + String(self.gmtDay!)).suffix(2).description : nil
-//        }
-//    }
-//
-//    var stringGMTDay: String? {
-//        get {
-//            return self.gmtDay != nil ? ("0" + String(self.gmtDay!)).suffix(2).description : nil
-//        }
-//    }
-
     var stringForDatePicker: String? {
         get {
-//            print("\(self) : \(self.isCurrentDay) __ \(Date.currentDay()) __ \(self.inRegion())")
-
-//            return self.isCurrentDay ? "Hoje" : self.inGMTRegion().string(dateStyle: .short, timeStyle: .none)
-
-//            let formatter = DateFormatter()
-//            formatter.dateStyle = .long
-//            formatter.timeStyle = .none
-
-//            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-//            [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-//            [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
-
-//            return self.isCurrentDay ? "Hoje" : date.toString(DateToStringStyles.date(.full))
-            return self.isCurrentDay ? "Hoje" : date.toFormat("E d 'de' MMM")
+            return self.isCurrentDay ? "Hoje" : date.toFormat("EEE d")
         }
     }
 
     var iso8601Extended: String {
         get {
-//            return self.inGMTRegion().iso8601(opts: .withInternetDateTimeExtended)
             return self.in(region: .current).toISO(.withInternetDateTimeExtended)
         }
     }
 
     var iso8601Date: String {
         get {
-//            return self.inGMTRegion().iso8601(opts: .withFullDate)
             return self.in(region: .current).toISO(.withFullDate)
         }
     }
@@ -76,7 +43,6 @@ extension Date {
 
     static func parse(string: String?) -> Date? {
         if let string = string {
-//            return DateInRegion(string: string, format: .iso8601Auto, fromRegion: .GMT())?.toRegion(.GMT()).absoluteDate
             return DateInRegion(string, format: nil, region: .current)?.date
         }
 
