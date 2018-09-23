@@ -15,6 +15,7 @@
 		12002E95210E7AF8003DA3EF /* AutenticacaoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12002E94210E7AF8003DA3EF /* AutenticacaoVC.swift */; };
 		12002E97210E7E57003DA3EF /* AutenticacaoProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12002E96210E7E57003DA3EF /* AutenticacaoProxy.swift */; };
 		12002E99210E8107003DA3EF /* Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12002E98210E8107003DA3EF /* Proxy.swift */; };
+		12074E482157FCC7001750A5 /* RateioCellxx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12074E472157FCC7001750A5 /* RateioCellxx.swift */; };
 		120BB60420D1354200892E07 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120BB60320D1354200892E07 /* Cache.swift */; };
 		120BB60720D140E600892E07 /* UsuarioProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120BB60620D140E600892E07 /* UsuarioProxy.swift */; };
 		120BB60B20D1694A00892E07 /* UsuarioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120BB60A20D1694A00892E07 /* UsuarioManager.swift */; };
@@ -73,6 +74,8 @@
 		12D5829F20CED5B60003B317 /* Mensal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 12D5829D20CED5B60003B317 /* Mensal.xcdatamodeld */; };
 		12D582A120CED5B80003B317 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12D582A020CED5B80003B317 /* Assets.xcassets */; };
 		12D582A420CED5B80003B317 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12D582A220CED5B80003B317 /* LaunchScreen.storyboard */; };
+		12FE556721581D0B000BB491 /* RateioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FE556521581D0B000BB491 /* RateioCell.swift */; };
+		12FE556821581D0B000BB491 /* RateioCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12FE556621581D0B000BB491 /* RateioCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +86,7 @@
 		12002E94210E7AF8003DA3EF /* AutenticacaoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutenticacaoVC.swift; sourceTree = "<group>"; };
 		12002E96210E7E57003DA3EF /* AutenticacaoProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutenticacaoProxy.swift; sourceTree = "<group>"; };
 		12002E98210E8107003DA3EF /* Proxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proxy.swift; sourceTree = "<group>"; };
+		12074E472157FCC7001750A5 /* RateioCellxx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateioCellxx.swift; sourceTree = "<group>"; };
 		120BB60320D1354200892E07 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		120BB60620D140E600892E07 /* UsuarioProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuarioProxy.swift; sourceTree = "<group>"; };
 		120BB60A20D1694A00892E07 /* UsuarioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuarioManager.swift; sourceTree = "<group>"; };
@@ -143,6 +147,8 @@
 		12D5829E20CED5B60003B317 /* Mensal.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Mensal.xcdatamodel; sourceTree = "<group>"; };
 		12D582A020CED5B80003B317 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		12D582A520CED5B80003B317 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		12FE556521581D0B000BB491 /* RateioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateioCell.swift; sourceTree = "<group>"; };
+		12FE556621581D0B000BB491 /* RateioCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RateioCell.xib; sourceTree = "<group>"; };
 		4BA46E1885F46DF90003EC6E /* Pods_Mensal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mensal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69B1CFC24FBA38A6147BC427 /* Pods-Mensal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mensal.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mensal/Pods-Mensal.release.xcconfig"; sourceTree = "<group>"; };
 		BE3EA5ABEE55EBD15ED03FF6 /* Pods-Mensal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mensal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mensal/Pods-Mensal.debug.xcconfig"; sourceTree = "<group>"; };
@@ -240,6 +246,9 @@
 				120C3B0D20D03EFC0029C184 /* MesHeader.swift */,
 				120C3B0720D027C00029C184 /* MesCell.swift */,
 				126FF36E20CEF6A50019BB9F /* EdicaoVC.swift */,
+				12074E472157FCC7001750A5 /* RateioCellxx.swift */,
+				12FE556521581D0B000BB491 /* RateioCell.swift */,
+				12FE556621581D0B000BB491 /* RateioCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -394,6 +403,7 @@
 				126FF36720CEEF8B0019BB9F /* Localizable.strings in Resources */,
 				12D582A420CED5B80003B317 /* LaunchScreen.storyboard in Resources */,
 				120C3B1020D05B810029C184 /* MesHeader.xib in Resources */,
+				12FE556821581D0B000BB491 /* RateioCell.xib in Resources */,
 				126FF36420CEEF880019BB9F /* InfoPlist.strings in Resources */,
 				12D582A120CED5B80003B317 /* Assets.xcassets in Resources */,
 				12D5829C20CED5B60003B317 /* Lancamentos.storyboard in Resources */,
@@ -492,11 +502,13 @@
 				120BB61D20D1829300892E07 /* FixaProxy.swift in Sources */,
 				124630D520D29C5B00917C6A /* VersionadoProxy.swift in Sources */,
 				12ADCAB220CEE4AA0068824E /* Database.swift in Sources */,
+				12074E482157FCC7001750A5 /* RateioCellxx.swift in Sources */,
 				124630E320D31AAD00917C6A /* Pagamento.swift in Sources */,
 				124630D720D2AE9E00917C6A /* SincronizadoManager.swift in Sources */,
 				12002E95210E7AF8003DA3EF /* AutenticacaoVC.swift in Sources */,
 				126FF36B20CEF0220019BB9F /* MesesVC.swift in Sources */,
 				12002E97210E7E57003DA3EF /* AutenticacaoProxy.swift in Sources */,
+				12FE556721581D0B000BB491 /* RateioCell.swift in Sources */,
 				12002E8E210E714A003DA3EF /* PagamentoCombustivel.swift in Sources */,
 				126FF37D20CF168E0019BB9F /* Date.swift in Sources */,
 				120C3B0E20D03EFC0029C184 /* MesHeader.swift in Sources */,

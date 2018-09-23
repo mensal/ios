@@ -4,9 +4,9 @@ class MesHeader: UITableViewHeaderFooterView {
 
     // MARK: - IBOutlets
 
-    @IBOutlet weak var grupoLabel: UILabel!
+    @IBOutlet private weak var grupoLabel: UILabel!
 
-    @IBOutlet weak var atualizandoActivity: UIActivityIndicatorView!
+    @IBOutlet private weak var atualizandoActivity: UIActivityIndicatorView!
 
     // MARK: - Propriedades
 

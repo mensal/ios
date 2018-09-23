@@ -5,8 +5,10 @@ extension UINib {
     // MARK: - Conveniência
 
     static var mesHeader: UINib {
-        get {
-            return UINib(nibName: "MesHeader", bundle: nil)
-        }
+        return UINib(nibName: "MesHeader", bundle: nil)
+    }
+
+    static var rateioCell: UINib {
+        return UINib(nibName: "RateioCell", bundle: nil)
     }
 }

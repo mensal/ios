@@ -27,7 +27,7 @@ class MesVC: UITableViewController {
 
     // MARK: - Propriedades
 
-    var autenticacaoCancelada = false
+    private var autenticacaoCancelada = false
 
     var mes: Mes!
 
@@ -57,7 +57,7 @@ class MesVC: UITableViewController {
 
     // MARK: - IBActions
 
-    @IBAction func adicionar(_ sender: UIBarButtonItem) {
+    @IBAction private func adicionar(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel))
 
@@ -76,7 +76,7 @@ class MesVC: UITableViewController {
         //        AppConfig.shared.token = nil
     }
 
-    @IBAction func atualizar(_ sender: UIRefreshControl) {
+    @IBAction private func atualizar(_ sender: UIRefreshControl) {
         headers().forEach { $0?.iniciaAtividade() }
         sender.endRefreshing()
     }

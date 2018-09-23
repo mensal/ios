@@ -14,11 +14,11 @@ typealias AutenticacaoCallback = (_ sucesso: Bool) -> Void
 
 class AutenticacaoVC: UIViewController {
 
-    @IBOutlet weak var loginLabel: UITextField!
+    @IBOutlet private weak var loginLabel: UITextField!
 
-    @IBOutlet weak var senhaLabel: UITextField!
+    @IBOutlet private weak var senhaLabel: UITextField!
 
-    @IBOutlet weak var logarButton: UIButton!
+    @IBOutlet private weak var logarButton: UIButton!
 
     private static var mostrando = false
 
@@ -26,7 +26,7 @@ class AutenticacaoVC: UIViewController {
 
     private var habilitador: Enabler?
 
-    @IBAction func logar() {
+    @IBAction private func logar() {
         let credenciais = Credenciais(
             loginLabel.text?.trimmingCharacters(in: .whitespaces) ?? "",
             senhaLabel.text?.trimmingCharacters(in: .whitespaces) ?? ""
@@ -60,7 +60,7 @@ class AutenticacaoVC: UIViewController {
         return alert
     }
 
-    @IBAction func cancelar() {
+    @IBAction private func cancelar() {
         dismiss(animated: true) {
             self.callback?(false)
         }

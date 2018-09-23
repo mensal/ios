@@ -11,7 +11,7 @@ class MesesVC: UITableViewController {
 
     // MARK: - UIActions
 
-    @IBAction func compartilhar() {
+    @IBAction private func compartilhar() {
         let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let sqlURL = documentsURL.appendingPathComponent("sql-dump.sql")
         let sqliteURL = persistentContainer.persistentStoreDescriptions.first!.url!

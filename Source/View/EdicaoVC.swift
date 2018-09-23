@@ -1,6 +1,8 @@
 import UIKit
 import SwiftDate
 
+private let rateioCellId = "rateioCell"
+
 class EdicaoVC: UITableViewController {
 
     // MARK: - Propriedades
@@ -13,13 +15,25 @@ class EdicaoVC: UITableViewController {
 
     var pagamento: Pagamento?
 
+    private let rateioSection = 3
+
+    // MARK: - Private
+
+    private func isRateioSection(at section: Int) -> Bool {
+        return section == rateioSection
+    }
+
+    private func isRateioCell(at indexPath: IndexPath) -> Bool {
+        return isRateioSection(at: indexPath.section) && indexPath.row > 1
+    }
+
     // MARK: - IBOutlet
 
-    @IBOutlet weak var diaPickerView: UIPickerView!
+    @IBOutlet private weak var diaPickerView: UIPickerView!
 
     // MARK: - IBAction
 
-    @IBAction func cancelar(_ sender: UIBarButtonItem) {
+    @IBAction private func cancelar(_ sender: UIBarButtonItem) {
         dismiss(animated: true)
         navigationController?.popViewController(animated: true)
     }
@@ -32,21 +46,66 @@ class EdicaoVC: UITableViewController {
         diaPickerView.dataSource = self
         diaPickerView.delegate   = self
 
-        print("\(grupo.nomeSingular!) \(String(describing: pagamento?.id?.description)) \(String(describing: pagamento?.data?.stringForDatePicker)) \(String(describing: pagamento?.total.description)) \(String(describing: fixa?.nome))")
+        tableView.register(UINib.rateioCell, forCellReuseIdentifier: rateioCellId)
+
+//        print("\(grupo.nomeSingular!) \(String(describing: pagamento?.id?.description)) \(String(describing: pagamento?.data?.stringForDatePicker)) \(String(describing: pagamento?.total.description)) \(String(describing: fixa?.nome))")
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        title = grupo?.nomeSingular
+        if grupo.dinamico ?? false {
+            title = grupo?.nomeSingular
+        } else {
+            title = fixa?.nome
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+}
 
-    // MARK: - Table View Controller
+// MARK: - Table View Controller
 
+extension EdicaoVC {
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        var count = super.tableView(tableView, numberOfRowsInSection: section)
+
+        if isRateioSection(at: section) {
+            count = UsuarioManager().obterTodos(persistentContainer.viewContext).count + 2
+        }
+
+        return count
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if isRateioCell(at: indexPath) {
+            let cell = tableView.dequeueReusableCell(withIdentifier: rateioCellId, for: indexPath) as! RateioCell
+            cell.nomeLabel.text = UsuarioManager().obterTodos(persistentContainer.viewContext)[indexPath.row - 2].nome
+
+            return cell
+        } else {
+            return super.tableView(tableView, cellForRowAt: indexPath)
+        }
+    }
+
+    override func tableView(_ tableView: UITableView, indentationLevelForRowAt indexPath: IndexPath) -> Int {
+        if isRateioCell(at: indexPath) {
+            return 0
+        } else {
+            return super.tableView(tableView, indentationLevelForRowAt: indexPath)
+        }
+    }
+
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if isRateioCell(at: indexPath) {
+            return -1
+        } else {
+            return super.tableView(tableView, heightForRowAt: indexPath)
+        }
+    }
 }
 
 // MARK: - Picker View
