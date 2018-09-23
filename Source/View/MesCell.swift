@@ -45,11 +45,11 @@ class MesCell: UITableViewCell {
 
     // MARK: - IBOutlets
 
-    @IBOutlet weak var diaLabel: UILabel!
+    @IBOutlet private weak var diaLabel: UILabel!
 
-    @IBOutlet weak var descricaoLabel: UILabel!
+    @IBOutlet private weak var descricaoLabel: UILabel!
 
-    @IBOutlet weak var valorLabel: UILabel!
+    @IBOutlet private weak var valorLabel: UILabel!
 
     // MARK: - Privados
 
