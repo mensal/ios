@@ -6,7 +6,22 @@ class MesCell: UITableViewCell {
 
     var grupo: Grupo!
 
-    var fixa: Fixa?
+    private var _fixa: Fixa?
+
+    var fixa: Fixa? {
+        get {
+            return _fixa
+        }
+
+        set {
+            _fixa = newValue
+
+            if let fixa = fixa {
+                diaLabel.text = ("0" + String(fixa.vencimento)).suffix(2).description
+                descricaoLabel.text = fixa.nome
+            }
+        }
+    }
 
     private var _pagamento: Pagamento?
 
@@ -18,9 +33,13 @@ class MesCell: UITableViewCell {
         set {
             _pagamento = newValue
 
-            let isBold = _pagamento?.data?.in(region: .current).isToday ?? false
-            MesCell.setFont(bold: isBold, for: diaLabel)
-            MesCell.setFont(bold: isBold, for: descricaoLabel)
+            if fixa == nil {
+                diaLabel.text = String(pagamento!.data!.day).padding(toLength: 2, withPad: "0")
+                descricaoLabel.text = pagamento!.description
+            }
+
+            valorLabel.text = _pagamento?.total.string(fractionDigits: 2)
+            setBold()
         }
     }
 
@@ -33,6 +52,12 @@ class MesCell: UITableViewCell {
     @IBOutlet weak var valorLabel: UILabel!
 
     // MARK: - Privados
+
+    private func setBold() {
+        let isBold = _pagamento?.data?.in(region: .current).isToday ?? false
+        MesCell.setFont(bold: isBold, for: diaLabel)
+        MesCell.setFont(bold: isBold, for: descricaoLabel)
+    }
 
     private static func setFont(bold: Bool, for label: UILabel) {
         if bold {

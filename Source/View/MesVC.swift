@@ -237,22 +237,10 @@ extension MesVC {
         case 0:
             fixa = fixas.cached[indexPath.row]
             pagamento = (pagamentos[indexPath.section].cached as! [PagamentoFixa]).pagamento(fixa: fixa!)
-
-            cell.diaLabel.text = ("0" + String(fixa!.vencimento)).suffix(2).description
-            cell.descricaoLabel.text = fixa!.nome
-
         default:
             fixa = nil
             pagamento = pagamentos[indexPath.section].cached[indexPath.row]
-
-            cell.diaLabel.text = String(pagamento!.data!.day).padding(toLength: 2, withPad: "0")
-            cell.descricaoLabel.text = pagamento!.description
         }
-
-//        let corTexto = (mes.isCorrente ?? false && String(Date.currentDay()) == cell.diaLabel.text) ? cell.tintColor : .black
-//        cell.diaLabel.textColor = corTexto
-//        cell.descricaoLabel.textColor = corTexto
-        cell.valorLabel.text = pagamento?.total.string(fractionDigits: 2)
 
         cell.grupo = grupos.cached[indexPath.section]
         cell.fixa = fixa
