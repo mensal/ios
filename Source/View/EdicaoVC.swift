@@ -8,7 +8,7 @@ class EdicaoVC: UITableViewController {
     var mes: Mes!
 
     var grupo: Grupo!
-    
+
     var fixa: Fixa?
 
     var pagamento: Pagamento?

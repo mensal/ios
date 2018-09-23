@@ -249,9 +249,9 @@ extension MesVC {
             cell.descricaoLabel.text = pagamento!.description
         }
 
-        let corTexto = (mes.isCorrente ?? false && String(Date().day) == cell.diaLabel.text) ? cell.tintColor : .black
-        cell.diaLabel.textColor = corTexto
-        cell.descricaoLabel.textColor = corTexto
+//        let corTexto = (mes.isCorrente ?? false && String(Date.currentDay()) == cell.diaLabel.text) ? cell.tintColor : .black
+//        cell.diaLabel.textColor = corTexto
+//        cell.descricaoLabel.textColor = corTexto
         cell.valorLabel.text = pagamento?.total.string(fractionDigits: 2)
 
         cell.grupo = grupos.cached[indexPath.section]

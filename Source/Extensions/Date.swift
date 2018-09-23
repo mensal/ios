@@ -66,15 +66,15 @@ extension Date {
     }
 
     static func currentYear() -> Int {
-        return Date().year
+        return Date().in(region: .current).year
     }
 
     static func currentMonth() -> Int {
-        return Date().month
+        return Date().in(region: .current).month
     }
 
     static func currentDay() -> Int {
-        return Date().day
+        return Date().in(region: .current).day
     }
 
     public static func monthSymbol(for month: Int16) -> String {
