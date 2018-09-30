@@ -1,14 +1,8 @@
-//
-//  RateioCell.swift
-//  Mensal
-//
-//  Created by Cleverson Sacramento on 23/09/2018.
-//  Copyright © 2018 Cleverson Sacramento. All rights reserved.
-//
-
 import UIKit
 
 class RateioCell: UITableViewCell {
+
+    // MARK: - IBOutlets
 
     @IBOutlet weak var nomeLabel: UILabel!
 
