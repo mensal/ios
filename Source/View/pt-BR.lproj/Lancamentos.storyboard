@@ -311,7 +311,7 @@
                                                     <rect key="frame" x="16" y="11" width="343" height="21"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -326,7 +326,7 @@
                             </tableViewSection>
                             <tableViewSection footerTitle="Valor total de R$ 0,00" id="lcW-ub-7rz" userLabel="Pagamento">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="celula" textLabel="jga-ig-mhs" detailTextLabel="vRd-0m-g0h" style="IBUITableViewCellStyleValue1" id="Giw-yH-egL">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="dataPagamentoCell" textLabel="jga-ig-mhs" detailTextLabel="vRd-0m-g0h" style="IBUITableViewCellStyleValue1" id="Giw-yH-egL" userLabel="Data">
                                         <rect key="frame" x="0.0" y="475" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Giw-yH-egL" id="Bea-v3-xrr">
@@ -350,7 +350,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="celula" rowHeight="128" id="Xxr-xl-B5S">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="dataPagamentoPickerCell" rowHeight="128" id="Xxr-xl-B5S" userLabel="DatePicker">
                                         <rect key="frame" x="0.0" y="519" width="375" height="128"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Xxr-xl-B5S" id="acm-NF-jOX">

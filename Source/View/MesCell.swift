@@ -39,6 +39,8 @@ class MesCell: UITableViewCell {
             }
 
             valorLabel.text = _pagamento?.total.string(fractionDigits: 2)
+            valorLabel.text = valorLabel.text == nil ? valorLabel.text : "R$ " + valorLabel.text!
+
             setBold()
         }
     }

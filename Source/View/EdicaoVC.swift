@@ -21,7 +21,9 @@ extension Grupo {
     }
 }
 
-private let rateioCellId = "rateioCell"
+private let rateioCellId              = "rateioCell"
+private let dataPagamentoCellId       = "dataPagamentoCell"
+private let dataPagamentoPickerCellId = "dataPagamentoPickerCell"
 
 class EdicaoVC: UITableViewController {
 
@@ -47,6 +49,15 @@ class EdicaoVC: UITableViewController {
         return isRateioSection(at: indexPath.section) && indexPath.row > 1
     }
 
+    private func atualizarDia() {
+        let dia = diaPickerView.selectedRow(inComponent: 0) + 1
+        let string = Date.parse(year: mes.ano!, month: mes.ordinal!, day: dia)!.toString()
+
+        print(string)
+
+//        let dia = diaPickerView.selectedRow(inComponent: 0) + 1
+    }
+
     // MARK: - IBOutlet
 
     @IBOutlet private weak var diaPickerView: UIPickerView!
@@ -66,12 +77,12 @@ class EdicaoVC: UITableViewController {
         diaPickerView.dataSource = self
         diaPickerView.delegate   = self
 
-//        self.tableView.sectionHeaderHeight = 0;
-//        self.tableView.sectionFooterHeight = 0;
+        //        self.tableView.sectionHeaderHeight = 0;
+        //        self.tableView.sectionFooterHeight = 0;
 
         tableView.register(UINib.rateioCell, forCellReuseIdentifier: rateioCellId)
 
-//        print("\(grupo.nomeSingular!) \(String(describing: pagamento?.id?.description)) \(String(describing: pagamento?.data?.stringForDatePicker)) \(String(describing: pagamento?.total.description)) \(String(describing: fixa?.nome))")
+        //        print("\(grupo.nomeSingular!) \(String(describing: pagamento?.id?.description)) \(String(describing: pagamento?.data?.stringForDatePicker)) \(String(describing: pagamento?.total.description)) \(String(describing: fixa?.nome))")
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -93,14 +104,29 @@ class EdicaoVC: UITableViewController {
 
 extension EdicaoVC {
 
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        return grupo.sessoes.count
-//    }
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if isRateioCell(at: indexPath) {
+            let cell = tableView.dequeueReusableCell(withIdentifier: rateioCellId, for: indexPath) as! RateioCell
+            cell.nomeLabel.text = UsuarioManager().obterTodos(persistentContainer.viewContext)[indexPath.row - 2].nome
 
+            return cell
+        } else {
+            return super.tableView(tableView, cellForRowAt: indexPath)
+        }
+    }
+
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+
+        if isRateioCell(at: indexPath) {
+            return UITableViewAutomaticDimension
+        } else if grupo.sessoes.contains(indexPath.section) {
+            return super.tableView(tableView, heightForRowAt: indexPath)
+        } else {
+            return 0
+        }
+    }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        let section = grupo.sessoes[section]
         var count = super.tableView(tableView, numberOfRowsInSection: section)
-//        var count = grupo.sessoes.count
 
         if isRateioSection(at: section) {
             count = UsuarioManager().obterTodos(persistentContainer.viewContext).count + 2
@@ -109,9 +135,17 @@ extension EdicaoVC {
         return count
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let control = tableView.cellForRow(at: indexPath)?.contentView.subviews.filter { $0 is UIControl }.map { $0 as! UIControl }.first
+
+        if !(control?.isFirstResponder ?? false) {
+            control?.becomeFirstResponder()
+        }
+    }
+
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        let x: CGFloat = (grupo.sessoes.first! == section) ? 40 : 0
-        return grupo.sessoes.contains(section) ? super.tableView(tableView, heightForHeaderInSection: section) + x : 0.01
+        let diferenca: CGFloat = (grupo.sessoes.first! == section) ? 36 : 0
+        return grupo.sessoes.contains(section) ? super.tableView(tableView, heightForHeaderInSection: section) + diferenca : 0.01
     }
 
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -126,47 +160,12 @@ extension EdicaoVC {
         return grupo.sessoes.contains(section) ? super.tableView(tableView, viewForHeaderInSection: section) : UIView(frame: .zero)
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let section = grupo.sessoes[indexPath.section]
-//        let indexPath = IndexPath(row: indexPath.row, section: section)
-
-        if isRateioCell(at: indexPath) {
-            let cell = tableView.dequeueReusableCell(withIdentifier: rateioCellId, for: indexPath) as! RateioCell
-            cell.nomeLabel.text = UsuarioManager().obterTodos(persistentContainer.viewContext)[indexPath.row - 2].nome
-
-            return cell
-        } else {
-            return super.tableView(tableView, cellForRowAt: indexPath)
-        }
-    }
-
     override func tableView(_ tableView: UITableView, indentationLevelForRowAt indexPath: IndexPath) -> Int {
-//        let section = grupo.sessoes[indexPath.section]
-//        let indexPath = IndexPath(row: indexPath.row, section: section)
-
         if isRateioCell(at: indexPath) {
             return 0
         } else {
             return super.tableView(tableView, indentationLevelForRowAt: indexPath)
         }
-    }
-
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        print(indexPath.section)
-
-//        let section = grupo.sessoes[indexPath.section]
-//        let indexPath = IndexPath(row: indexPath.row, section: section)
-//
-        if isRateioCell(at: indexPath) {
-            return UITableViewAutomaticDimension
-        } else if grupo.sessoes.contains(indexPath.section) {
-            return super.tableView(tableView, heightForRowAt: indexPath)
-        } else {
-            return 0
-        }
-//        } else {
-//            return super.tableView(tableView, heightForRowAt: indexPath)
-//        }
     }
 }
 
@@ -197,6 +196,7 @@ extension EdicaoVC: UIPickerViewDelegate {
         return NSAttributedString(string: string, attributes: attributes)
     }
 
-    //    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-    //    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        atualizarDia()
+    }
 }
