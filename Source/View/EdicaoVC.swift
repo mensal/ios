@@ -21,9 +21,25 @@ extension Grupo {
     }
 }
 
-private let rateioCellId              = "rateioCell"
+fileprivate extension UITableViewCell {
+    
+    var textField: UITextField? {
+        return self.contentView.subviews.filter { $0 is UITextField }.first as? UITextField
+    }
+}
+
+private let diariaCellId              = "diariaCell"
+
+private let automovelCellId           = "automovelCell"
+private let odometroCellId            = "odometroCell"
+private let litrosCellId              = "litrosCell"
+
+private let tipoDespesaCellId         = "tipoDespesaCell"
+private let observacaoDespesaCellId   = "observacaoDespesaCell"
+
 private let dataPagamentoCellId       = "dataPagamentoCell"
 private let dataPagamentoPickerCellId = "dataPagamentoPickerCell"
+private let rateioCellId              = "rateioCell"
 
 class EdicaoVC: UITableViewController {
 
@@ -56,6 +72,70 @@ class EdicaoVC: UITableViewController {
         print(string)
 
 //        let dia = diaPickerView.selectedRow(inComponent: 0) + 1
+    }
+    
+    private func carregar(cell: UITableViewCell, at indexPath: IndexPath) -> UITableViewCell {
+        if isRateioSection(at: indexPath.section) {
+            if isRateioCell(at: indexPath) {
+                let index = indexPath.row - 2
+                let cell = cell as! RateioCell
+
+                let usuario =  UsuarioManager().obterTodos(persistentContainer.viewContext)[index]
+                
+                cell.nomeLabel.text = usuario.nome
+                cell.textField?.text = pagamento?.rateiosArray?.filter { $0.usuario?.id == usuario.id }.first?.valor.description
+                
+            } else {
+                switch cell.reuseIdentifier {
+                case dataPagamentoPickerCellId:
+                    break
+                default:
+                    //cell.detailTextLabel?.text = pagamento?.data?.stringForDatePicker ?? "Hoje"
+                    //diaPickerView.sele
+                    
+                    break
+                }
+            }
+            
+        } else {
+            let nenhum = "Nenhum"
+            
+            switch cell.reuseIdentifier {
+            case diariaCellId:
+                cell.detailTextLabel?.text = (pagamento as? PagamentoDiarista)?.diaria?.valor.description ?? nenhum
+            
+            case automovelCellId:
+                cell.detailTextLabel?.text = (pagamento as? PagamentoCombustivel)?.veiculo?.nome ?? nenhum
+            case odometroCellId:
+                cell.textField?.text = (pagamento as? PagamentoCombustivel)?.odometro.description
+            case litrosCellId:
+                cell.textField?.text = (pagamento as? PagamentoCombustivel)?.litro.description
+
+            case tipoDespesaCellId:
+                cell.detailTextLabel?.text = (pagamento as? PagamentoDiversa)?.diversa?.nome ?? nenhum
+            case observacaoDespesaCellId:
+                cell.textField?.text = (pagamento as? PagamentoDiversa)?.observacao
+                
+            default:
+                break
+            }
+        }
+        
+//        if isRateioCell(at: indexPath) {
+//            let cell = cell as! RateioCell
+//            cell.nomeLabel.text = UsuarioManager().obterTodos(persistentContainer.viewContext)[indexPath.row - 2].nome
+//        } else {
+//            switch cell.reuseIdentifier {
+//            case diariaCellId:
+//                break
+//            default:
+//                break
+//            }
+//
+//        }
+        
+        
+        return cell
     }
 
     // MARK: - IBOutlet
@@ -106,12 +186,9 @@ extension EdicaoVC {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if isRateioCell(at: indexPath) {
-            let cell = tableView.dequeueReusableCell(withIdentifier: rateioCellId, for: indexPath) as! RateioCell
-            cell.nomeLabel.text = UsuarioManager().obterTodos(persistentContainer.viewContext)[indexPath.row - 2].nome
-
-            return cell
+            return carregar(cell: tableView.dequeueReusableCell(withIdentifier: rateioCellId, for: indexPath), at: indexPath)
         } else {
-            return super.tableView(tableView, cellForRowAt: indexPath)
+            return carregar(cell: super.tableView(tableView, cellForRowAt: indexPath), at: indexPath)
         }
     }
 

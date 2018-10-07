@@ -14,8 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NetworkActivityIndicatorManager.shared.isEnabled = true
 
         #if DEBUG
-            NetworkActivityLogger.shared.level = .debug
-            NetworkActivityLogger.shared.startLogging()
+//            NetworkActivityLogger.shared.level = .debug
+//            NetworkActivityLogger.shared.startLogging()
         #endif
 
         // Ignorando HTTP Cache

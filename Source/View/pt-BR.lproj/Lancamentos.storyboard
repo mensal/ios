@@ -151,7 +151,7 @@
                         <sections>
                             <tableViewSection footerTitle="O pagamento devido para hoje é de R$ 0,00" id="NUS-Sx-WFo" userLabel="Diária">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="celula" textLabel="7iv-g1-XTh" detailTextLabel="73Y-f1-iYa" style="IBUITableViewCellStyleValue1" id="S78-Np-nv9">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="diariaCell" textLabel="7iv-g1-XTh" detailTextLabel="73Y-f1-iYa" style="IBUITableViewCellStyleValue1" id="S78-Np-nv9">
                                         <rect key="frame" x="0.0" y="35" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="S78-Np-nv9" id="hYm-Vc-D2f">
@@ -182,7 +182,7 @@
                             </tableViewSection>
                             <tableViewSection id="0DW-31-GPR" userLabel="Combustível">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="celula" textLabel="RMI-AF-6ou" detailTextLabel="xqv-cC-MuB" style="IBUITableViewCellStyleValue1" id="dwD-vz-zJL">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="automovelCell" textLabel="RMI-AF-6ou" detailTextLabel="xqv-cC-MuB" style="IBUITableViewCellStyleValue1" id="dwD-vz-zJL">
                                         <rect key="frame" x="0.0" y="127" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dwD-vz-zJL" id="g8k-7a-4tq">
@@ -209,7 +209,7 @@
                                             <segue destination="oxg-Au-05u" kind="show" id="hlb-iS-oES"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="celula" id="6rY-11-vZB">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="odometroCell" id="6rY-11-vZB">
                                         <rect key="frame" x="0.0" y="171" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6rY-11-vZB" id="0Tq-Af-CoS">
@@ -239,7 +239,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="celula" id="Lek-xn-k0n">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="litrosCell" id="Lek-xn-k0n">
                                         <rect key="frame" x="0.0" y="215" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Lek-xn-k0n" id="Mml-wB-e3n">
@@ -273,7 +273,7 @@
                             </tableViewSection>
                             <tableViewSection id="9yb-qz-pG9" userLabel="Diversas">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="celula" textLabel="vvZ-Oe-HLP" detailTextLabel="6hn-Yl-7aS" style="IBUITableViewCellStyleValue1" id="KAf-GV-Nz9">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="tipoDespesaCell" textLabel="vvZ-Oe-HLP" detailTextLabel="6hn-Yl-7aS" style="IBUITableViewCellStyleValue1" id="KAf-GV-Nz9">
                                         <rect key="frame" x="0.0" y="295" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KAf-GV-Nz9" id="zUe-yF-hDK">
@@ -300,7 +300,7 @@
                                             <segue destination="AGn-mi-fdL" kind="show" id="haR-jL-S11"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="celula" rowHeight="100" id="V48-EK-VMQ">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="observacaoDespesaCell" rowHeight="100" id="V48-EK-VMQ">
                                         <rect key="frame" x="0.0" y="339" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="V48-EK-VMQ" id="PiA-Xy-5fE">
@@ -326,7 +326,7 @@
                             </tableViewSection>
                             <tableViewSection footerTitle="Valor total de R$ 0,00" id="lcW-ub-7rz" userLabel="Pagamento">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="dataPagamentoCell" textLabel="jga-ig-mhs" detailTextLabel="vRd-0m-g0h" style="IBUITableViewCellStyleValue1" id="Giw-yH-egL" userLabel="Data">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="dataPagamentoCell" textLabel="jga-ig-mhs" detailTextLabel="vRd-0m-g0h" style="IBUITableViewCellStyleValue1" id="Giw-yH-egL">
                                         <rect key="frame" x="0.0" y="475" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Giw-yH-egL" id="Bea-v3-xrr">
@@ -350,7 +350,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="dataPagamentoPickerCell" rowHeight="128" id="Xxr-xl-B5S" userLabel="DatePicker">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="dataPagamentoPickerCell" rowHeight="128" id="Xxr-xl-B5S">
                                         <rect key="frame" x="0.0" y="519" width="375" height="128"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Xxr-xl-B5S" id="acm-NF-jOX">
@@ -376,7 +376,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Excluir Pagamento" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZWI-mD-TzV">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                                    <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
