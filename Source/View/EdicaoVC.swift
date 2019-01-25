@@ -195,7 +195,7 @@ extension EdicaoVC {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 
         if isRateioCell(at: indexPath) {
-            return UITableViewAutomaticDimension
+            return UITableView.automaticDimension
         } else if grupo.sessoes.contains(indexPath.section) {
             return super.tableView(tableView, heightForRowAt: indexPath)
         } else {
@@ -263,7 +263,7 @@ extension EdicaoVC: UIPickerViewDelegate {
 
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         let dia = row + 1
-        var attributes = [NSAttributedStringKey: Any]()
+        var attributes = [NSAttributedString.Key: Any]()
 
         if mes.isCorrente ?? false && Date.currentDay() == dia {
             attributes[.foregroundColor] = pickerView.tintColor

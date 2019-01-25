@@ -85,7 +85,7 @@ extension Enabler: UITextFieldDelegate {
         return pair(with: textField)?.delegate?.textFieldShouldReturn?(textField) ?? true
     }
 
-    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
         pair(with: textField)?.delegate?.textFieldDidEndEditing?(textField, reason: reason)
     }
 }
