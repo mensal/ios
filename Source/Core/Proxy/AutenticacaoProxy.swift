@@ -1,6 +1,6 @@
 import Foundation
 import Alamofire
-import AlamofireSwiftyJSON
+import Alamofire_SwiftyJSON
 import SwiftyJSON
 
 class AutenticacaoRequest: ProxyRequest {

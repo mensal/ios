@@ -1,7 +1,7 @@
 import Foundation
 import CoreData
 import Alamofire
-import AlamofireSwiftyJSON
+import Alamofire_SwiftyJSON
 import SwiftyJSON
 import SwiftDate
 

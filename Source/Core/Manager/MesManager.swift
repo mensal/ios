@@ -1,8 +1,8 @@
 import Foundation
 import SwiftDate
 
-private let anoInicial = 2017
-private let mesInicial = 11
+private let anoInicial = 2018
+private let mesInicial = 5
 private let mesesAntes = 1
 
 class MesManager {
