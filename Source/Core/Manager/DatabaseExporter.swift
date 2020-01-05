@@ -53,7 +53,10 @@ class DatabaseExporter {
 
         PagamentoManager([]).obterTodos(context).forEach {
             if let id = $0.id, let atualizacaoRemotaEm = $0.atualizacaoRemotaEm {
-                sql += "INSERT INTO pagamento (id, atualizado_em, data, excluido_em) VALUES ('\(id)', '\(atualizacaoRemotaEm.iso8601Extended)', '\($0.data?.iso8601Date ?? "")', null);\n"
+                let gpsLatitude  = ($0.gpsLatitude != nil) ? "'\($0.gpsLatitude!)'" : "null"
+                let gpsLongitude = ($0.gpsLongitude != nil) ? "'\($0.gpsLongitude!)'" : "null"
+                
+                sql += "INSERT INTO pagamento (id, atualizado_em, data, gps_latitude, gps_longitude, excluido_em) VALUES ('\(id)', '\(atualizacaoRemotaEm.iso8601Extended)', '\($0.data?.iso8601Date ?? "")', \(gpsLatitude), \(gpsLongitude), null);\n"
             }
         }
 

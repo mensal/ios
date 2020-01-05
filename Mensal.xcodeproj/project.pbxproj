@@ -82,7 +82,6 @@
 		12002E89210E712C003DA3EF /* PagamentoDiversa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagamentoDiversa.swift; sourceTree = "<group>"; };
 		12002E8B210E7143003DA3EF /* PagamentoDiarista.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagamentoDiarista.swift; sourceTree = "<group>"; };
 		12002E8D210E714A003DA3EF /* PagamentoCombustivel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagamentoCombustivel.swift; sourceTree = "<group>"; };
-		12002E92210E7A2F003DA3EF /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "pt-BR"; path = "pt-BR.lproj/Autenticacao.storyboard"; sourceTree = "<group>"; };
 		12002E94210E7AF8003DA3EF /* AutenticacaoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutenticacaoVC.swift; sourceTree = "<group>"; };
 		12002E96210E7E57003DA3EF /* AutenticacaoProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutenticacaoProxy.swift; sourceTree = "<group>"; };
 		12002E98210E8107003DA3EF /* Proxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proxy.swift; sourceTree = "<group>"; };
@@ -105,9 +104,10 @@
 		120C3B0D20D03EFC0029C184 /* MesHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MesHeader.swift; sourceTree = "<group>"; };
 		120C3B0F20D05B810029C184 /* MesHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MesHeader.xib; sourceTree = "<group>"; };
 		120C3B1120D05CAE0029C184 /* UINib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINib.swift; sourceTree = "<group>"; };
+		120C6A7E23B819CE00EE24BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		120C6A7F23B819CE00EE24BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Autenticacao.storyboard; sourceTree = "<group>"; };
+		120C6A8023B819CE00EE24BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Lancamentos.storyboard; sourceTree = "<group>"; };
 		121A8F7A211F2BEF007C50C8 /* AutenticacaoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutenticacaoManager.swift; sourceTree = "<group>"; };
-		1222AC0020CEEB46002CC4AD /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.storyboard"; sourceTree = "<group>"; };
-		1222AC0120CEEB46002CC4AD /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "pt-BR"; path = "pt-BR.lproj/Lancamentos.storyboard"; sourceTree = "<group>"; };
 		122AA71A213F42F10087B2B2 /* DatabaseExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseExporter.swift; sourceTree = "<group>"; };
 		122EED402118F33D007DBCFF /* Credenciais.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credenciais.swift; sourceTree = "<group>"; };
 		122EED422118F7E9007DBCFF /* AutenticacaoDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutenticacaoDelegate.swift; sourceTree = "<group>"; };
@@ -375,7 +375,7 @@
 				TargetAttributes = {
 					12D5829220CED5B60003B317 = {
 						CreatedOnToolsVersion = 9.4;
-						LastSwiftMigration = 1020;
+						LastSwiftMigration = 1130;
 					};
 				};
 			};
@@ -385,6 +385,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				"pt-BR",
+				Base,
 			);
 			mainGroup = 12D5828A20CED5B60003B317;
 			productRefGroup = 12D5829420CED5B60003B317 /* Products */;
@@ -526,7 +527,7 @@
 		12002E93210E7A2F003DA3EF /* Autenticacao.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				12002E92210E7A2F003DA3EF /* pt-BR */,
+				120C6A7F23B819CE00EE24BE /* Base */,
 			);
 			name = Autenticacao.storyboard;
 			sourceTree = "<group>";
@@ -550,7 +551,7 @@
 		12D5829A20CED5B60003B317 /* Lancamentos.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				1222AC0120CEEB46002CC4AD /* pt-BR */,
+				120C6A8023B819CE00EE24BE /* Base */,
 			);
 			name = Lancamentos.storyboard;
 			sourceTree = "<group>";
@@ -558,7 +559,7 @@
 		12D582A220CED5B80003B317 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				1222AC0020CEEB46002CC4AD /* pt-BR */,
+				120C6A7E23B819CE00EE24BE /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

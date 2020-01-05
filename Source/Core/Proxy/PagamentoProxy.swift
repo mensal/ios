@@ -9,12 +9,14 @@ class PagamentoResponse<E: Pagamento>: VersionadoResponse<E> {
     var data: Date
     var tipo: IdResponse
     var valores: [RateioResponse]
+    var coordenada: CoordenadaResponse
 
     required init(_ json: JSON) {
-        data    = json["data"].date!
-        tipo    = IdResponse()
-        tipo.id = json["tipo"]["id"].uuid
-        valores = [RateioResponse]()
+        data       = json["data"].date!
+        tipo       = IdResponse()
+        tipo.id    = json["tipo"]["id"].uuid
+        valores    = [RateioResponse]()
+        coordenada = CoordenadaResponse()
 
         super.init(json)
 
@@ -27,6 +29,9 @@ class PagamentoResponse<E: Pagamento>: VersionadoResponse<E> {
 
             valores.append(rateio)
         }
+        
+        coordenada.latitude = json["coordenada"]["latitude"].number
+        coordenada.longitude = json["coordenada"]["longitude"].number
     }
 
     override func preenche(_ persistido: E, _ context: NSManagedObjectContext) {
@@ -44,6 +49,9 @@ class PagamentoResponse<E: Pagamento>: VersionadoResponse<E> {
 
             rateioPersistido!.valor = rateioResponse.valor
         }
+        
+        persistido.gpsLatitude = coordenada.latitude
+        persistido.gpsLongitude = coordenada.longitude
     }
 }
 
@@ -54,6 +62,11 @@ class IdResponse {
 class RateioResponse {
     var valor: Double!
     var usuario: IdResponse!
+}
+
+class CoordenadaResponse {
+    var latitude: NSNumber?
+    var longitude: NSNumber?
 }
 
 class PagamentoProxy<E: Pagamento, Q: PagamentoRequest<E>, S: PagamentoResponse<E>>: VersionadoProxy<E, Q, S> {

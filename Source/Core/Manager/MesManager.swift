@@ -3,7 +3,7 @@ import SwiftDate
 
 private let anoInicial = 2018
 private let mesInicial = 5
-private let mesesAntes = 1
+private let mesesAntes = 0
 
 class MesManager {
 
